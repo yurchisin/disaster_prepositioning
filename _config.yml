@@ -1,8 +1,13 @@
 ---
 title: "Disaster Prepositioning Case Study"
-author: "Your Name"
+author: "Gurobi Optimization"
 repository: https://github.com/yurchisin/disaster_prepositioning/
 binder:
   url: "https://mybinder.org"
 execute:
   execute_notebooks: "force"
+sphinx:
+  extra_config: |
+    import os, sys
+    # assumes that _config.yml/_toc.yml live next to src/
+    sys.path.insert(0, os.path.abspath('src'))

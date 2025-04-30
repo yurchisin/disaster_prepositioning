@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. The Setup &#8212; Disaster Prepositioning Case Study</title>
+    <title>Introduction &#8212; Disaster Prepositioning Case Study</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Optimizing!" href="disaster_prepositioning_2.html" />
-    <link rel="prev" title="Case Study: Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform" href="disaster_prepositioning_0.html" />
+    <link rel="next" title="The Setup" href="disaster_prepositioning_2.html" />
+    <link rel="prev" title="Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform" href="disaster_prepositioning_0.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,12 +176,12 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_0.html">Case Study: Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. The Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">2. Optimizing!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_3.html">3. Production Code</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_0.html">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">The Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_3.html">Optimizing!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_4.html">Production Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_5.html">Wrapping It Up</a></li>
 
 </ul>
 
@@ -321,7 +321,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. The Setup</h1>
+    <h1>Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -331,17 +331,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-environment">1.1 The Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-cleaning">1.2 Reading and Cleaning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">1.3 Data Exploration and Visualization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-is-everything">1.3.1 Where is Everything?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-supplies-is-available">1.3.2 What Supplies is Available?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-the-supplies">1.3.4 Where are the Supplies?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-disasters-are-built-the-same">1.3.5 Not All Disasters Are Built the Same</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-disasters-and-supplies-compare-in-scale">1.3.6 How Do Disasters and Supplies Compare in Scale?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-origin-of-esups">The Origin of ESUPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esups-today">ESUPS Today</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diving-into-the-case-study-jupyter-notebook">Diving into the Case Study &amp; Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-scientist-s-perspective">A Data Scientist’s Perspective</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-machine-learning-approach">A Machine Learning Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-sparse-data-and-neural-networks">Challenges with Sparse Data and Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptualizing-the-search-space">Conceptualizing the Search Space</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-esups-communicate-this">1.4 How Does ESUPS Communicate this?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-a-structured-approach-to-the-solution-space">Optimization: A Structured Approach to the Solution Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-simplex-method">The Simplex Method</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-advancing-field">An Advancing field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-real-world-examples">A Few Real World Examples:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-linear-program-milp">1.	Mixed-Integer Linear Program (MILP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-quadratic-program-miqp">2.	Mixed-Integer Quadratic Program (MIQP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-with-quadratic-constraints-program-miqcp">3.	Mixed Integer with Quadratic Constraints Program (MIQCP):</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -353,504 +366,175 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="the-setup">
-<h1>1. The Setup<a class="headerlink" href="#the-setup" title="Link to this heading">#</a></h1>
-<p>Our first step in the journey is reading and cleaning the data. We won’t focus too much on this step because the really interesting stuff happens once we have the data loaded. However, we will showcase how the data needs to be formatted for Gurobi. If this is your first pass of the case study, feel free to skip over this section and return to it later when you want a more in-depth overview of formatting the data.</p>
-<p>Before we begin, I wanted to make a quick note about a line of code you’ll see repeated throughout the notebook: %%script false –no-raise-error</p>
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<section id="the-origin-of-esups">
+<h2>The Origin of ESUPS<a class="headerlink" href="#the-origin-of-esups" title="Link to this heading">#</a></h2>
+<p><img alt="ESUPS logo" src="../_images/ESUPS-Logo.png" /></p>
+<p>Enter ESUPS (Emergency Supply Pre-positioning Strategy). Founded in 2016, ESUPS emerged from the recognition that effective disaster response requires more than just post-disaster fundraising—it necessitates proactive, strategic planning and resource allocation. Initially launched as a collaborative effort among several NGOs, ESUPS aimed to tackle the very issues that hampered the Nepal earthquake response by creating a global database of pre-positioned supplies. This innovative initiative ensures that the nearest available resources are utilized first, enabling aid organizations to make informed decisions and address the most urgent needs swiftly.</p>
+<p>ESUPS started as a modest project, built on a simple spreadsheet that cataloged available disaster relief supplies across various regions. However, as the project gained traction and more organizations began contributing data, it became clear that a more sophisticated approach was needed. In response, ESUPS partnered with academic institutions like Penn State University and MIT, as well as industry leaders such as Gurobi, to develop advanced models for optimizing the allocation and movement of these supplies.</p>
+<p>One of ESUPS’ early successes was the development of a simulation model that could identify the optimal locations for pre-positioning disaster relief supplies. This model proved instrumental in reducing response times and ensuring that critical resources reached disaster zones faster and more efficiently. Over time, ESUPS expanded its database to include hundreds of NGOs, each contributing data that made the system more robust and comprehensive. The impact of this collaborative effort was soon evident, as ESUPS’ models helped improve response times in several subsequent disaster scenarios.</p>
+<p>By 2020, ESUPS had grown into a globally recognized initiative, with its strategies being adopted by numerous international aid organizations. The project’s achievements include not only the development of cutting-edge optimization models but also the successful implementation of these models in real-world disaster scenarios. ESUPS has been credited with significantly enhancing the effectiveness of disaster relief efforts, saving lives, and reducing the costs associated with disaster response logistics.</p>
+</section>
+<section id="esups-today">
+<h2>ESUPS Today<a class="headerlink" href="#esups-today" title="Link to this heading">#</a></h2>
+<p>Today, ESUPS continues to lead the way in disaster preparedness, leveraging the latest technological advancements and fostering collaboration between NGOs, academia, and the private sector. Its success story is a testament to the power of data-driven decision-making and the importance of pre-positioning strategies in disaster relief. As ESUPS looks to the future, its focus remains on refining its models, expanding its global reach, and continuing to make a tangible difference in the lives of those affected by disasters.</p>
+</section>
+<section id="diving-into-the-case-study-jupyter-notebook">
+<h2>Diving into the Case Study &amp; Jupyter Notebook<a class="headerlink" href="#diving-into-the-case-study-jupyter-notebook" title="Link to this heading">#</a></h2>
+<p>In this notebook, we will take you through the end-to-end process of how ESUPS transformed from a simple idea into a global initiative that is reshaping disaster response logistics. We will delve into the crucial role that optimization plays in this transformation, demonstrating how ESUPS utilizes advanced algorithms to optimize the allocation and movement of disaster relief supplies.</p>
+<p>Starting with the initial challenges faced by disaster relief organizations and the inefficiencies of traditional response methods, we will explore how ESUPS identified these gaps and developed a pioneering approach to pre-positioning resources.</p>
+<p>The notebook will provide a detailed walkthrough of the optimization models that underpin ESUPS, offering a high-level explanation of the algorithms used and their practical applications. You’ll see how ESUPS has integrated real-world data into these models to make informed decisions that improve response times and potientally save lives.</p>
 <ul class="simple">
-<li><p><strong>NOTE:</strong> This is just cell magic (if you’re unfamiliar, think of it as using the cmd line) telling the notebook not to run this cell. We’ll use it in various places to demonstrate ideas or code snippets that are not meant to produce an output</p></li>
+<li><p><strong>NOTE:</strong> While ESUPS is operating at a global scale, the case study will focus on building a model for only one country: Madagascar. This reduction in scope allows us to more clearly walk learners through a smaller version of the problem, and leverage either our limited-size Gurobi license (available to all learners), or our full Gurobi academic license (available to all currently affiliated students, instructors, and researchers) to solve the model.</p></li>
 </ul>
-<section id="the-environment">
-<h2>1.1 The Environment<a class="headerlink" href="#the-environment" title="Link to this heading">#</a></h2>
-<p>There are 4 main libraries we’ll be using to solve this problem. The other import statements can be explicitly seen in setup_imports.py, but is primarily for getting all relevant methods from the source repo into our namespace:</p>
+<p>To deepen your understanding, the notebook includes practical exercises that allow you to engage directly with the concepts. You’ll encounter self-assessment multiple-choice questions and hands-on code implementation problems designed to reinforce your learning and give you the opportunity to experiment with optimization techniques. These exercises are crafted to help you build confidence in applying the concepts without the pressure of graded responses.</p>
+<p>Additionally, for those eager to dive deeper, the notebook features extension prompts that encourage you to think critically about how the underlying optimization problems could be adapted or expanded. These prompts are designed to challenge your creativity and problem-solving skills, enabling you to explore new ideas and potential improvements to the models.</p>
+<p>Finally, we’ll pull back the curtain to reveal the production code used by ESUPS, written by experts in the field. You’ll have the opportunity to examine real-world code implementations that drive ESUPS’ operations, gaining insight into the practical considerations and best practices for creating fast, reliable, and maintainable code. This section will also explore alternative approaches and the reasoning behind key decisions made in the development process, providing you with a comprehensive understanding of how these algorithms transition from theoretical models to production-ready solutions.
+By the end of this notebook, you’ll have a solid grasp of how optimization, rather than machine learning, can be the most effective tool for solving complex logistical challenges, especially in high-stakes environments like disaster relief. You’ll also be equipped with the knowledge and practical skills to apply these techniques in your own projects, potentially making a significant impact in whatever field you choose to tackle.</p>
+<p>The evolution of ESUPS from a spreadsheet repository to a sophisticated data-driven solution highlights the importance of efficient disaster relief logistics. However, while technology has significantly improved our ability to manage and allocate resources, it also presents new challenges. The task of optimizing supply distribution in real-time amidst unpredictable disaster scenarios is not just a logistical issue, but a complex data science problem. So, let’s dive into the technical challenges of prepositioning supplies together!</p>
+</section>
+<section id="a-data-scientist-s-perspective">
+<h2>A Data Scientist’s Perspective<a class="headerlink" href="#a-data-scientist-s-perspective" title="Link to this heading">#</a></h2>
+<p>Initially approaching this problem, your first instinct might be to leverage ML tools, after all the problem appears well suited for machine learning: We have an implicit reward function in how well our allocation meets the demand for supplies perhaps discounted by transit time and cost, and we have defined inputs (amount of supply and available warehouses) and outputs (where to store the supplies).</p>
+<p>But just because the inputs and outputs are clear, the program is not easy to implement. Let’s look at what solving this with ML tools would look like in practice:</p>
+<section id="a-machine-learning-approach">
+<h3>A Machine Learning Approach<a class="headerlink" href="#a-machine-learning-approach" title="Link to this heading">#</a></h3>
+<p>When considering machine learning (ML) approaches for complex problems, <strong>neural networks (NNs)</strong> are often one of the first tools that come to mind. This is understandable, as NNs are powerful function approximators capable of learning intricate patterns and relationships from large datasets. Given enough data and model capacity, they can approximate any function to arbitrary precision (a property known as the Universal Approximation Theorem).</p>
+<p>However, for this case study on disaster relief in Madagascar, we face significant constraints. We have reliable data on only <strong>64 disaster events</strong>, with each event characterized by limited features—primarily location, type, and impact. Additionally, our objective involves optimizing <strong>supply allocations</strong> for <strong>13 different items</strong> across <strong>27 warehouses</strong>. The challenge here is substantial: we must map a small, sparse dataset with limited features to a vast solution space, all while contending with a noisy reward function that makes it difficult to gauge success.</p>
+</section>
+<section id="challenges-with-sparse-data-and-neural-networks">
+<h3>Challenges with Sparse Data and Neural Networks<a class="headerlink" href="#challenges-with-sparse-data-and-neural-networks" title="Link to this heading">#</a></h3>
+<p>Sparse data is a notorious problem in machine learning. With only 64 data points, a neural network would struggle to generalize well, especially given the high-dimensional output space—13 items across 27 warehouses—resulting in 351 decision variables. Now there are several ways to deal with sparse data in ML and you might have your own technique or want to give it a try, and you absolutely should! If you find interesting results, we’d love to hear about them, but for now, let’s consider one of the most popular techniques: data interpolation.</p>
+<p><strong>Data interpolation</strong> attempts to create a probability distribution that closely mirrors real-world events, allowing us to sample synthetic data for training. Ideally, this synthetic data is representative enough that a neural network can learn from it. However, generating such a distribution is often as challenging as the original problem—especially when the relationships are highly complex or unpredictable. For instance, allocating goods based on past data might work, but predicting future disasters’ location, type, and impact introduces an additional layer of complexity.</p>
+<p>Likely the first method that comes to mind when picking an ML approach is neural networks, and for good reason. Neural networks are incredibly powerful tools that have transformed the modern world, they’re able to approximate any function to arbitrary precision provided they are large enough and have enough data. However, in this case study, we’ll be drilling down to look at disasters in Madagascar, for which we only have reliable data on 64 events. Even worse, each disaster is characterized by limited information, mainly location, type, and impact.</p>
+<section id="conceptualizing-the-search-space">
+<h4>Conceptualizing the Search Space<a class="headerlink" href="#conceptualizing-the-search-space" title="Link to this heading">#</a></h4>
+<p>Assuming we could synthesize realistic disaster scenarios, we might then train a neural network to predict optimal supply positions. This would involve a straightforward training loop: provide disaster scenarios to the neural network, predict supply allocations, compute the loss (e.g., time or cost to meet demand), and update the model using backpropagation.</p>
+<p>However, consider the <strong>search space</strong> that the neural network must navigate. Each potential supply allocation corresponds to a 13x27 matrix, resulting in <strong>351</strong> output variables. To understand the magnitude of this space, let’s do some Let’s do some back-of-the-napkin calculations using the the stars and bars combinatorial formula to see how many potential solutions we might have:</p>
+<p>Let <span class="math notranslate nohighlight">\(S\)</span> be the total number of items for a given supply type and <span class="math notranslate nohighlight">\(W\)</span> be the number of warehouses. The formula for number of combinations for a given row is:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned} 
+Combinations &amp;= \frac{S+W-1!}{(W-1)!(S)!}
+\end{aligned}
+\]</div>
+<p>For example we have 40811 buckets accross all 27 warehouses. So we would get:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned} 1.89\cdot 10^{93}
+\end{aligned}
+\]</div>
+<p>For context, the estimated number of <strong>atoms</strong> in the observable universe is between <span class="math notranslate nohighlight">\(10^{78}\)</span> and  <span class="math notranslate nohighlight">\(10^{82}\)</span>. So for each atom could be associated with between <span class="math notranslate nohighlight">\(10^11\)</span> and <span class="math notranslate nohighlight">\(10^15\)</span> solutions and we would still have more left over</p>
+<p>And we can’t forget there are 12 more rows. And because the rows are independent, we have the total possible number of combinations of each row multiplied by the combination of each other. Let’s say we have the same amount of other items, then we get:
+$<span class="math notranslate nohighlight">\(
+\begin{aligned} (1.89\cdot 10^{93})^{13} \approx 10^{1209}
+\end{aligned}
+\)</span>$</p>
+<p>This is not just a large number; it is a number so vast that it defies comprehension. For comparison, a Googol is <span class="math notranslate nohighlight">\(10^{100}\)</span>. Our solution space is so large that if we could somehow sample a billion ( 10^9 ) combinations per second, it would still take longer than the age of the universe to explore even a minuscule fraction of this space (see proof below).</p>
+<p>When we train a neural network, it essentially samples a point from this enormous solution space during each iteration and then uses gradient-based methods to find a better point. However, with more possible solutions than there are particles in the universe, the likelihood of sampling a truly optimal solution—or even knowing how close a solution is to the optimum—becomes exceedingly slim. It’s like searching for a single grain of sand on all the beaches in the world, blindfolded, while new grains are constantly being added.</p>
+<p>This illustrates why a brute-force approach or even a gradient-based sampling approach is ineffective for such vast combinatorial spaces. Instead, we need methods that can systematically explore the space and make informed decisions to find the optimal or near-optimal solutions more efficiently.</p>
+</section>
+<section id="proof">
+<h4>Proof<a class="headerlink" href="#proof" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(1\)</span> year  <span class="math notranslate nohighlight">\(\approx 3.154 \cdot 10^7\)</span> seconds</p>
+<p><span class="math notranslate nohighlight">\(13.8\)</span> billion years = <span class="math notranslate nohighlight">\(13.8 \cdot 10^9\)</span> years = <span class="math notranslate nohighlight">\(13.8 \cdot 10^9 \cdot 3.154 \cdot 10^7\)</span> Seconds</p>
+<p><span class="math notranslate nohighlight">\(4.35 \cdot 10^26\)</span> <span class="math notranslate nohighlight">\(\approx 10^{26}\)</span> Seconds In Universe</p>
+<p>Fraction Explored = <span class="math notranslate nohighlight">\(\frac{10^{26}}{10^{1209}}\)</span> = <span class="math notranslate nohighlight">\(\frac{1}{10^{1183}}\)</span></p>
+</section>
+</section>
+<section id="optimization-a-structured-approach-to-the-solution-space">
+<h3>Optimization: A Structured Approach to the Solution Space<a class="headerlink" href="#optimization-a-structured-approach-to-the-solution-space" title="Link to this heading">#</a></h3>
+<p>After exploring the challenges of using neural networks to navigate the vast solution space, it’s clear that the sheer size of possible allocations makes a purely machine learning approach inefficient for this problem. Neural networks, while powerful, rely on sampling from a solution space inconceivably large and gradually improving through incremental updates. This approach can be highly ineffective when dealing with a combinatorial explosion of possibilities, as we saw with our earlier calculations.</p>
+<p>Instead, when faced with such a <strong>well-defined</strong> problem—where we know the objective function, inputs, outputs, and constraints—a more <strong>structured</strong> approach through optimization becomes not only viable but advantageous. Optimization techniques are specifically designed to handle these kinds of problems efficiently by applying systematic mathematical logic rather than heuristic sampling.</p>
+<p>In this case, our problem is clearly formulated:</p>
+<p><strong>Objective Function</strong> (What we want to minimize):</p>
+<ul class="simple">
+<li><p>Minimize the travel time or cost required to meet demand by pre-positioning supplies.</p></li>
+</ul>
+<p><strong>Constraints</strong> (how we can change the variables):</p>
+<ul class="simple">
+<li><p>Ensure demand is met without exceeding available supplies.</p></li>
+</ul>
+<p>Optimization frameworks, unlike neural networks, don’t blindly sample solutions from a vast space. Instead, they apply logical methods to systematically explore and reduce the search space, ultimately providing a set of potential optimal solutions. This not only increases efficiency but also provides clarity and insight into why a particular solution is optimal, which is invaluable for decision-making and explanation.</p>
+<section id="the-simplex-method">
+<h4>The Simplex Method<a class="headerlink" href="#the-simplex-method" title="Link to this heading">#</a></h4>
+<p>The Simplex Method is a powerful algorithm for solving linear programming problems, which involve optimizing a linear objective function subject to linear constraints. Based on geometric principles, it efficiently navigates the feasible region—a polyhedron formed by the intersection of these constraints—to find the optimal solution at one of its vertices or “corner points.” In linear programming, the optimal solution is guaranteed to be at a vertex because the objective function improves as we move along the edges of the polyhedron until we can’t improve any further.</p>
+<p>To visualize this, imagine a two-dimensional feasible region shaped like a polygon on a graph. Each point within this polygon represents a possible solution that satisfies the constraints. The Simplex Method moves from one vertex to another along the edges of this polygon, evaluating the objective function at each corner point. This process is efficient because it doesn’t require checking every possible point within the feasible region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install -r requirements.txt              
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span> 
-
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gp</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
-
-
-<span class="c1">#now hidden code</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">setup_imports</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/Simplex.png&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: Could not open requirements file: [Errno 2] No such file or directory: &#39;requirements.txt&#39;</span>
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#now hidden code</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">setup_imports</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/Simplex.png&#39;</span><span class="p">)</span> 
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;setup_imports&#39;
+<span class="ne">NameError</span>: name &#39;Image&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
-<p>The next and final step in this section is to define what data we’ll be using to implement the solver, and in this case, we’ll be using real-world data from Madagascar. Madagascar is the fourth largest island in the world and is located off the southeastern coast of Africa. Known for its unique biodiversity, approximately 90% of its wildlife is found nowhere else on Earth. The island’s diverse ecosystems range from rainforests to deserts, making it a hotspot for biological research and conservation efforts.</p>
-<p>However, Madagascar is also prone to natural disasters, including cyclones, floods, and droughts, all of which have a significant impact on its population and infrastructure. These disasters pose challenges for disaster response and resource allocation, making it an ideal case study for optimization and data-driven decision-making.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set Up Our Data</span>
-<span class="n">COUNTRY</span> <span class="o">=</span> <span class="s2">&quot;madagascar&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="reading-and-cleaning">
-<h2>1.2 Reading and Cleaning<a class="headerlink" href="#reading-and-cleaning" title="Link to this heading">#</a></h2>
-<p>Now we’ll load the data into RAM</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run optimization</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="n">reader</span> <span class="o">=</span> <span class="n">CsvProblemReader</span><span class="p">()</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">/</span> <span class="n">COUNTRY</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>While we won’t be focusing on reading in the data, it’s always useful to see the general structure. Feel free to skip this part on your first high-level pass and come back to it later when you better understand the details.</p>
-<p>You can see in the code below all the factors that go into our model. While intimidating at first glance, this dataset class is a way to tie several related lists and dictionaries to the same name.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
-
-#The class is as follows
-@dataclass(frozen=True)
-class Dataset:
-    depots: list[Depot]
-    disasters: list[Disaster]
-    disaster_locations: list[DisasterLocation]
-    probabilities: dict[Disaster, float]
-    items: list[Item]
-    transport_modes: list[TransportMode]
-    inventory: dict[Tuple[Depot, Item], int]
-    inventory_scenarios: dict[str, dict[Tuple[Depot, Item], int]]
-    distance: DistanceMatrix
-    people_affected: dict[Tuple[DisasterImpact, Item], float]
-    persons_per_item_general: dict[Tuple[DisasterImpact, Item], float]
-    persons_per_item_monthly: dict[Tuple[DisasterImpact, Item], float]
-    disaster_affected_totals: dict[str, int]
-
-    _zero_demand_threshold = 1e6
-</pre></div>
-</div>
-</div>
-</div>
-<p>As you can see, the dataset fields are mainly data structures holding other object. Now we won’t go into all these here, but it can be useful to see how they are set up. Let’s take a look at one such object.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
-
-@dataclass(frozen=True)
-class Item:
-    id: str = field(hash=True)
-    weight: float = field(repr=False)  # Metric tons
-    volume: float = field(repr=False)  # Cubic metres
-</pre></div>
-</div>
-</div>
-</div>
-<p>As you can see, it’s a simple data structure, and most of the code here is actually more about organization and readability, which is incredibly useful in production code. Credits here go to Ben Kennerley, who has been working with ESUPS to enhance STOCKHOLM.</p>
-</section>
-<section id="data-exploration-and-visualization">
-<h2>1.3 Data Exploration and Visualization<a class="headerlink" href="#data-exploration-and-visualization" title="Link to this heading">#</a></h2>
-<p>It’s always useful to see the general structure of data and the broader context of the problem. Now that we’ve cleaned and loaded it, let’s take some time to understand it. The goal here should be to get comfortable with the problem as a whole and give you an intuitive understanding of what we are solving. So, the emphasis isn’t on the code. For this reason, most of the following cells have been written as functions to collapse more easily across different platforms. Your goal shouldn’t be to understand the libraries used to map, but instead on how Madagascar looks at a high level.</p>
-<section id="where-is-everything">
-<h3>1.3.1 Where is Everything?<a class="headerlink" href="#where-is-everything" title="Link to this heading">#</a></h3>
-<p>One of the first things we’ll look at is where the supplies are relative to disasters right now.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">graph_locations</span><span class="p">():</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span>
-    <span class="n">warehouses</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;warehouses&#39;</span><span class="p">,</span>
-                   <span class="n">depot</span><span class="o">.</span><span class="n">latitude</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">h</span><span class="p">),</span>
-                   <span class="n">depot</span><span class="o">.</span><span class="n">longitude</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">h</span><span class="p">)]</span> 
-                   <span class="k">for</span> <span class="n">depot</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">depots</span><span class="p">]</span>
-
-    <span class="n">disasters</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;disasters&#39;</span><span class="p">,</span>
-                  <span class="n">disaster_locations</span><span class="o">.</span><span class="n">latitude</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">h</span><span class="p">),</span>
-                  <span class="n">disaster_locations</span><span class="o">.</span><span class="n">longitude</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">h</span><span class="p">)]</span> 
-                  <span class="k">for</span> <span class="n">disaster_locations</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">disaster_locations</span><span class="p">]</span>
-
-    <span class="n">dfw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">warehouses</span><span class="p">)</span>
-    <span class="n">dfw</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">]</span>
-
-    <span class="n">dfd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">disasters</span><span class="p">)</span>
-    <span class="n">dfd</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">]</span>
-
-    <span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dfw</span><span class="p">[[</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;Type&#39;</span><span class="p">]],</span> <span class="n">dfd</span><span class="p">[[</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;Type&#39;</span><span class="p">]]],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_mapbox</span><span class="p">(</span><span class="n">df_combined</span><span class="p">,</span> 
-                            <span class="n">lat</span><span class="o">=</span><span class="s2">&quot;Lat&quot;</span><span class="p">,</span> 
-                            <span class="n">lon</span><span class="o">=</span><span class="s2">&quot;Long&quot;</span><span class="p">,</span> 
-                            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Type&quot;</span><span class="p">,</span>
-                            <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Safe</span><span class="p">,</span>
-                            <span class="n">zoom</span><span class="o">=</span><span class="mf">4.5</span><span class="p">)</span>
-    
-    <span class="c1"># Use a minimalist map style to reduce clutter</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_style</span><span class="o">=</span><span class="s2">&quot;open-street-map&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Optionally center the map around the mean latitude and longitude of your points</span>
-    <span class="n">mean_lat</span> <span class="o">=</span> <span class="n">df_combined</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">mean_long</span> <span class="o">=</span> <span class="n">df_combined</span><span class="p">[</span><span class="s1">&#39;Long&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_center</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">mean_lat</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">mean_long</span><span class="p">})</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-
-    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">graph_locations</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<p>We can see that the warehouses are aligned closely with the most prominent disaster sights*, so assuming they are built to a level that can survive and protect against those disasters, Madagascar should be in a strong position in terms of coverage. However, there’s more than meets the eye. Let’s dive a little deeper!</p>
-<p>Hopefully, now that you’ve gotten a sense of the country and the layout, we’ll turn off some of the more detailed parts (such as roads and urbanization) so it’s simpler to see what’s going on.</p>
-<ul class="simple">
-<li><p><strong>NOTE:</strong> locations of warehouses have been modified for this case study for safety.</p></li>
-</ul>
-</section>
-<section id="what-supplies-is-available">
-<h3>1.3.2 What Supplies is Available?<a class="headerlink" href="#what-supplies-is-available" title="Link to this heading">#</a></h3>
-<p>An important question to ask at this point is: what do we have inside the warehouses? It’s great that there seems to be good coverage that ensures a warehouse is nearby for any disaster, but if one of them is full of kitchen sets and there’s a flood, they might not be as immediately useful as buckets or tarpaulins. So, let’s look at the overall breakdown of supplies by warehouse/location:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
-
-<span class="c1"># Sample Data</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">make_barchart</span><span class="p">():</span>
-    <span class="n">items</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">inventory</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-            <span class="n">items</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">items</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
-
-    <span class="n">items</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-    <span class="c1"># Extract keys and values from the dictionary</span>
-    <span class="n">categories</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-
-    <span class="c1"># Normalize the values for color scale</span>
-    <span class="n">normalized_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-
-    <span class="c1"># Define a color scale (e.g., &#39;Viridis&#39;, &#39;Cividis&#39;, &#39;Plasma&#39;, etc.)</span>
-    <span class="n">colorscale</span> <span class="o">=</span> <span class="s1">&#39;Cividis&#39;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">format_number</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">1_000_000</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="o">/</span><span class="mi">1_000_000</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">M&#39;</span>  <span class="c1"># Format as millions</span>
-        <span class="k">elif</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">1_000</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="o">/</span><span class="mi">1_000</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">k&#39;</span>  <span class="c1"># Format as thousands</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c1"># Show the number as is if below 1,000</span>
-
-    <span class="c1"># Create formatted text for display</span>
-    <span class="n">formatted_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">format_number</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>  <span class="c1"># Use the custom formatting function</span>
-
-    <span class="c1"># Create a bar chart with a color continuum</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
-        <span class="n">data</span><span class="o">=</span><span class="p">[</span>
-            <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-                <span class="n">x</span><span class="o">=</span><span class="n">categories</span><span class="p">,</span>
-                <span class="n">y</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
-                <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-                    <span class="n">color</span><span class="o">=</span><span class="n">normalized_values</span><span class="p">,</span>  <span class="c1"># Use normalized values for the color scale</span>
-                    <span class="n">colorscale</span><span class="o">=</span><span class="n">colorscale</span><span class="p">,</span>  <span class="c1"># Apply the chosen color scale</span>
-                    <span class="n">showscale</span><span class="o">=</span><span class="kc">False</span>  <span class="c1"># Hide the color scale bar</span>
-                    
-                <span class="p">),</span>
-                <span class="n">texttemplate</span><span class="o">=</span><span class="s1">&#39;%</span><span class="si">{text}</span><span class="s1">&#39;</span><span class="p">,</span>  <span class="c1"># Explicitly set text template</span>
-                <span class="n">text</span><span class="o">=</span><span class="n">formatted_text</span><span class="p">,</span>  <span class="c1"># Display formatted text with &#39;k&#39; and &#39;M&#39; suffixes</span>
-                <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;&lt;b&gt;%</span><span class="si">{x}</span><span class="s1">&lt;/b&gt;&lt;br&gt;Quantity: %</span><span class="si">{y}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span><span class="p">,</span>  <span class="c1"># Show exact hover info</span>
-                <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>  <span class="c1"># Automatically position the text</span>
-            <span class="p">)</span>
-        <span class="p">]</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Update layout</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="p">{</span>
-            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s2">&quot;Distribution of Supplies for Disaster Relief&quot;</span><span class="p">,</span>
-            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mf">0.95</span><span class="p">,</span>
-            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
-            <span class="s1">&#39;xanchor&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;yanchor&#39;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span>
-        <span class="p">},</span>
-        <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Supplies&quot;</span><span class="p">,</span>
-        <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Quantity&quot;</span><span class="p">,</span>
-        <span class="n">yaxis_type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>  <span class="c1"># Logarithmic scale for better visualization</span>
-        <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">tickangle</span><span class="o">=-</span><span class="mi">45</span><span class="p">),</span>  <span class="c1"># Rotate x-axis labels for better readability</span>
-        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>  <span class="c1"># Set background color to white for better contrast</span>
-        <span class="n">xaxis_tickfont_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># Font size for x-axis labels</span>
-        <span class="n">yaxis_tickfont_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># Font size for y-axis labels</span>
-        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>  <span class="c1"># Adjust margins</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Add annotations to highlight key insights</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="n">categories</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># Example: Highlighting the highest value category</span>
-        <span class="n">y</span><span class="o">=</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Highest Quantity&quot;</span><span class="p">,</span>
-        <span class="n">showarrow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">arrowhead</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="n">ax</span><span class="o">=-</span><span class="mi">40</span><span class="p">,</span>
-        <span class="n">ay</span><span class="o">=-</span><span class="mi">40</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Show the plot</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">make_barchart</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<p>As we can see from above, the supplies skew heavily towards buckets, water containers, and mosquito nets, which makes sense for an island nation. But while it’s great that we have a lot of buckets, it won’t do us too much good if none of them are at the coast, for instance.</p>
-<ul class="simple">
-<li><p><strong>NOTE:</strong> From here out in the case study, we’re going to focus on just buckets as they’re the most prevalent item and, for the purposes of this case, it’s time consuming and repetitive to analyze all 15 item types of supplies available.</p></li>
-</ul>
-<p>As you’ll see later in the notebook, it’s a simple matter to apply the analysis of any one of the supply items to all 15 of them.</p>
-</section>
-<section id="where-are-the-supplies">
-<h3>1.3.4 Where are the Supplies?<a class="headerlink" href="#where-are-the-supplies" title="Link to this heading">#</a></h3>
-<p>Let’s take a look at the following map to get a better picture of where everything is.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">graph_supplies</span><span class="p">():</span>
-  <span class="n">supplies</span><span class="o">=</span><span class="p">[[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
-             <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
-             <span class="n">dataset</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span>
-             <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">inventory</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="s1">&#39;Buckets&#39;</span><span class="p">]</span>
- 
-  <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">supplies</span><span class="p">)</span>
-  <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;Buckets&#39;</span><span class="p">]</span>
-
-  <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_mapbox</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> 
-                        <span class="n">lat</span><span class="o">=</span><span class="s2">&quot;Lat&quot;</span><span class="p">,</span> 
-                        <span class="n">lon</span><span class="o">=</span><span class="s2">&quot;Long&quot;</span><span class="p">,</span> 
-                        <span class="n">size</span><span class="o">=</span><span class="s2">&quot;Buckets&quot;</span><span class="p">,</span>
-                        <span class="c1">#size_max=10,  # Maximum size of the marker</span>
-                        <span class="c1">#size_min=5,</span>
-                        <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Safe</span><span class="p">,</span>
-                        <span class="n">zoom</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span>  <span class="c1"># Adjust zoom level as needed</span>
-                        <span class="p">)</span>
-
-  <span class="c1"># Optionally center the map around the mean latitude and longitude of your points</span>
-  <span class="c1"># Use a minimalist map style to reduce clutter</span>
-  <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_style</span><span class="o">=</span><span class="s2">&quot;carto-positron&quot;</span><span class="p">)</span>
-
-  <span class="n">mean_lat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-  <span class="n">mean_long</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Long&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-  <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_center</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">mean_lat</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">mean_long</span><span class="p">})</span>
-  <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;t&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;l&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
-
-  <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">graph_supplies</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<p>We can see that the supplies are largely located on the eastern coast line of the country</p>
-</section>
-<section id="not-all-disasters-are-built-the-same">
-<h3>1.3.5 Not All Disasters Are Built the Same<a class="headerlink" href="#not-all-disasters-are-built-the-same" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">graph_impacts</span><span class="p">():</span>
-    
-    <span class="c1"># Example values for l and h</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span>
-
-    <span class="c1"># Sample data preparation</span>
-    <span class="n">disasters</span> <span class="o">=</span> <span class="p">[[</span><span class="n">disasters</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-                <span class="n">disaster_locations</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
-                <span class="n">disaster_locations</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
-                <span class="n">dataset</span><span class="o">.</span><span class="n">disaster_affected_totals</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span> 
-                <span class="k">for</span> <span class="n">disasters</span><span class="p">,</span> <span class="n">disaster_locations</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">disasters</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">disaster_locations</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">disaster_affected_totals</span><span class="p">)]</span>
-
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">disasters</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;People Impacted&#39;</span><span class="p">]</span>
-
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_mapbox</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> 
-                            <span class="n">lat</span><span class="o">=</span><span class="s2">&quot;Lat&quot;</span><span class="p">,</span> 
-                            <span class="n">lon</span><span class="o">=</span><span class="s2">&quot;Long&quot;</span><span class="p">,</span> 
-                            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Type&quot;</span><span class="p">,</span> 
-                            <span class="n">size</span><span class="o">=</span><span class="s2">&quot;People Impacted&quot;</span><span class="p">,</span>
-                            <span class="c1">#size_max=10,  # Maximum size of the marker</span>
-                            <span class="c1">#size_min=5,</span>
-                            <span class="n">zoom</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span>  <span class="c1"># Adjust zoom level as needed</span>
-                            <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Safe</span><span class="p">,</span>
-                            <span class="p">)</span>
-
-    <span class="c1"># Optionally center the map around the mean latitude and longitude of your points</span>
-    <span class="c1"># Use a minimalist map style to reduce clutter</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_style</span><span class="o">=</span><span class="s2">&quot;carto-positron&quot;</span><span class="p">)</span>
-
-    <span class="n">mean_lat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">mean_long</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Long&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_center</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">mean_lat</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">mean_long</span><span class="p">})</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;t&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;l&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
-
-    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">graph_impacts</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-</section>
-<section id="how-do-disasters-and-supplies-compare-in-scale">
-<h3>1.3.6 How Do Disasters and Supplies Compare in Scale?<a class="headerlink" href="#how-do-disasters-and-supplies-compare-in-scale" title="Link to this heading">#</a></h3>
-<p>You can see small blue circles within the red circles, representing supply quantities. The size of each red circle indicates the estimated number of people needing supplies in a disaster-affected area. Meanwhile, the blue circles show the total number of items available, adjusted by how many people each item can serve. For example, one large bucket is estimated to meet the needs of 2.5 people, so the blue circles display the quantity of supplies as <span class="math notranslate nohighlight">\(2.5 \cdot Supplies\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">graph_overlap</span><span class="p">():</span>
-  <span class="n">supplies</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;supplies&#39;</span><span class="p">,</span>
-             <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
-             <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
-             <span class="n">dataset</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">*</span><span class="mf">2.5</span><span class="p">]</span> <span class="c1">#this is people per bucket</span>
-             <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">inventory</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="s1">&#39;Buckets&#39;</span><span class="p">]</span>
- 
-  <span class="n">supplies</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">supplies</span><span class="p">)</span>
-  <span class="n">supplies</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">]</span>
-
-
-  <span class="c1"># Sample data preparation</span>
-  <span class="n">disasters</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;disasters&#39;</span><span class="p">,</span>
-                <span class="n">disaster_locations</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span>
-                <span class="n">disaster_locations</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
-                <span class="n">dataset</span><span class="o">.</span><span class="n">disaster_affected_totals</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span> 
-                <span class="k">for</span> <span class="n">disasters</span><span class="p">,</span> <span class="n">disaster_locations</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">disasters</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">disaster_locations</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">disaster_affected_totals</span><span class="p">)]</span>
-
-  <span class="n">disasters</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">disasters</span><span class="p">)</span>
-  
-  
-  <span class="n">disasters</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">]</span>
-
-  <span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">supplies</span><span class="p">[[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">]],</span>
-                           <span class="n">disasters</span><span class="p">[[</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">]]],</span>
-                           <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-
-
-
-  <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_mapbox</span><span class="p">(</span><span class="n">df_combined</span><span class="p">,</span> 
-                        <span class="n">lat</span><span class="o">=</span><span class="s2">&quot;Lat&quot;</span><span class="p">,</span> 
-                        <span class="n">lon</span><span class="o">=</span><span class="s2">&quot;Long&quot;</span><span class="p">,</span> 
-                        <span class="n">size</span><span class="o">=</span><span class="s2">&quot;Scale&quot;</span><span class="p">,</span>
-                        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span>
-                        <span class="n">size_max</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>  <span class="c1"># Maximum size of the marker</span>
-                        <span class="c1">#size_min=5,</span>
-                        <span class="n">zoom</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span>  <span class="c1"># Adjust zoom level as needed</span>
-                        <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Safe</span><span class="p">,</span>
-                        <span class="p">)</span>
-
-  <span class="c1"># Optionally center the map around the mean latitude and longitude of your points</span>
-  <span class="c1"># Use a minimalist map style to reduce clutter</span>
-  <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_style</span><span class="o">=</span><span class="s2">&quot;carto-positron&quot;</span><span class="p">)</span>
-
-  <span class="n">mean_lat</span> <span class="o">=</span> <span class="n">df_combined</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-  <span class="n">mean_long</span> <span class="o">=</span> <span class="n">df_combined</span><span class="p">[</span><span class="s1">&#39;Long&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-  <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">mapbox_center</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="n">mean_lat</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="n">mean_long</span><span class="p">})</span>
-  <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;r&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;t&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;l&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
-
-  <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">graph_overlap</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
+<p>For example, if you’re trying to maximize your enjoyment by purchasing hotdogs and soda with a limited budget, you’d intuitively spend all your money, fully utilizing your budget constraint. The optimal solution occurs at the point where your spending exactly meets your budget limit—one of the vertices of the feasible region where the constraints are tight or binding.</p>
+<p>In the context of pre-positioning supplies for disaster response, each allocation affects the total transit time. The goal might be to meet demand with the minimum possible transit time, which requires allocating supplies so that the constraints are fully utilized—providing just enough to meet each warehouse’s demand without surplus. This means the optimal solution will be at a vertex where the supply and demand constraints are exactly satisfied.</p>
+<p>In transportation problems like ours, with whole-number supplies and demands, we’re distributing indivisible units like buckets or hygiene kits. Since the suppliers have integer quantities to offer and the consumers require integer quantities to receive, the shipments must also be in whole numbers to exactly meet these needs. Fractional shipments wouldn’t satisfy the exact integer requirements, nor would they make practical sense when items can’t be divided.</p>
+<p>Geometrically, because the constraints are defined by integer values, the feasible region is a polyhedron whose vertices correspond to integer solutions. The Simplex Method, by moving along the edges of this integer-defined polyhedron, often arrives at integer solutions naturally. The constraints dictate that the total shipped from each supplier equals their supply and the total received by each consumer equals their demand, both of which are integers. This setup leads to shipment amounts that are integers because only whole units can satisfy both the supply and demand without leaving any fractions unaccounted for.</p>
+<p>This approach offers a clear advantage: instead of searching through a massive number of possible solutions within the feasible region—as might be necessary with other methods—the Simplex Method only needs to evaluate a finite number of vertices, one of which will be the optimal solution. In transportation problems with integer constraints, it often provides optimal integer solutions without the need for additional techniques like the Branch and Bound Method (read more about this in the Math Addendum). This makes the Simplex Method both effective and practical for scenarios where exact quantities are essential.</p>
 </section>
 </section>
-<section id="how-does-esups-communicate-this">
-<h2>1.4 How Does ESUPS Communicate this?<a class="headerlink" href="#how-does-esups-communicate-this" title="Link to this heading">#</a></h2>
-<p>Effective communication is vital in disaster response, not only for coordinating logistics but also for ensuring that the right information reaches the right people at the right time. In this section, we will explore the ESUPS website, which serves as a central hub for sharing critical data and insights with a diverse audience, including NGOs, government agencies, and the public.</p>
-<p>The ESUPS STOCKHOLM platform is designed to translate complex optimization models and logistical data into intuitive, actionable information. Through a combination of interactive charts, maps, and data visualizations, the platform provides users (comprised of NGOs and humanitarian/relief organizations) with a clear understanding of where pre-positioned supplies are located, how they can be accessed, and the impact of various logistical decisions.</p>
-<p>We will examine how ESUPS effectively communicates information about stock and analysis of results through STOCKHOLM, highlighting key features such as:
-•	Real-time Data Visualizations: How ESUPS uses dynamic maps and graphs to show the distribution of resources and potential gaps in coverage. These are updated daily with the newest information available
-•	User-Friendly Interface: The strategies employed to make the website accessible and informative for both technical and non-technical users.
-•	Impact Metrics: How ESUPS showcases the tangible benefits of its optimization strategies, including improved response times and resource utilization. We’ll take a special look at these later in the case to help us understand what our optimization techniques have achieved.</p>
-<p>And finally, in one of the most relevant features of this case study, ESUPS has given us permission to share some of the difficulties they have experienced in their attempts to convey the scale of this problem and their findings along with what they hope to change and improve for their users going forward.</p>
-<p>Let’s take a look!</p>
-<p>ESUPS’s platform  <a class="reference external" href="https://www.esups-stockholm.org/#/private/signin">Stockholm</a>, which is their platform for hosting this model (you can apply for access by visiting the homepage linked above), has two main pages, the first is the context page, and explains the context of the problem that we’ve been discussing in the past few sections, along with additional details about their mission and collaborating organizations. We’ll look at this one first!</p>
-<p><strong>The Real-time Data Visualization</strong> : Progessive Improvement</p>
-<p>We’re going to take a slight detour here to look at how all this information is comunicated in real life! You can skip this section without concern for missing important information.</p>
-<p>As we’ve seen, getting an intuitive understanding of disasters and humanitarian supplies can be tricky when working with a new country. In fact, it’s one of the main challenges ESUPS has faced in driving adoption and explaining why their work is so important.</p>
-<p>Data Visaulization isn’t an easy task, but let’s take a look at how ESUPS started and how they’re continuing to improve!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/Old_Stockholm.png&#39;</span><span class="p">)</span><span class="c1">#,width=575, height=325)</span>
-</pre></div>
+<section id="an-advancing-field">
+<h3>An Advancing field<a class="headerlink" href="#an-advancing-field" title="Link to this heading">#</a></h3>
+<p>Optimization has taken a backseat with the rise of Machine Learning and Big Data. But if you think back to your courses, you’ll remember that both fields share many of the same mathematical roots. Many core ML concepts, like gradient descent, evolved from numerical optimization techniques like Newton’s method. I bring this up because, even though optimization might seem less flashy compared to the latest ML algorithms, it’s experiencing a resurgence. Recent advancements in solvers and algorithms have made optimization more powerful and easier to use, allowing it to tackle complex, large-scale problems that were previously out of reach. There are also many free educational resources available to get problem solvers up and running with optimization, making it more accessible than ever before—check out <a class="reference external" href="http://www.gurobi.com/learn">www.gurobi.com/learn</a> for just some of the educational materials openly available to learners. All of this means it’s becoming an essential tool for decision-making in various industries, from logistics to finance.
+Just as an example, Gurobi, the most popular optimization model currently avalible, has seen a speed-up of 80% for problem like pre-positioning and has increased the solver’s flexibility ~67% in the past 10 years</p>
+<p>Just as an example, Gurobi, the most popular optimization solver currently available, has seen a speed-up of 80% for problems like pre-positioning and has increased the solver’s flexibility ~67% in the past 10 years</p>
+<p>And this is still very much under active development. Take a look at some of the improved speeds for large problems in the table below! (It’s not important that you know the specific names, but nearly every problem you would use optimization for falls in this table!)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Problem Class</p></th>
+<th class="head"><p>Speed-Up in Past year</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mixed-Integer Linear Program (MILP)</p></td>
+<td><p>12.4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mixed-Integer Quadratic Program (MIQP)</p></td>
+<td><p>22.8%</p></td>
+</tr>
+<tr class="row-even"><td><p>Mixed Integer with Quadratic Constraints Program (MIQCP)</p></td>
+<td><p>18.2%</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/df085a800c567b665d58aede76eecf0df2f4fd8832c866493ea033658609f6c0.png" src="../_images/df085a800c567b665d58aede76eecf0df2f4fd8832c866493ea033658609f6c0.png" />
-</div>
-</div>
-<p>The earlier version of the ESUPS dashboard, while not perfect, played a critical role in enabling the organization to quickly deliver a functional product that demonstrated tangible results to other non-profits. This initial version provided the essential tools needed to map stockpiles and showcase the value of the platform in real-world scenarios. By prioritizing functionality and speed, ESUPS was able to meet the immediate needs of its partners, proving the concept and gaining crucial buy-in from stakeholders.</p>
-<p>The design, though basic, allowed for rapid deployment and iteration, proving that in the early stages of development, it’s more important to have a working solution than to strive for perfection. The dashboard’s ability to deliver key insights swiftly and effectively earned it significant merit, as it laid the groundwork for future improvements and set the stage for more advanced iterations. This approach underscores a vital lesson in development: sometimes, a good solution delivered quickly can be more valuable than a perfect one delivered too late.</p>
-<p>The initial success provided a strong foundation upon which ESUPS could build. The insights gained from this deployment informed the development of a new version, which addresses the limitations of the first while enhancing user experience and data communication. The new dashboard takes these lessons to heart, incorporating more advanced features and a more intuitive design, ensuring that ESUPS continues to meet the needs of its partners more effectively. Now, let’s explore how this new version improves upon the original and further advances ESUPS’s mission.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/Disaster_Dashboard.png&#39;</span><span class="p">)</span><span class="c1">#,width=575, height=325)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/74fe676cf5df8609f050c05c0320ec852e29a1c130d7dc1479ed1865719faec9.png" src="../_images/74fe676cf5df8609f050c05c0320ec852e29a1c130d7dc1479ed1865719faec9.png" />
-</div>
-</div>
-<p>The newer version of the dashboard incorporates several effective design elements that help uninitiated users quickly grasp the context and understand the information presented. Building upon the foundation of the initial version, this iteration features a more logical layout, with distinct sections clearly labeled to make it easier for users to identify and comprehend different data categories at a glance. The use of diverse visualizations—such as a map, pie chart, bar chart, and line graph—enables multiple data points to be visualized simultaneously, offering a comprehensive overview of the situation.</p>
-<p>A key improvement in this version is the effective use of white space. By strategically separating visual elements, the dashboard reduces clutter, ensuring that the information is not overwhelming and making it easier for users to digest. The clear representation of data ensures that each visualization has a specific purpose and is easy to interpret. For example, the Storage Facilities Map now clearly shows the geographical locations of storage facilities with available stock, providing important context. The pie chart uses distinct colors to differentiate between types of disasters, simplifying the interpretation of proportions, while the bar chart allows for a quick comparison of the number of people affected and the number of disasters by region. The line graph displays trends over time, with a dotted trend line to indicate the general direction of these trends.</p>
-<p>The dashboard’s minimalist design elements further contribute to its effectiveness, an improvement from the earlier version. By avoiding unnecessary elements, the design minimizes distractions and enhances readability, ensuring that the focus remains on the data itself. Purposeful use of color now guides the viewer’s attention to key information more effectively. Interactive features, such as buttons labeled “SEE DISASTERS” and “SEE DETAILS,” suggest that users can engage more deeply with specific data points, which enhances both functionality and user engagement.</p>
-<p>Moreover, the consistent color scheme and font style create a unified visual identity, lending a professional appearance and helping users navigate the information more intuitively. Altogether, these elements combine to present a cohesive design that significantly improves user experience and data comprehension compared to the earlier version.</p>
-<p>However, as with any evolving tool, there is always room for further refinement. While this version addresses many of the initial challenges, the ongoing development process continues to identify areas where improvements can be made. By revisiting earlier designs, we can better understand how these refinements come about and how they contribute to a more effective and user-friendly dashboard. Let’s now take a look at one of the earlier pages to explore these opportunities for further enhancement.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/Stock_Dashboard.png&#39;</span><span class="p">)</span><span class="c1">#,width=875, height=325)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/984ad5d9b2947d5f2df5022f6513dcdf61a8466f428a4a3c8092e384f9011a1c.png" src="../_images/984ad5d9b2947d5f2df5022f6513dcdf61a8466f428a4a3c8092e384f9011a1c.png" />
-</div>
-</div>
-<p>As the dashboard continues to evolve, ESUPS is taking the opportunity to further enhance its intuitiveness and user-friendliness. Building on the successes and lessons from earlier iterations, the latest redesign aims to address some of the shortcomings that were identified in the previous versions. By incorporating clear labels, units, and detailed explanations, the new design strives to provide users with the necessary context to interpret data effectively. For instance, sections like “NATIONAL AND COLLECTIVE ASSESSMENT OF STOCK QUANTITIES” and “TIME GAINED BY RE-DISPATCHING ITEMS BETWEEN LOCATIONS” will benefit from added clarity, helping users to understand the information presented more intuitively.</p>
-<p>One of the key areas for improvement in this redesign is the refinement of the color scheme. The use of distinct and contrasting colors will make it easier for users to differentiate between categories in the bar charts. Additionally, clearly indicating what each color signifies, along with providing complete chart titles and fully displayed x-axis labels, will ensure that users can grasp the full context of the data being assessed. These visual enhancements are crucial for making the dashboard more accessible and easier to interpret, especially for users who may be less familiar with the underlying data.</p>
-<p>Another critical improvement is the addition of context and explanations for key metrics. For example, providing details on figures like “39% - 14,615” under “National Stock Level Support” will remove ambiguity and highlight the relevance and importance of these numbers. Establishing clear connections between different data types—such as percentages, quantities, and time in minutes—will create a cohesive narrative that guides users through the data, making it easier to follow and more meaningful.</p>
-<p>To further enhance the user experience, the redesigned dashboard will also focus on improving presentation aspects. Larger text sizes and decluttered visuals will enhance readability, allowing users to quickly grasp the information at a glance. Incorporating interactive elements, such as tooltips, will enable users to explore the data in greater depth and gain additional insights. Simplifying terminology and offering clear explanations for complex concepts, like “Time Gained by Re-Dispatching Items Between Locations,” will further aid in user understanding and ensure that the dashboard is accessible to a wider audience.</p>
-<p>These iterative improvements are a testament to the dynamic nature of data visualization and communication within the industry. By continuously refining and enhancing the dashboard, ESUPS is committed to delivering a tool that not only meets but exceeds user needs. This ongoing process of iteration and enhancement underscores the organization’s dedication to creating a valuable resource for decision-making, ultimately helping ESUPS better serve its partners and fulfill its mission</p>
+<p><sup> Comparing Version 10.0 (released Nov 22) and Version 11.0 (released Nov 23) </sup></p>
+<p>If your curious about what this means for real life applications, take a look below at some of the examples!</p>
+</section>
+<section id="a-few-real-world-examples">
+<h3>A Few Real World Examples:<a class="headerlink" href="#a-few-real-world-examples" title="Link to this heading">#</a></h3>
+<section id="mixed-integer-linear-program-milp">
+<h4>1.	Mixed-Integer Linear Program (MILP):<a class="headerlink" href="#mixed-integer-linear-program-milp" title="Link to this heading">#</a></h4>
+<p>MILPs are widely used in logistics and supply chain optimization. A real-world example is vehicle routing for delivery companies like UPS or FedEx, where the goal is to minimize the total distance traveled or delivery time while meeting constraints such as vehicle capacity, delivery time windows, and route restrictions. Advanced MILP solvers allow these companies to dynamically adjust routes in real-time, respond to traffic conditions, and make last-minute changes. This type of optimization is also critical in energy management, such as optimizing the scheduling of power generation plants to meet fluctuating demand while minimizing costs and adhering to regulatory and operational constraints.</p>
+</section>
+<section id="mixed-integer-quadratic-program-miqp">
+<h4>2.	Mixed-Integer Quadratic Program (MIQP):<a class="headerlink" href="#mixed-integer-quadratic-program-miqp" title="Link to this heading">#</a></h4>
+<p>MIQPs find applications in financial portfolio optimization, where the goal is to maximize returns while minimizing risk. In this context, the quadratic term represents the risk (variance or covariance of asset returns), and the integer constraints can represent decisions like “buy or don’t buy” a particular asset or “fully divest from one sector.” Hedge funds and asset management firms use MIQP to optimize asset allocation, considering various market scenarios and investment constraints. The ability to handle complex quadratic relationships between variables makes MIQP suitable for any industry where risk management and trade-offs are involved, such as in optimizing communication networks and antenna placements.</p>
+</section>
+<section id="mixed-integer-with-quadratic-constraints-program-miqcp">
+<h4>3.	Mixed Integer with Quadratic Constraints Program (MIQCP):<a class="headerlink" href="#mixed-integer-with-quadratic-constraints-program-miqcp" title="Link to this heading">#</a></h4>
+<p>MIQCPs are used in engineering design and manufacturing. An example is optimizing the layout of a factory floor or the design of an aircraft wing. The quadratic constraints might represent aerodynamic properties or stress limits, while integer variables can represent decisions like the number of machines or parts used. In the pharmaceutical industry, MIQCP can help optimize drug formulation processes by considering a wide range of constraints like stability, release rates, and production costs. The combination of integer and quadratic constraints allows for highly tailored solutions that can significantly reduce costs and improve performance in complex industrial systems.</p>
+</section>
+</section>
+<section id="id1">
+<h3><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>In addition, optimization programs like Gurobi offer powerful tools such as pre-solve, which can significantly simplify models before they are solved. For instance, the country-level ESUPS model we’re working on would typically require 812 iterations of the simplex algorithm to reach a solution. However, with pre-solve enabled, it reduces that number to just one iteration! This kind of optimization not only saves time but also dramatically reduces computational costs.</p>
+<p>Imagine the impact if large language models (LLMs) like ChatGPT could suddenly use 23% fewer computational resources to train and run, or if their size could be reduced by two orders of magnitude while maintaining the same level of performance. This would save hundreds of millions of dollars and lead to a surge in locally hosted LLMs. Similarly, in the field of optimization, problems that were once considered too large or too complex to solve are becoming increasingly feasible each year.</p>
+<p>Just like machine learning algorithms, the mathematical foundations behind optimization techniques can be quite intricate and certainly justify the rigor of PhD programs. However, as with popular libraries like PyTorch, TensorFlow, and XGBoost, you don’t need to master all the underlying math to use these tools effectively—it’s more important to know how to set up the problem correctly.</p>
+<p>For the rest of this notebook, we’ll focus on how to formulate optimization problems and use accessible tools like Gurobi to solve them. If you’re interested in diving deeper into the mathematical concepts, check out the Addendum section. However, this is not necessary for understanding how to use this notebook or Gurobi effectively!</p>
+</section>
 </section>
 </section>
 
@@ -890,7 +574,7 @@ class Item:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Case Study: Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</p>
+        <p class="prev-next-title">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</p>
       </div>
     </a>
     <a class="right-next"
@@ -898,7 +582,7 @@ class Item:
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2. Optimizing!</p>
+        <p class="prev-next-title">The Setup</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -918,17 +602,30 @@ class Item:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-environment">1.1 The Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-cleaning">1.2 Reading and Cleaning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">1.3 Data Exploration and Visualization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-is-everything">1.3.1 Where is Everything?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-supplies-is-available">1.3.2 What Supplies is Available?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-are-the-supplies">1.3.4 Where are the Supplies?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-disasters-are-built-the-same">1.3.5 Not All Disasters Are Built the Same</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-disasters-and-supplies-compare-in-scale">1.3.6 How Do Disasters and Supplies Compare in Scale?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-origin-of-esups">The Origin of ESUPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esups-today">ESUPS Today</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diving-into-the-case-study-jupyter-notebook">Diving into the Case Study &amp; Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-scientist-s-perspective">A Data Scientist’s Perspective</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-machine-learning-approach">A Machine Learning Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-sparse-data-and-neural-networks">Challenges with Sparse Data and Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptualizing-the-search-space">Conceptualizing the Search Space</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-esups-communicate-this">1.4 How Does ESUPS Communicate this?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-a-structured-approach-to-the-solution-space">Optimization: A Structured Approach to the Solution Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-simplex-method">The Simplex Method</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-advancing-field">An Advancing field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-real-world-examples">A Few Real World Examples:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-linear-program-milp">1.	Mixed-Integer Linear Program (MILP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-quadratic-program-miqp">2.	Mixed-Integer Quadratic Program (MIQP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-with-quadratic-constraints-program-miqcp">3.	Mixed Integer with Quadratic Constraints Program (MIQCP):</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -943,7 +640,7 @@ class Item:
   <div class="footer-item">
     
 <p class="component-author">
-By Your Name
+By Gurobi Optimization
 </p>
 
   </div>
