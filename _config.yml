@@ -7,7 +7,6 @@ binder:
 execute:
   execute_notebooks: "force"
 sphinx:
-  extra_config: |
-    import os, sys
-    # assumes that _config.yml/_toc.yml live next to src/
-    sys.path.insert(0, os.path.abspath('src'))
+  config:
+    html_static_path: ["_static"]
+    html_css_files: ["custom.css"]
