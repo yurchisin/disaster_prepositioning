@@ -1,0 +1,13 @@
+---
+format: jb-book
+root: content/intro
+chapters:
+  - file: content/disaster_prepositioning_0
+  - file: content/disaster_prepositioning_1
+  - file: content/disaster_prepositioning_2
+  - file: content/disaster_prepositioning_3
+    sections: 
+      - file: content/disaster_prepositioning_3_A
+      - file: content/disaster_prepositioning_3_B
+  - file: content/disaster_prepositioning_4
+  - file: content/disaster_prepositioning_5
