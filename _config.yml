@@ -1,6 +1,7 @@
 ---
 title: "Disaster Prepositioning Case Study"
 author: "Gurobi Optimization"
+copyright: "2025, Gurobi Optimization, LLC"
 repository: https://github.com/yurchisin/disaster_prepositioning/
 binder:
   url: "https://mybinder.org"

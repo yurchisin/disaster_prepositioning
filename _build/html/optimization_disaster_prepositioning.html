@@ -1,0 +1,1919 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Second ESUPS example model &#8212; Disaster Prepositioning Case Study</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=2b93f807" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'optimization_disaster_prepositioning';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="content/intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Disaster Prepositioning Case Study</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="content/intro.html">
+                    Welcome to ESUPS Case Study
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="content/disaster_prepositioning_0.html">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/disaster_prepositioning_1.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/disaster_prepositioning_2.html">The Setup</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="content/disaster_prepositioning_3.html">Optimizing!</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="content/disaster_prepositioning_3_A.html">2.A Introduction to Modeling Optimization Problems</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="content/disaster_prepositioning_3_B.html">3.B More On Expected Value</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="content/disaster_prepositioning_4.html">Production Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/disaster_prepositioning_5.html">Wrapping It Up</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/optimization_disaster_prepositioning.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Second ESUPS example model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Second ESUPS example model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#full-model">Full Model</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/yurchisin/disaster_prepositioning/refs/heads/main/content/data/&quot;</span>
+
+<span class="n">simple_Allocation</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s2">&quot;simple_Allocation.csv&quot;</span><span class="p">)</span>
+<span class="n">simple_Allocation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depotCity</th>
+      <th>drivingTime_hrs</th>
+      <th>Buckets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ambanja</td>
+      <td>14.00</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ambatondrazaka</td>
+      <td>0.00</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ambositra</td>
+      <td>11.00</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ambovombe</td>
+      <td>26.00</td>
+      <td>2322</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Antananarivo Renivohitra</td>
+      <td>6.00</td>
+      <td>9046</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Antsohihy</td>
+      <td>10.00</td>
+      <td>610</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Farafangana</td>
+      <td>19.00</td>
+      <td>5201</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Fenerive Est</td>
+      <td>11.00</td>
+      <td>6689</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Mahajanga I</td>
+      <td>16.00</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Maintirano</td>
+      <td>14.25</td>
+      <td>2460</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Manakara</td>
+      <td>17.00</td>
+      <td>4235</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Miarinarivo</td>
+      <td>7.00</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Morondava</td>
+      <td>16.00</td>
+      <td>736</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Sambava</td>
+      <td>23.00</td>
+      <td>5700</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Toamasina I</td>
+      <td>8.00</td>
+      <td>1580</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Toliara</td>
+      <td>22.00</td>
+      <td>1637</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
+
+<span class="c1"># Prep data</span>
+<span class="n">BucketsNeeded</span> <span class="o">=</span> <span class="mi">13561</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">simple_Allocation</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">Buckets</span>
+
+<span class="c1"># Create model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;simple_Allocation&quot;</span><span class="p">)</span> 
+
+<span class="c1"># Add decision variables</span>
+<span class="n">y</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add constraint to meet demand</span>
+<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">==</span><span class="n">BucketsNeeded</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Meet_Demand&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add in warehouse_constraints</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Note we don&#39;t have a constraint for y &gt;= 0 since it&#39;s assumed in the variable definition</span>
+<span class="c1"># Add objective</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
+
+<span class="c1"># Fire up the solver!</span>
+<span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restricted license - for non-production use only - expires 2025-11-24
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 24.4.0 24E263)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU model: Apple M1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimize a model with 17 rows, 16 columns and 32 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model fingerprint: 0x37d66425
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient statistics:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Matrix range     [1e+00, 1e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Objective range  [6e+00, 3e+01]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Bounds range     [0e+00, 0e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  RHS range        [3e+00, 1e+04]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve removed 16 rows and 2 columns
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve time: 0.00s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolved: 1 rows, 14 columns, 14 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration    Objective       Primal Inf.    Dual Inf.      Time
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0    0.0000000e+00   1.691875e+03   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       1    9.8293000e+04   0.000000e+00   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solved in 1 iterations and 0.01 seconds (0.00 work units)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal objective  9.829300000e+04
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now Let’s Analyze the results!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_sol</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">y_sol</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<span class="n">simple_Allocation_sol</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">simple_Allocation_sol</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_sol</span>
+<span class="n">simple_Allocation_sol</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;drivingTime_hrs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depotCity</th>
+      <th>drivingTime_hrs</th>
+      <th>Buckets</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Ambatondrazaka</td>
+      <td>0.00</td>
+      <td>26</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Antananarivo Renivohitra</td>
+      <td>6.00</td>
+      <td>9046</td>
+      <td>9046.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Miarinarivo</td>
+      <td>7.00</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Toamasina I</td>
+      <td>8.00</td>
+      <td>1580</td>
+      <td>1580.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Antsohihy</td>
+      <td>10.00</td>
+      <td>610</td>
+      <td>610.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ambositra</td>
+      <td>11.00</td>
+      <td>41</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Fenerive Est</td>
+      <td>11.00</td>
+      <td>6689</td>
+      <td>2296.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Ambanja</td>
+      <td>14.00</td>
+      <td>375</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Maintirano</td>
+      <td>14.25</td>
+      <td>2460</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Mahajanga I</td>
+      <td>16.00</td>
+      <td>150</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Morondava</td>
+      <td>16.00</td>
+      <td>736</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Manakara</td>
+      <td>17.00</td>
+      <td>4235</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Farafangana</td>
+      <td>19.00</td>
+      <td>5201</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Toliara</td>
+      <td>22.00</td>
+      <td>1637</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Sambava</td>
+      <td>23.00</td>
+      <td>5700</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ambovombe</td>
+      <td>26.00</td>
+      <td>2322</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="second-esups-example-model">
+<h1>Second ESUPS example model<a class="headerlink" href="#second-esups-example-model" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">warehouses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s2">&quot;warehouses.csv&quot;</span><span class="p">)</span>
+<span class="n">warehouses</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Type</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Buckets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>warehouses</td>
+      <td>-17.823700</td>
+      <td>48.426300</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>warehouses</td>
+      <td>-20.516700</td>
+      <td>47.250000</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>warehouses</td>
+      <td>-18.908500</td>
+      <td>47.537500</td>
+      <td>9046</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>warehouses</td>
+      <td>-17.384300</td>
+      <td>49.409800</td>
+      <td>2762</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>warehouses</td>
+      <td>-16.916700</td>
+      <td>49.900000</td>
+      <td>1682</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>warehouses</td>
+      <td>-15.430900</td>
+      <td>49.758300</td>
+      <td>1870</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>warehouses</td>
+      <td>-16.170200</td>
+      <td>49.774100</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>warehouses</td>
+      <td>-16.926100</td>
+      <td>49.587100</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>warehouses</td>
+      <td>-25.176133</td>
+      <td>46.089378</td>
+      <td>2322</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>warehouses</td>
+      <td>-25.031600</td>
+      <td>46.990000</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>warehouses</td>
+      <td>-24.206400</td>
+      <td>45.865800</td>
+      <td>610</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>warehouses</td>
+      <td>-23.350000</td>
+      <td>43.666700</td>
+      <td>1027</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>warehouses</td>
+      <td>-23.452200</td>
+      <td>45.078100</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>warehouses</td>
+      <td>-23.426050</td>
+      <td>47.059080</td>
+      <td>1870</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>warehouses</td>
+      <td>-22.816700</td>
+      <td>47.816700</td>
+      <td>3331</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>warehouses</td>
+      <td>-23.350500</td>
+      <td>47.608800</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>warehouses</td>
+      <td>-18.149900</td>
+      <td>49.402300</td>
+      <td>1580</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>warehouses</td>
+      <td>-16.950400</td>
+      <td>46.828100</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>warehouses</td>
+      <td>-15.716700</td>
+      <td>46.316700</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>warehouses</td>
+      <td>-13.680400</td>
+      <td>48.455500</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>warehouses</td>
+      <td>-18.960800</td>
+      <td>46.903600</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>warehouses</td>
+      <td>-18.064600</td>
+      <td>44.029500</td>
+      <td>2460</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>warehouses</td>
+      <td>-20.284700</td>
+      <td>44.317500</td>
+      <td>736</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>warehouses</td>
+      <td>-14.883300</td>
+      <td>50.283300</td>
+      <td>5700</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>warehouses</td>
+      <td>-14.266700</td>
+      <td>50.166700</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>warehouses</td>
+      <td>-14.876200</td>
+      <td>47.983500</td>
+      <td>610</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>warehouses</td>
+      <td>-22.150000</td>
+      <td>48.000000</td>
+      <td>4235</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disasters</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s2">&quot;disasters.csv&quot;</span><span class="p">)</span>
+<span class="n">total_buckets</span> <span class="o">=</span> <span class="n">warehouses</span><span class="p">[</span><span class="s1">&#39;Buckets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># one bucket is needed for 2.5 people on average</span>
+<span class="n">disasters</span><span class="p">[</span><span class="s1">&#39;demand&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="n">disasters</span><span class="p">[</span><span class="s1">&#39;People Impacted&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">2.5</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">round</span><span class="p">()</span>
+      <span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="n">total_buckets</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">disasters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Type</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>People Impacted</th>
+      <th>demand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Storm</td>
+      <td>-12.266700</td>
+      <td>49.283300</td>
+      <td>118000</td>
+      <td>40811</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Storm</td>
+      <td>-14.266700</td>
+      <td>50.166700</td>
+      <td>100215</td>
+      <td>40086</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Epidemic</td>
+      <td>-14.876200</td>
+      <td>47.983500</td>
+      <td>21976</td>
+      <td>8790</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Epidemic</td>
+      <td>-15.716700</td>
+      <td>46.316700</td>
+      <td>15172</td>
+      <td>6069</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Flood</td>
+      <td>-16.950400</td>
+      <td>46.828100</td>
+      <td>20000</td>
+      <td>8000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Flood</td>
+      <td>-17.384300</td>
+      <td>49.409800</td>
+      <td>28223</td>
+      <td>11289</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Storm</td>
+      <td>-17.823700</td>
+      <td>48.426300</td>
+      <td>84309</td>
+      <td>33724</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Storm</td>
+      <td>-18.064600</td>
+      <td>44.029500</td>
+      <td>526200</td>
+      <td>40811</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Storm</td>
+      <td>-18.149900</td>
+      <td>49.402300</td>
+      <td>600000</td>
+      <td>40811</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Epidemic</td>
+      <td>-18.769800</td>
+      <td>46.050000</td>
+      <td>3055</td>
+      <td>1222</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Storm</td>
+      <td>-18.908500</td>
+      <td>47.537500</td>
+      <td>55345</td>
+      <td>22138</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Storm</td>
+      <td>-18.960800</td>
+      <td>46.903600</td>
+      <td>1900</td>
+      <td>760</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Flood</td>
+      <td>-19.866700</td>
+      <td>47.033300</td>
+      <td>23369</td>
+      <td>9348</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Storm</td>
+      <td>-20.284700</td>
+      <td>44.317500</td>
+      <td>13561</td>
+      <td>5424</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Storm</td>
+      <td>-21.236700</td>
+      <td>48.346100</td>
+      <td>500</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Storm</td>
+      <td>-21.447000</td>
+      <td>47.087200</td>
+      <td>736938</td>
+      <td>40811</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Storm</td>
+      <td>-22.150000</td>
+      <td>48.000000</td>
+      <td>162086</td>
+      <td>40811</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Storm</td>
+      <td>-22.396100</td>
+      <td>46.121700</td>
+      <td>369272</td>
+      <td>40811</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Storm</td>
+      <td>-22.816700</td>
+      <td>47.816700</td>
+      <td>100000</td>
+      <td>40000</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Storm</td>
+      <td>-23.350000</td>
+      <td>43.666700</td>
+      <td>70000</td>
+      <td>28000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Storm</td>
+      <td>-25.031600</td>
+      <td>46.990000</td>
+      <td>540043</td>
+      <td>40811</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Storm</td>
+      <td>-25.176133</td>
+      <td>46.089378</td>
+      <td>250000</td>
+      <td>40811</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distanceMatrix_scenarios</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s2">&quot;distanceMatrix_scenarios.csv&quot;</span><span class="p">)</span>
+<span class="n">distanceMatrix_scenarios</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>scenario</th>
+      <th>warehouse</th>
+      <th>drivingTime_hrs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>21.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>1</td>
+      <td>30.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>2</td>
+      <td>25.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>3</td>
+      <td>32.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>4</td>
+      <td>35.75</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>21</td>
+      <td>16</td>
+      <td>26.00</td>
+    </tr>
+    <tr>
+      <th>458</th>
+      <td>21</td>
+      <td>17</td>
+      <td>19.00</td>
+    </tr>
+    <tr>
+      <th>459</th>
+      <td>21</td>
+      <td>18</td>
+      <td>48.00</td>
+    </tr>
+    <tr>
+      <th>460</th>
+      <td>21</td>
+      <td>19</td>
+      <td>33.00</td>
+    </tr>
+    <tr>
+      <th>461</th>
+      <td>21</td>
+      <td>20</td>
+      <td>15.00</td>
+    </tr>
+  </tbody>
+</table>
+<p>462 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demand</span> <span class="o">=</span> <span class="n">disasters</span><span class="p">[</span><span class="s1">&#39;demand&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)</span>
+<span class="n">demand</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([40811, 40086,  8790,  6069,  8000, 11289, 33724, 40811, 40811,
+        1222, 22138,   760,  9348,  5424,   200, 40811, 40811, 40811,
+       40000, 28000, 40811, 40811])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      375
+1       26
+2       41
+3     2322
+4     9046
+5      610
+6     5201
+7     6689
+8      150
+9     2460
+10    4235
+11       3
+12     736
+13    5700
+14    1580
+15    1637
+Name: Buckets, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)</span> <span class="c1">#number of disasters/scenarios</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">distanceMatrix_scenarios</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;scenario&#39;</span><span class="p">,</span> <span class="s1">&#39;warehouse&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">warehouses</span><span class="p">[</span><span class="s1">&#39;Buckets&#39;</span><span class="p">][</span><span class="n">warehouses</span><span class="p">[</span><span class="s1">&#39;Buckets&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1">#number of warehouses</span>
+
+<span class="n">model_2</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;multiple_disasters&quot;</span><span class="p">)</span> 
+
+<span class="c1"># Amount to take per Warehouse</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add constraints to meet demand for each disaster scenario (k)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="c1"># Demand constraints</span>
+    <span class="n">model_2</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Warehouse constraints</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">model_2</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">_I:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Objective function to minimize the weighted driving time using t as a parameter</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimize model</span>
+<span class="n">model_2</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
+<span class="n">model_2</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+
+<span class="c1"># Store results in the list &#39;a&#39;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model_2</span><span class="o">.</span><span class="n">getVars</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Warehouse&#39;</span><span class="p">,</span><span class="s1">&#39;Buckets&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 24.4.0 24E263)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU model: Apple M1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimize a model with 484 rows, 462 columns and 924 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model fingerprint: 0xa84de061
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient statistics:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Matrix range     [1e+00, 1e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Objective range  [5e-02, 2e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Bounds range     [0e+00, 0e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  RHS range        [3e+00, 4e+04]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve removed 478 rows and 372 columns
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve time: 0.00s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolved: 6 rows, 90 columns, 90 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration    Objective       Primal Inf.    Dual Inf.      Time
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0    4.1096854e+05   1.040175e+04   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       6    4.4697821e+05   0.000000e+00   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solved in 6 iterations and 0.00 seconds (0.00 work units)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal objective  4.469782127e+05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Warehouse</th>
+      <th>Buckets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Warehouse_Allocation[0,0]</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Warehouse_Allocation[0,1]</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Warehouse_Allocation[0,2]</td>
+      <td>9046.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Warehouse_Allocation[0,3]</td>
+      <td>2762.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Warehouse_Allocation[0,4]</td>
+      <td>1682.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Warehouse_Allocation[0,5]</td>
+      <td>1870.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Warehouse_Allocation[0,6]</td>
+      <td>375.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Warehouse_Allocation[0,7]</td>
+      <td>2322.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Warehouse_Allocation[0,8]</td>
+      <td>610.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Warehouse_Allocation[0,9]</td>
+      <td>1027.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Warehouse_Allocation[0,10]</td>
+      <td>1870.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Warehouse_Allocation[0,11]</td>
+      <td>3331.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Warehouse_Allocation[0,12]</td>
+      <td>1580.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Warehouse_Allocation[0,13]</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Warehouse_Allocation[0,14]</td>
+      <td>375.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;a.csv&quot;</span><span class="p">,</span><span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="full-model">
+<h1>Full Model<a class="headerlink" href="#full-model" title="Link to this heading">#</a></h1>
+<p>While this may initially look intimidating, it is one of the easiest changes to make to our current code. All we are doing is making a decision variable instead of a constant and then constraining it. Let’s substitute back in our equation from the last section with the new constraints to see this firsthand. To denote a new decision variable (i.e. a variable that can be changed), all we need to do is add it under the minimization sign. This means minimizing with respect to <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\min_{x,y} \sum_k P^k \sum_i \tau_{ij}\cdot y^k_i
+\]</div>
+<p>Then all we need to do is update the constraints. I’ve included the line to make it easier to see what’s new as our list grows. It has no mathematical significance.</p>
+<p>So how do we Implement this in Gurobi?</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}
+\text{s.t.}  &amp; \sum_{i} &amp; y^k_{i}&amp;=d^k &amp; &amp; \hspace{.2cm} \text{(total supplies sent must meet demand)}\\\end{split}\\\begin{split}&amp; &amp; y^k_i       &amp;\leq x_i &amp; \forall i \in I&amp; \hspace{.2cm}\text{(you can't send more than a warehouse has)}\\\end{split}\\\begin{split} &amp;\text{} &amp; y^k_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't send negative supplies)}\\
+\hline \\
+  &amp; \sum_{i} &amp; x_i&amp;=\chi &amp; &amp; \hspace{.2cm} \text{(we allocate all supplies and no more)}\\\end{split}\\\begin{split} &amp;&amp; x_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't allocate negative supplies)}\\\end{split}\\
+\end{aligned}
+\end{aligned}\end{align} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)</span> <span class="c1">#number of disasters/scenarios</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">distanceMatrix_scenarios</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;scenario&#39;</span><span class="p">,</span> <span class="s1">&#39;warehouse&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">warehouses</span><span class="p">[</span><span class="s1">&#39;Buckets&#39;</span><span class="p">][</span><span class="n">warehouses</span><span class="p">[</span><span class="s1">&#39;Buckets&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1">#number of warehouses</span>
+
+<span class="n">model_full</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;full_allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Amount to take per warehouse</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">model_full</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Single_Warehouse_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># National allocation</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">model_full</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;National_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Total national endowment constraint</span>
+<span class="n">model_full</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Total_National_Endowment&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add constraints to meet demand for each disaster scenario (k)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">model_full</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># Cannot allocate more than amount assigned to warehouse</span>
+    <span class="c1"># x is now a decision variable</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">model_full</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">_I:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Objective function to minimize the weighted driving time using t as a parameter</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimize model</span>
+<span class="n">model_full</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
+<span class="n">model_full</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 24.4.0 24E263)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU model: Apple M1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimize a model with 485 rows, 483 columns and 1407 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model fingerprint: 0x8817cae8
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient statistics:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Matrix range     [1e+00, 1e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Objective range  [5e-02, 2e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Bounds range     [0e+00, 0e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  RHS range        [2e+02, 4e+04]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve time: 0.00s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolved: 485 rows, 483 columns, 1407 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration    Objective       Primal Inf.    Dual Inf.      Time
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0    3.4281409e+04   5.415380e+05   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     272    3.4027302e+05   0.000000e+00   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solved in 272 iterations and 0.01 seconds (0.00 work units)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal objective  3.402730155e+05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_values_full</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">y_values_full</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">y</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span><span class="o">.</span><span class="n">X</span><span class="p">])</span>
+<span class="n">y_values_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_values_full</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Warehouse&#39;</span><span class="p">,</span> <span class="s1">&#39;Buckets&#39;</span><span class="p">])</span>
+<span class="n">y_values_full</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Warehouse</th>
+      <th>Buckets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Single_Warehouse_Allocation[0,0]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Single_Warehouse_Allocation[0,1]</td>
+      <td>18673.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Single_Warehouse_Allocation[0,2]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Single_Warehouse_Allocation[0,3]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Single_Warehouse_Allocation[0,4]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>Single_Warehouse_Allocation[21,16]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>458</th>
+      <td>Single_Warehouse_Allocation[21,17]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>459</th>
+      <td>Single_Warehouse_Allocation[21,18]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>460</th>
+      <td>Single_Warehouse_Allocation[21,19]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>461</th>
+      <td>Single_Warehouse_Allocation[21,20]</td>
+      <td>10124.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>462 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_values</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;full_solution.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y_values</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;full_solution.csv&quot;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;y_values&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Second ESUPS example model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#full-model">Full Model</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gurobi Optimization
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Gurobi Optimization, LLC.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

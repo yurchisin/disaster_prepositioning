@@ -32,9 +32,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b93f807" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -62,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Production Code" href="disaster_prepositioning_4.html" />
+    <link rel="next" title="2.A Introduction to Modeling Optimization Problems" href="disaster_prepositioning_3_A.html" />
     <link rel="prev" title="The Setup" href="disaster_prepositioning_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,7 +180,13 @@
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_0.html">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_1.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">The Setup</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Optimizing!</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Optimizing!</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_A.html">2.A Introduction to Modeling Optimization Problems</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_B.html">3.B More On Expected Value</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_4.html">Production Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_5.html">Wrapping It Up</a></li>
 
@@ -331,46 +338,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-gurobi-models">Introduction to Gurobi Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-answer-key">Problem 1 Answer Key</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-answer-key">Problem 2 Answer Key</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">2.2 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">3.1 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make The model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">Including All Disasters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accounting-for-randomness">Accounting for Randomness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-expected-value">More On Expected Value</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip">Coin Flip:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip-varient">Coin Flip Varient:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-dice-game">Simple Dice Game:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-coin-game">Two-Coin Game:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-problems">Intermediate Problems</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-extension-problems">Advanced Extension Problems</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">2.3 Including All Disasters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accounting-for-randomness">2.4 Accounting for Randomness</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The Model</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-extension">2.5 Data Science Extension</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-results">Processing the Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-final-tidbits">A Few Final Tidbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-results-2-stage-slp">2.6 Processing the Results: 2-Stage SLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-final-tidbits">2.7 A Few Final Tidbits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-ended-implementation">Open-Ended Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-solution">Interpreting the Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-solution">2.8 Interpreting the Solution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancing-system-performance-with-the-balance-metric">Enhancing System Performance with the Balance Metric</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-calculation-of-the-balance-metric">Definition and Calculation of the Balance Metric</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-the-balance-metric">Interpretation of the Balance Metric</a></li>
@@ -392,552 +375,61 @@ document.write(`
                   
   <section id="optimizing">
 <h1>Optimizing!<a class="headerlink" href="#optimizing" title="Link to this heading">#</a></h1>
-<section id="introduction-to-gurobi-models">
-<h2>Introduction to Gurobi Models<a class="headerlink" href="#introduction-to-gurobi-models" title="Link to this heading">#</a></h2>
-<p>Before we get into anything too deep, let’s first take a general look at how optimization works. It’s broken down into two main parts: <strong>The objective function</strong> (what we want to solve), and the <strong>constraints</strong> (what limits our input).</p>
-<p>The <strong>objective function</strong> tells the program what we want to do, think maximizing profit or minimizing travel time. Let’s say in this example, you’re buying <span class="math notranslate nohighlight">\(x\)</span> hotdogs and <span class="math notranslate nohighlight">\(y\)</span> soda cans. You like both equally, and you want as much as possible. So, our <strong>objective function</strong> would look like this:</p>
-<div class="math notranslate nohighlight">
-\[\text{Maximize} \hspace{.2cm} 	x	+	y \]</div>
-<p>Now we obviously would want to just make both x and y infinite, but in the real world that obviously isn’t allowed, so we need a way to <strong>constrain</strong> the objective function. Let’s say in this example a hotdog cost <span class="math notranslate nohighlight">\(3 and a soda costs \)</span>1.50 and you don’t want to spend more than $20. We would write:</p>
-<p>\begin{aligned}
-3x	+ 1.50y 	&amp;\leq \hspace{.2cm} 20 \
-x	 	 	&amp;\ge \hspace{.2cm}	0 \
-y	 	 	&amp;\ge \hspace{.2cm}	0 \
-\end{aligned}</p>
-<p>Putting these together we would typically write the final equation as:</p>
-<p>\begin{aligned}
-\text{Maximize} \space	x	+	y \
-3x	+ 1.50y 	&amp;\leq \hspace{.2cm} 20 \
-x	 	 	&amp;\ge 	0 \
-y	 	 	&amp;\ge 	0 \
-\end{aligned}</p>
-<p>If you’re intimidated by the math don’t worry, the notation is a formal way to ask how much to buy. Just like machine learning algorithms, while the underlying math can be intimidating, actually applying it is much easier as most of that is abstracted away by the API.</p>
-<p>So how do we go about solving this? It’s easy, there are three steps:</p>
-<p><strong>1. Instantiate The Solver</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_1</span><span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">model_1</span><span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> 
-
-<span class="ne">NameError</span>: name &#39;gp&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>2. Add Our variables</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create variables</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">model_1</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">model_1</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>3. Add Our Constraints</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_1</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;c0&quot;</span><span class="p">)</span>
-<span class="n">model_1</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;c0&quot;</span><span class="p">)</span>
-<span class="n">model_1</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;c1&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;gurobi.Constr *Awaiting Model Update*&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>4. Add Our Objective Function</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set objective</span>
-<span class="n">model_1</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MAXIMIZE</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>5. Solve!</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimize model</span>
-<span class="n">model_1</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 23.6.0 23G80)
-
-CPU model: Apple M1
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 3 rows, 2 columns and 4 nonzeros
-Model fingerprint: 0x0d7a692e
-Variable types: 0 continuous, 2 integer (0 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 3e+00]
-  Objective range  [1e+00, 1e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [2e+01, 2e+01]
-Found heuristic solution: objective 7.0000000
-Presolve removed 3 rows and 2 columns
-Presolve time: 0.01s
-Presolve: All rows and columns removed
-
-Explored 0 nodes (0 simplex iterations) in 0.01 seconds (0.00 work units)
-Thread count was 1 (of 8 available processors)
-
-Solution count 2: 13 7 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 1.300000000000e+01, best bound 1.300000000000e+01, gap 0.0000%
-</pre></div>
-</div>
-</div>
-</div>
-<p>From here we can get all the variables in the model and print their values</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Show Solution</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model_1</span><span class="o">.</span><span class="n">getVars</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obj: </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">model_1</span><span class="o">.</span><span class="n">ObjVal</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x -0
-y 13
-Obj: 13
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_2</span><span class="o">=</span><span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
-<span class="c1"># Create variables</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-
-<span class="c1">#add constraints</span>
-<span class="n">model_2</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;hotdog_lower_bound&quot;</span><span class="p">)</span>
-<span class="n">model_2</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;soda_lower_bound&quot;</span><span class="p">)</span>
-<span class="n">model_2</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;hotdog_upper_bound&quot;</span><span class="p">)</span>
-<span class="n">model_2</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;soda_upper_bound&quot;</span><span class="p">)</span>
-<span class="n">model_2</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;c1&quot;</span><span class="p">)</span>
-
-<span class="n">model_2</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MAXIMIZE</span><span class="p">)</span>
-
-<span class="n">model_2</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 23.6.0 23G80)
-
-CPU model: Apple M1
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 5 rows, 2 columns and 6 nonzeros
-Model fingerprint: 0xf66347ca
-Variable types: 0 continuous, 2 integer (0 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 3e+00]
-  Objective range  [1e+00, 2e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [5e+00, 2e+01]
-Found heuristic solution: objective 13.0000000
-Presolve removed 5 rows and 2 columns
-Presolve time: 0.00s
-Presolve: All rows and columns removed
-
-Explored 0 nodes (0 simplex iterations) in 0.01 seconds (0.00 work units)
-Thread count was 1 (of 8 available processors)
-
-Solution count 1: 13 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 1.300000000000e+01, best bound 1.300000000000e+01, gap 0.0000%
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Show Solution</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model_2</span><span class="o">.</span><span class="n">getVars</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obj: </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">model_2</span><span class="o">.</span><span class="n">ObjVal</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x 4
-y 5
-Obj: 13
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Now you Try!</strong></p>
-<p>Now that we’ve introduced the basics, let’s try some more problems. They look slightly different from our first example, but hopefully, they’ll help you to identify the objective function and constraints. There are some practice questions to help you along as you go, so don’t be afraid to make guesses and experiment!</p>
+<p>Before we dive into modeling the ESUPS optimization problem, here is quick overview of some sub-notebooks provided:</p>
 <ul class="simple">
-<li><p><strong>Note:</strong> from here on out in the notebook we will note explicitly say our decision variables must be positive (ex. <span class="math notranslate nohighlight">\(x&gt;0\)</span>) as Gurobi sets this value by default when we declare variables. This can be modified, but in most applications the decision variable is positive.</p></li>
+<li><p>3.A Introduction to Modeling Optimization Problems</p></li>
+<li><p>3.B More on Expected Value</p></li>
 </ul>
-<section id="problem-1">
-<h3>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h3>
-<p>Problem Statement:
-Problem Statement: Imagine you are managing disaster relief efforts, and you need to allocate resources between two critical supplies: water bottles (<span class="math notranslate nohighlight">\(w\)</span>) and emergency food packs (<span class="math notranslate nohighlight">\(f\)</span>). Your goal is to maximize the number of relief items delivered to an affected area.</p>
-<ul class="simple">
-<li><p>Each water bottle provides essential hydration and is valued at 3 units of relief.</p></li>
-<li><p>Each food pack provides vital nutrition and is valued at 5 units of relief.</p></li>
-</ul>
-<p>However, you face the following constraints:</p>
-<ol class="arabic simple">
-<li><p>You have a total cargo space that can carry up to 100 units.</p></li>
-<li><p>Each water bottle takes up 2 units of cargo space.</p></li>
-<li><p>Each food pack takes up 4 units of cargo space.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">problem_1</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> 1) What is the Objective Function? </span>
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9665738424c14537879eaba040d2af80", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "34f723bae1c642d7bcd2cd69ef97469b", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "adb54e190f594e50bdd7fea1905a9797", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> 2) Which equation represents the cargo space constraint? </span>
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "361d1896876e4890b0e5913b46a9739e", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "15aff1f906af48d59715a66d5d3a6d9f", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e1be915b192b4162ac3f921244cf44b7", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> 3) Which equation represents the limit on the number of food packs? </span>
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "348da42a25044b5ab7b5ea17b3f9b2a4", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "69b2f1a9a492410e805e8e469ef4ec9d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "df8f0e21eee34e9e96def634016db6f1", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Great, now try to implement it! Remember you can always look back at the last section and if you get stuck.  We also have the answer key available as you scroll further down (so try not to read ahead)!</p>
-<p><strong>1. Instantiate The Solver</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Instantiate Here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>2 Add the Variables</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Add Vars Here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>3 Add the Constraints</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Add Constraints Here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>4 Add the Objective Function</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Add Obj. Func. Here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>5 Solve!</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve Here!</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="problem-1-answer-key">
-<h4>Problem 1 Answer Key<a class="headerlink" href="#problem-1-answer-key" title="Link to this heading">#</a></h4>
-<p>Remember, this is one possible solution, just because your code doesn’t look identical, doesn’t mean it’s wrong!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1 Instantiate The Solver</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s1">&#39;DisasterReliefAllocation&#39;</span><span class="p">)</span>
-
-<span class="c1">#2 Add the variables for the number of water bottles (w) and food packs (f)</span>
-<span class="n">w</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;WaterBottles&#39;</span><span class="p">)</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;FoodPacks&#39;</span><span class="p">)</span>
-
-<span class="c1">#3 Add the constraint for the total cargo space</span>
-<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;CargoSpace&#39;</span><span class="p">)</span>
-
-<span class="c1">#4 Add the objective function: Maximize the total value of relief items</span>
-<span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">f</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MAXIMIZE</span><span class="p">)</span>
-
-<span class="c1">#5 Optimize the model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
-
-<span class="c1"># Print the optimal solution</span>
-<span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">GRB</span><span class="o">.</span><span class="n">OPTIMAL</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal number of Water Bottles (w): </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal number of Food Packs (f): </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum Relief Value: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">objVal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No optimal solution found.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 23.6.0 23G80)
-
-CPU model: Apple M1
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 1 rows, 2 columns and 2 nonzeros
-Model fingerprint: 0x451e4b4f
-Variable types: 0 continuous, 2 integer (0 binary)
-Coefficient statistics:
-  Matrix range     [2e+00, 4e+00]
-  Objective range  [3e+00, 5e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [1e+02, 1e+02]
-Found heuristic solution: objective 150.0000000
-Presolve removed 1 rows and 2 columns
-Presolve time: 0.00s
-Presolve: All rows and columns removed
-
-Explored 0 nodes (0 simplex iterations) in 0.01 seconds (0.00 work units)
-Thread count was 1 (of 8 available processors)
-
-Solution count 1: 150 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 1.500000000000e+02, best bound 1.500000000000e+02, gap 0.0000%
-Optimal number of Water Bottles (w): 50
-Optimal number of Food Packs (f): 0
-Maximum Relief Value: 150.0
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="problem-2">
-<h3>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h3>
-<p>Before diving into the next example, we wanted to take a second to mention a great resource by an expert on the Gurobi team talking about implementing models. It’s a little more comprehensive than our current examples, but if you want to see how an expert thinks about this problem, <a class="reference external" href="https://www.gurobi.com/resources/optimization-modeling-the-art-of-not-making-it-an-art/">it’s incredibly useful!</a></p>
-<ul class="simple">
-<li><p><strong>Note:</strong> NOTE: The following example is based on examples from <a class="reference external" href="https://www.gurobi.com/resources/intro-to-optimization-through-the-lens-of-data-science/">Gurobi’s MOOC for Udemy</a></p></li>
-</ul>
-<p>A non-govermental-organization (NGO) and a manufacturing firm are partnering up to produce supplies to prepare for hurricane season. The NGO predicts that there will be a maximum demand of up to 100 packs of blankets, 70 packs of towels, and 40 packs of sleeping bags. Let’s say making these items requires two precision machining steps: weaving and packaging. The table below shows how many minutes are to produce each type of disaster relief item:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>Weaving</p></th>
-<th class="head"><p>Packaging</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Blankets</p></td>
-<td><p>10</p></td>
-<td><p>15</p></td>
-</tr>
-<tr class="row-odd"><td><p>Towels</p></td>
-<td><p>8</p></td>
-<td><p>18</p></td>
-</tr>
-<tr class="row-even"><td><p>Sleeping Bags</p></td>
-<td><p>12</p></td>
-<td><p>17</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>To allow for maintenance and downtime, the company does not want to run its machines beyond a certain limit. The total time available on the machines is 2,500 hours for weaving and 2,000 hours for packaging.</p>
-<p>Once items are manufactured, they go to a quality control tester. They are contracted to test exactly 150 items for this upcoming season, no more and no less. Therefore, the company must manufacture exactly 150 items.</p>
-<p>Now for the final step, let’s consider how many people each pack of items can satisfy:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>People Served</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Blankets</p></td>
-<td><p>6</p></td>
-</tr>
-<tr class="row-odd"><td><p>Towels</p></td>
-<td><p>7</p></td>
-</tr>
-<tr class="row-even"><td><p>Sleeping Bags</p></td>
-<td><p>10</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Implement your solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="problem-2-answer-key">
-<h4>Problem 2 Answer Key<a class="headerlink" href="#problem-2-answer-key" title="Link to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;instrument&quot;</span><span class="p">)</span> 
- 
-<span class="c1"># make decision Var</span>
-<span class="c1"># this is the qunatity of each instrument</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span> 
-<span class="n">m</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">7</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">GRB</span><span class="o">.</span><span class="n">MAXIMIZE</span><span class="p">)</span> 
-
-<span class="n">m</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Weaving&#39;</span><span class="p">)</span> 
-<span class="n">m</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">18</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">17</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2400</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Packaging&#39;</span><span class="p">)</span> 
-<span class="n">m</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">150</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Total_Supplies&#39;</span><span class="p">)</span> 
- 
-<span class="n">m</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;max_100_Blankets_demand&#39;</span><span class="p">)</span> 
-<span class="n">m</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">70</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;max_70_Towels_demand&#39;</span><span class="p">)</span> 
-<span class="n">m</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;max_40_SleepBags_demand&#39;</span><span class="p">)</span> 
-<span class="n">m</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 23.6.0 23G80)
-
-CPU model: Apple M1
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 6 rows, 3 columns and 12 nonzeros
-Model fingerprint: 0x00f9ccc8
-Variable types: 0 continuous, 3 integer (0 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 2e+01]
-  Objective range  [6e+00, 1e+01]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [4e+01, 2e+03]
-Presolve removed 6 rows and 3 columns
-Presolve time: 0.00s
-Presolve: All rows and columns removed
-
-Explored 0 nodes (0 simplex iterations) in 0.01 seconds (0.00 work units)
-Thread count was 1 (of 8 available processors)
-
-Solution count 1: 1083 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 1.083000000000e+03, best bound 1.083000000000e+03, gap 0.0000%
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Show Solution</span>
-<span class="n">a</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">getVars</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">))</span>
-    <span class="n">a</span><span class="o">+=</span><span class="n">v</span><span class="o">.</span><span class="n">X</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obj: </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">m</span><span class="o">.</span><span class="n">ObjVal</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x[0] 87
-x[1] 23
-x[2] 40
-Obj: 1083
-150.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binding</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">getConstrs</span><span class="p">()</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Slack</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">binding</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;gurobi.Constr Total_Supplies&gt;, &lt;gurobi.Constr max_40_SleepBags_demand&gt;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">getConstrs</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">Slack</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>466.0
-1.0
-0.0
-13.0
-47.0
-0.0
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-</section>
 <section id="intro-to-the-esups-optimization-model">
-<h2>2.2 Intro to the ESUPS Optimization Model<a class="headerlink" href="#intro-to-the-esups-optimization-model" title="Link to this heading">#</a></h2>
-<p>Now that you’re familiar with the basics, let’s start looking at the actual model. We’ll start with a simplified version of the model, and we’ll build from there.</p>
-<p>Consider the scenario where we’re expecting to have a disaster and want to pre-position supplies in order to respond as quickly as possible. Perhaps it’s hurricane season or a volcano has been showing increasing activity. As we have seen in past problems, we have to set up the variables, constraints, and objective functions. So first let’s define our decision variables, i.e. the things we can vary.</p>
-<p>Let:</p>
+<h2>3.1 Intro to the ESUPS Optimization Model<a class="headerlink" href="#intro-to-the-esups-optimization-model" title="Link to this heading">#</a></h2>
+<p>We’ll start with a simplified version of the model, and we’ll build from there.</p>
+<p>Consider the scenario where we’re expecting to have a disaster and want to pre-position supplies in order to respond as quickly as possible. Perhaps it’s hurricane season or a volcano has been showing increasing activity. As we have seen in past problems, we have to set up the variables, constraints, and objective functions.</p>
+<p>First, we list the input data we have:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\tau_{ij}\)</span> be the time to ship a single item from warehouse <span class="math notranslate nohighlight">\(i\)</span> to the disaster</p></li>
-<li><p><span class="math notranslate nohighlight">\(y_i\)</span> be the amount of supplies to send from warehouse <span class="math notranslate nohighlight">\(i\)</span> to our disaster</p></li>
-<li><p><span class="math notranslate nohighlight">\(x_i\)</span> be the starting inventory at each warehouse</p></li>
-<li><p><span class="math notranslate nohighlight">\(d\)</span> be the demand for an item</p></li>
+<li><p><span class="math notranslate nohighlight">\(I\)</span> is the set of warehouses</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau_i\)</span> is the time to ship a single item from warehouse <span class="math notranslate nohighlight">\(i \in I\)</span> to the disaster</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_i\)</span> is the starting inventory (supply) at each warehouse <span class="math notranslate nohighlight">\(i \in I\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d\)</span> is the demand we need to satisfy, i.e., the number of items we need to ship to the disaster</p></li>
+</ul>
+<p>Then, let’s define our decision variables, i.e. the things we can vary.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_i\)</span> is the amount of supplies to send from warehouse <span class="math notranslate nohighlight">\(i \in I\)</span> to our disaster</p></li>
 </ul>
 <p>Now that we have described what we can change with our variables, we can figure out how to represent the objective function!
-$$
-\min_y \sum_i \tau_{i}\cdot y_i</p>
-<p>$$</p>
-<p>and the constraints are:</p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-\begin{aligned}\\\begin{split}
-\text{s.t.}  &amp; \sum_{i} &amp; y_{i}&amp;=d &amp; &amp; \hspace{.2cm} \text{(total supplies sent must meet demand)}\\\end{split}\\\begin{split}&amp; &amp; y_i       &amp;\leq x_i &amp; \forall i \in I&amp; \hspace{.2cm}\text{(you can't send more than a warehouse has)}\\\end{split}\\ &amp;\text{} &amp; y_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't send negative supplies)}
+$<span class="math notranslate nohighlight">\(
+\min \sum_{i \in I} \tau_{i} \cdot y_i
+\)</span><span class="math notranslate nohighlight">\(
+and the constraints are:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{s.t.}  &amp; \sum_{i \in I} &amp; y_{i} &amp; = d &amp; &amp; \quad \text{(total supplies sent must meet demand)}\\
+&amp; &amp; y_i       &amp; \leq s_i &amp; \forall i \in I &amp; \quad \text{(you can't send more than a warehouse has)}\\
+ &amp;\text{} &amp; y_{i} &amp; \geq 0 &amp;\forall i \in I &amp; \quad \text{(you can't send negative supplies)}
 \end{aligned}
-\end{aligned}\end{align} \]</div>
+\)</span>$</p>
 <p>So now let’s solve this model.</p>
 <section id="make-the-model">
 <h3>Make The model<a class="headerlink" href="#make-the-model" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#prep distance matrix</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
+
+<span class="c1"># prep distance matrix</span>
 <span class="n">df_distance</span><span class="p">,</span> <span class="n">relevant_warehouses</span><span class="p">,</span> <span class="n">BucketsNeeded</span> <span class="o">=</span> <span class="n">get_distance_matrix</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
 
 <span class="c1"># Create model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;simple_Allocation&quot;</span><span class="p">)</span> 
+<span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;simple_Allocation&quot;</span><span class="p">)</span>
 
-<span class="c1">#Add Decision Var</span>
-<span class="n">y</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
+<span class="c1"># Add decision variables</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
 
-<span class="c1">#Add constraint to meet demand</span>
-<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">==</span><span class="n">BucketsNeeded</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Meet_Demand&#39;</span><span class="p">)</span>
+<span class="c1"># Add constraint to meet demand</span>
+<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">BucketsNeeded</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Meet_Demand&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># Add in warehouse_constraints</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">supplies</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">):</span>
@@ -946,44 +438,23 @@ $$
 <span class="c1"># Add objective</span>
 <span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+
+<span class="c1"># Solve the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 23.6.0 23G80)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># prep distance matrix</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df_distance</span><span class="p">,</span> <span class="n">relevant_warehouses</span><span class="p">,</span> <span class="n">BucketsNeeded</span> <span class="o">=</span> <span class="n">get_distance_matrix</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">t</span> <span class="o">=</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
 
-CPU model: Apple M1
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 33 rows, 32 columns and 48 nonzeros
-Model fingerprint: 0xfec0ae5a
-Model has 16 quadratic objective terms
-Variable types: 0 continuous, 32 integer (0 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [0e+00, 0e+00]
-  QObjective range [2e+00, 2e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [3e+00, 1e+04]
-Presolved: 1 rows, 13 columns, 13 nonzeros
-
-Continuing optimization...
-
-
-Explored 1 nodes (1 simplex iterations) in 0.01 seconds (0.00 work units)
-Thread count was 8 (of 8 available processors)
-
-Solution count 3: 98293 185480 185541 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 9.829300000000e+04, best bound 9.829300000000e+04, gap 0.0000%
+<span class="ne">NameError</span>: name &#39;get_distance_matrix&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -991,159 +462,20 @@ Best objective 9.829300000000e+04, best bound 9.829300000000e+04, gap 0.0000%
 <p>Now Let’s Anaylize the results!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Show Solution</span>
-<span class="n">b</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">dis</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">(),</span><span class="n">relevant_warehouses</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">df_distance</span><span class="p">[</span><span class="s1">&#39;drivingTime_hrs&#39;</span><span class="p">])):</span>
-    <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span><span class="o">==</span> <span class="s1">&#39;Warehouse_Allocation&#39;</span><span class="p">:</span>
-        <span class="c1">#print(&#39;%s %g | total= %g | distance=%g&#39; % (v.VarName, v.X,total[2],dis))</span>
-        <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">,</span><span class="n">total</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">dis</span><span class="p">])</span>
-<span class="n">b</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">b</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Var&#39;</span><span class="p">,</span><span class="s1">&#39;amount&#39;</span><span class="p">,</span><span class="s1">&#39;possible&#39;</span><span class="p">,</span><span class="s1">&#39;distance&#39;</span> <span class="p">]</span>
-<span class="n">b</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show Solution</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">dis</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">(),</span> <span class="n">relevant_warehouses</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_distance</span><span class="p">[</span><span class="s2">&quot;drivingTime_hrs&quot;</span><span class="p">])</span>
+<span class="p">):</span>
+    <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">:</span>
+        <span class="c1"># print(&#39;%s %g | total= %g | distance=%g&#39; % (v.VarName, v.X,total[2],dis))</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">total</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">dis</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Var&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">,</span> <span class="s2">&quot;possible&quot;</span><span class="p">,</span> <span class="s2">&quot;distance&quot;</span><span class="p">]</span>
+<span class="n">b</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;distance&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Var</th>
-      <th>amount</th>
-      <th>possible</th>
-      <th>distance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>Warehouse_Allocation[1]</td>
-      <td>26.0</td>
-      <td>26</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Warehouse_Allocation[4]</td>
-      <td>9046.0</td>
-      <td>9046</td>
-      <td>6.00</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Warehouse_Allocation[11]</td>
-      <td>3.0</td>
-      <td>3</td>
-      <td>7.00</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Warehouse_Allocation[14]</td>
-      <td>1580.0</td>
-      <td>1580</td>
-      <td>8.00</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Warehouse_Allocation[5]</td>
-      <td>610.0</td>
-      <td>610</td>
-      <td>10.00</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Warehouse_Allocation[2]</td>
-      <td>-0.0</td>
-      <td>41</td>
-      <td>11.00</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Warehouse_Allocation[7]</td>
-      <td>2296.0</td>
-      <td>6689</td>
-      <td>11.00</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Warehouse_Allocation[0]</td>
-      <td>0.0</td>
-      <td>375</td>
-      <td>14.00</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Warehouse_Allocation[9]</td>
-      <td>-0.0</td>
-      <td>2460</td>
-      <td>14.25</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Warehouse_Allocation[8]</td>
-      <td>0.0</td>
-      <td>150</td>
-      <td>16.00</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Warehouse_Allocation[12]</td>
-      <td>-0.0</td>
-      <td>736</td>
-      <td>16.00</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Warehouse_Allocation[10]</td>
-      <td>-0.0</td>
-      <td>4235</td>
-      <td>17.00</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Warehouse_Allocation[6]</td>
-      <td>-0.0</td>
-      <td>5201</td>
-      <td>19.00</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Warehouse_Allocation[15]</td>
-      <td>-0.0</td>
-      <td>1637</td>
-      <td>22.00</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Warehouse_Allocation[13]</td>
-      <td>-0.0</td>
-      <td>5700</td>
-      <td>23.00</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Warehouse_Allocation[3]</td>
-      <td>-0.0</td>
-      <td>2322</td>
-      <td>26.00</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Now you may have noticed that this feels like overkill. If we want to position supplies to respond to a known disaster, you might think that we should just put them as close as possible. It’s an intuitive solution that can be solved with a simple greedy algorithm. But of course, life is never that simple.</p>
 <p>Now that we’ve got the initial problem outlined, let’s start making it more realistic with two additions:</p>
@@ -1157,7 +489,7 @@ Best objective 9.829300000000e+04, best bound 9.829300000000e+04, gap 0.0000%
 </section>
 </section>
 <section id="including-all-disasters">
-<h2>Including All Disasters<a class="headerlink" href="#including-all-disasters" title="Link to this heading">#</a></h2>
+<h2>2.3 Including All Disasters<a class="headerlink" href="#including-all-disasters" title="Link to this heading">#</a></h2>
 <p>Before we begin, let’s explicitly define our new problem with the additional requirements outlined in the previous section so we’re all on the same page. Our first step is to add in the fact that there are more disasters than just one. We can do that by including a variable to denote which disaster we’re talking about</p>
 <p>Let:</p>
 <ul class="simple">
@@ -1179,146 +511,11 @@ Best objective 9.829300000000e+04, best bound 9.829300000000e+04, gap 0.0000%
 <p>Before we get to solving, let’s add in one more small factor. Different disasters occur at different rates. A landlocked nation may be less likely to experience a disaster caused by a tropical storm than an earthquake, so shouldn’t we weigh the response time to earthquakes more than that of a storm?</p>
 </section>
 <section id="accounting-for-randomness">
-<h2>Accounting for Randomness<a class="headerlink" href="#accounting-for-randomness" title="Link to this heading">#</a></h2>
+<h2>2.4 Accounting for Randomness<a class="headerlink" href="#accounting-for-randomness" title="Link to this heading">#</a></h2>
 <p>One of the most difficult tasks that we can encounter in data science problems is randomness or as it’s often called “stochastic” elements. This can be seen in all kinds of ways, but in our case study, we’re going to look at how we account for not knowing which disaster will hit next or even several years in the future. The way we do this is to create a stochastic model, which may initially seem intimidating, but in discrete events like this, it’s super easy.</p>
 <p>If you’re familiar with expected value this will quickly make sense, but no need to have any prior experience! The idea is that we weigh the outcome of the event (i.e. total travel time in this case) by the probability it occurs. So, if an earthquake is 3 times as likely as a flood, we would rewrite the equation as:</p>
 <div class="math notranslate nohighlight">
 \[.75 \cdot\text{(travel time earthquake)} + .25 \cdot\text{(travel time flood)} \]</div>
-<section id="more-on-expected-value">
-<h3>More On Expected Value<a class="headerlink" href="#more-on-expected-value" title="Link to this heading">#</a></h3>
-<p>If you haven’t seen expected value before or if it’s just a been a while and you’d like a refresher, try some of the practice problems below!</p>
-<p>When we solve expected value for discrete outcomes, we take the value/outcome/payoff of each possible event and discount it by the probability that it actually occurs. So it follows the form</p>
-<div class="math notranslate nohighlight">
-\[
-E[X]=p_1(x_1)+p_2(x_2)+ ... + p_n(x_n)
-\]</div>
-<p>To simplify this notation we typically write this as a series:</p>
-<div class="math notranslate nohighlight">
-\[
-E[X]=\sum_{i=1}^{i=n} p_i \cdot x_i
-\]</div>
-<p>Try some of the problems below to get a better feel for it!</p>
-<p><strong>Starter Problems</strong></p>
-<section id="coin-flip">
-<h4>Coin Flip:<a class="headerlink" href="#coin-flip" title="Link to this heading">#</a></h4>
-<p>Suppose we play a coin flipping game. Every time we flip the coin and it lands on heads, you get a dollar, and every time it lands on tails, you have to pay a dollar. How much are you expected to make or lose when playing this game?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q_3_1</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> 1) What is the Objective Function? </span>
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5fdae22271cf48789dc0fd35180320c8", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "fa0898d5db0a4eb181b6acb3c3a78825", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "334b1d4f419344a28bb421d64457b720", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-</section>
-<section id="coin-flip-varient">
-<h4>Coin Flip Varient:<a class="headerlink" href="#coin-flip-varient" title="Link to this heading">#</a></h4>
-<p>Now, let’s change the game a little, say you now get 5 paid dollars when the coin lands on heads and only have to pay 3 dollars when it lands on tails. Would you play? How much are you expected to make or lose when playing this game?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q_3_2</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold"> 1) What is the Objective Function? </span>
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4fad507aa29242c189e56dfa436d6599", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "3e40781cb87e476f8264dce0878a42eb", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "6f10f550a65b4565b18ea8c58f07d3c7", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-</section>
-<section id="simple-dice-game">
-<h4>Simple Dice Game:<a class="headerlink" href="#simple-dice-game" title="Link to this heading">#</a></h4>
-<p>Suppose you roll a fair six-sided die. If it lands on 6, you win <span class="math notranslate nohighlight">\(10; otherwise, you lose \)</span>2. What is the expected value of this game? Should you play it?</p>
-</section>
-<section id="solution">
-<h4>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-E[X] &amp;= \left(\frac{1}{6} \times 10\right) + \left(\frac{5}{6} \times (-2)\right)
-\\
-E[X] &amp;= \left(\frac{10}{6}\right) + \left(\frac{-10}{6}\right)
-\\
-E[X] &amp;= \frac{10 - 10}{6} = 0
-\end{aligned}
-\end{split}\]</div>
-<p><strong>Answer</strong>: The expected value is <span class="math notranslate nohighlight">\(\$0\)</span>. This means, on average, you neither gain nor lose money from playing this game.</p>
-</section>
-<section id="two-coin-game">
-<h4>Two-Coin Game:<a class="headerlink" href="#two-coin-game" title="Link to this heading">#</a></h4>
-<p>You flip two fair coins. If both coins land on heads, you win <span class="math notranslate nohighlight">\(8. If one coin lands on heads and the other on tails, you win \)</span>4. If both coins land on tails, you lose $5. What is the expected value of playing this game?</p>
-</section>
-<section id="id1">
-<h4>Solution:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>Probability of two heads (HH): <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span></p></li>
-<li><p>Probability of one head and one tail (HT or TH): <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span></p></li>
-<li><p>Probability of two tails (TT): <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span></p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}
-\begin{aligned}
-E[X] &amp;= \left(\frac{1}{4} \times 8\right) + \left(\frac{1}{2} \times 4\right) + \left(\frac{1}{4} \times (-5)\right)
-\\
-E[X] &amp;= \left(2\right) + \left(2\right) + \left(-1.25\right)
-\\
-E[X] &amp;= 2 + 2 - 1.25 = 2.75\end{split}\\\end{aligned}
-\end{aligned}\end{align} \]</div>
-<p><strong>Answer</strong>: The expected value is <span class="math notranslate nohighlight">\(\$2.75\)</span>. This means, on average, you gain <span class="math notranslate nohighlight">\(\$2.75\)</span> per game.</p>
-</section>
-<section id="intermediate-problems">
-<h4>Intermediate Problems<a class="headerlink" href="#intermediate-problems" title="Link to this heading">#</a></h4>
-<p><strong>Custom Die Game:</strong>
-Imagine a custom die with faces labeled 1, 2, 3, 4, 5, and 6. Each face has a different probability: (P(1) = 0.1), (P(2) = 0.2), (P(3) = 0.15), (P(4) = 0.25), (P(5) = 0.2), and (P(6) = 0.1). If the outcome of the die is 1, you win <span class="math notranslate nohighlight">\(2; for a 2, you win \)</span>4; for a 3, you win <span class="math notranslate nohighlight">\(6; for a 4, you lose \)</span>3; for a 5, you lose <span class="math notranslate nohighlight">\(7; and for a 6, you lose \)</span>5. What is the expected value of this game?</p>
-</section>
-<section id="id2">
-<h4>Solution:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-\begin{aligned}
-E[X] &amp;= (0.1 \times 2) + (0.2 \times 4) + (0.15 \times 6) + (0.25 \times -3) + (0.2 \times -7) + (0.1 \times -5)\\\begin{split}\\
-E[X] &amp;= (0.2) + (0.8) + (0.9) + (-0.75) + (-1.4) + (-0.5)
-\\\end{split}\\E[X] &amp;= 1.9 - 2.65 = -0.75\\\end{aligned}
-\end{aligned}\end{align} \]</div>
-<p><strong>Answer</strong>:The expected value is <span class="math notranslate nohighlight">\(-\$0.75\)</span>. On average, you lose <span class="math notranslate nohighlight">\(75\)</span> cents per roll.</p>
-<p><strong>Card Drawing Game:</strong>
-You draw a card from a standard deck of 52 playing cards. If you draw an Ace, you win <span class="math notranslate nohighlight">\(15. If you draw a King, Queen, or Jack, you win \)</span>5. For any other card, you lose $3. What is the expected value of this game?</p>
-</section>
-<section id="id3">
-<h4>Solution:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p>Probability of drawing an Ace: <span class="math notranslate nohighlight">\(\frac{4}{52} = \frac{1}{13}\)</span></p></li>
-<li><p>Probability of drawing a King, Queen, or Jack: <span class="math notranslate nohighlight">\(\frac{12}{52} = \frac{3}{13}\)</span></p></li>
-<li><p>Probability of drawing any other card: <span class="math notranslate nohighlight">\(\frac{36}{52} = \frac{9}{13}\)</span></p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-\begin{aligned}\\\begin{split}E[X] &amp;= \left(\frac{1}{13} \times 15\right) + \left(\frac{3}{13} \times 5\right) + \left(\frac{9}{13} \times (-3)\right)
-\\\end{split}\\\begin{split}
-E[X] &amp;= \left(\frac{15}{13}\right) + \left(\frac{15}{13}\right) + \left(\frac{-27}{13}\right)
-\\\end{split}\\
-E[X] &amp;= \frac{15 + 15 - 27}{13} = \frac{3}{13}\\\begin{split}\\
-E[X] &amp;\approx 0.23\end{split}\\\end{aligned}
-\end{aligned}\end{align} \]</div>
-<p><strong>Answer</strong>: The expected value is approximately $0.23. On average, you gain 23 cents per draw.</p>
-</section>
-<section id="advanced-extension-problems">
-<h4>Advanced Extension Problems<a class="headerlink" href="#advanced-extension-problems" title="Link to this heading">#</a></h4>
-<ol class="arabic simple" start="5">
-<li><p><strong>Roulette Game:</strong>
-You bet <span class="math notranslate nohighlight">\(1 on a single number in a game of American Roulette. If the ball lands on your number, you win \)</span>35; otherwise, you lose your bet. There are 38 slots on an American Roulette wheel (numbers 1-36, 0, and 00). What is the expected value of this bet?</p></li>
-<li><p><strong>Insurance Policy:</strong>
-An insurance company sells a one-year term life insurance policy for <span class="math notranslate nohighlight">\(500 to a healthy 30-year-old. The policy pays \)</span>100,000 in case of death within the year. The probability of a healthy 30-year-old dying within a year is 0.001. What is the expected profit for the insurance company from selling this policy?</p></li>
-<li><p><strong>Stock Investment Scenario:</strong>
-Suppose you invest in a stock with three possible outcomes over a year: there is a 50% chance it will increase by 10%, a 30% chance it will decrease by 5%, and a 20% chance it will decrease by 15%. What is the expected value of the return on investment after one year?</p></li>
-</ol>
-</section>
-</section>
 <section id="the-model">
 <h3>The Model<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h3>
 <p>Now that we’ve had some background on expected value, let’s return to our model! Remeber out goal is to account for the inherent randomness associated with diffrent disaster occuring</p>
@@ -1356,8 +553,8 @@ $$</p>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Create an array of driving times based on the df_distance DataFrame</span>
-<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;drivingTime_hrs&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
-<span class="n">c</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;drivingTime_hrs&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
 <span class="c1"># Amount to take per Warehouse</span>
@@ -1366,16 +563,17 @@ $$</p>
 <span class="c1"># Add constraints to meet demand for each disaster scenario (k)</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
     <span class="c1"># Demand constraints</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+        <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
     <span class="c1"># Warehouse constraints</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">supplies</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">):</span>
         <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">supplies</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">_I:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># Objective function to minimize the weighted driving time using T as a parameter</span>
 <span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span>
-    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Optimize model</span>
@@ -1388,45 +586,6 @@ $$</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14, 0, 11, 26, 6, 10, 19, 11, 16, 14, 17, 7, 16, 23, 8, 22]
-Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 23.6.0 23G80)
-
-CPU model: Apple M1
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 1088 rows, 1024 columns and 2048 nonzeros
-Model fingerprint: 0xad7c1256
-Variable types: 0 continuous, 1024 integer (0 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [9e-02, 4e-01]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [3e+00, 4e+04]
-Presolve removed 1087 rows and 1011 columns
-Presolve time: 0.01s
-Presolved: 1 rows, 13 columns, 13 nonzeros
-Variable types: 0 continuous, 13 integer (0 binary)
-Found heuristic solution: objective 330077.56250
-Found heuristic solution: objective 329939.28125
-
-Root relaxation: objective 3.270432e+05, 1 iterations, 0.00 seconds (0.00 work units)
-
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
-
-*    0     0               0    327043.18750 327043.188  0.00%     -    0s
-
-Explored 1 nodes (1 simplex iterations) in 0.02 seconds (0.00 work units)
-Thread count was 8 (of 8 available processors)
-
-Solution count 3: 327043 329939 330078 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 3.270431875000e+05, best bound 3.270431875000e+05, gap 0.0000%
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1434,108 +593,6 @@ Best objective 3.270431875000e+05, best bound 3.270431875000e+05, gap 0.0000%
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Warehouse_Allocation[0,0]</td>
-      <td>375.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Warehouse_Allocation[0,1]</td>
-      <td>26.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Warehouse_Allocation[0,2]</td>
-      <td>41.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Warehouse_Allocation[0,3]</td>
-      <td>2322.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Warehouse_Allocation[0,4]</td>
-      <td>9046.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Warehouse_Allocation[0,5]</td>
-      <td>610.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Warehouse_Allocation[0,6]</td>
-      <td>5201.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Warehouse_Allocation[0,7]</td>
-      <td>6689.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Warehouse_Allocation[0,8]</td>
-      <td>150.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Warehouse_Allocation[0,9]</td>
-      <td>2460.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Warehouse_Allocation[0,10]</td>
-      <td>4235.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Warehouse_Allocation[0,11]</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Warehouse_Allocation[0,12]</td>
-      <td>736.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Warehouse_Allocation[0,13]</td>
-      <td>5700.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Warehouse_Allocation[0,14]</td>
-      <td>1580.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </section>
 </section>
@@ -1557,8 +614,8 @@ Best objective 3.270431875000e+05, best bound 3.270431875000e+05, gap 0.0000%
 </ol>
 <p>By combining predictive analytics with optimization, we can not only forecast future disaster impacts but also develop actionable strategies for minimizing those impacts. The goal is to make our models both more accurate and more useful in real-world applications, driving better outcomes for communities at risk.</p>
 </section>
-<section id="processing-the-results">
-<h2>Processing the Results<a class="headerlink" href="#processing-the-results" title="Link to this heading">#</a></h2>
+<section id="processing-the-results-2-stage-slp">
+<h2>2.6 Processing the Results: 2-Stage SLP<a class="headerlink" href="#processing-the-results-2-stage-slp" title="Link to this heading">#</a></h2>
 <p>Great, now that we can solve for the time it takes to address every single disaster, we can finally answer the original question posed: how do we best allocate supplies to all the warehouses? The key here is to create a second optimization problem. Remember how in our constraints we included that you can’t send more than the warehouse has?</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1587,7 +644,7 @@ So how do we Implement this in Gurobi?</p>
 \text{s.t.}  &amp; \sum_{i} &amp; y^k_{i}&amp;=d^k &amp; &amp; \hspace{.2cm} \text{(total supplies sent must meet demand)}\\\end{split}\\\begin{split}&amp; &amp; y^k_i       &amp;\leq x_i &amp; \forall i \in I&amp; \hspace{.2cm}\text{(you can't send more than a warehouse has)}\\\end{split}\\\begin{split} &amp;\text{} &amp; y^k_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't send negative supplies)}\\\end{split}\\\begin{split}&amp; \sum_k &amp; P^k &amp;=1 &amp;&amp; \hspace{.2cm} \text{(All probabilities must sum to 1)}\\\end{split}\\\begin{split}\hline \\\end{split}\\\begin{split}  &amp; \sum_{i} &amp; x_i&amp;=\chi &amp; &amp; \hspace{.2cm} \text{(we allocate all supplies and no more)}\\\end{split}\\\begin{split} &amp;&amp; x_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't allocate negative supplies)}\\\end{split}\\
 \end{aligned}
 \end{aligned}\end{align} \]</div>
-<p>So how do we Implment this in Gurobi?</p>
+<p>So how do we implement this in Gurobi?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;full_allocation&quot;</span><span class="p">)</span>
@@ -1605,21 +662,24 @@ So how do we Implement this in Gurobi?</p>
 <span class="n">X</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;National_Allocation&quot;</span><span class="p">)</span>
 
 <span class="c1"># Total national endowment constraint</span>
-<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="mi">40811</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Total_National_Endowment&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="mi">40811</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Total_National_Endowment&quot;</span>
+<span class="p">)</span>
 
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
 <span class="c1"># Demand and warehouse constraints for each scenario</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+        <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">supplies</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">):</span>
         <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">supplies</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">_I:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># Objective function to minimize the weighted driving time using T as a parameter</span>
 <span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span>
-    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Optimize model</span>
@@ -1628,47 +688,10 @@ So how do we Implement this in Gurobi?</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 23.6.0 23G80)
-
-CPU model: Apple M1
-Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
-
-Optimize a model with 1153 rows, 1040 columns and 2192 nonzeros
-Model fingerprint: 0x0e8cfb4c
-Variable types: 0 continuous, 1040 integer (0 binary)
-Coefficient statistics:
-  Matrix range     [1e+00, 1e+00]
-  Objective range  [9e-02, 4e-01]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [3e+00, 4e+04]
-Presolve removed 1152 rows and 1026 columns
-Presolve time: 0.01s
-Presolved: 1 rows, 14 columns, 14 nonzeros
-Variable types: 0 continuous, 14 integer (0 binary)
-Found heuristic solution: objective 330422.47266
-
-Root relaxation: objective 3.274030e+05, 1 iterations, 0.00 seconds (0.00 work units)
-
-    Nodes    |    Current Node    |     Objective Bounds      |     Work
- Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
-
-*    0     0               0    327403.00000 327403.000  0.00%     -    0s
-
-Explored 1 nodes (1 simplex iterations) in 0.03 seconds (0.00 work units)
-Thread count was 8 (of 8 available processors)
-
-Solution count 2: 327403 330422 
-
-Optimal solution found (tolerance 1.00e-04)
-Best objective 3.274030000000e+05, best bound 3.274030000000e+05, gap 0.0000%
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="a-few-final-tidbits">
-<h2>A Few Final Tidbits<a class="headerlink" href="#a-few-final-tidbits" title="Link to this heading">#</a></h2>
+<h2>2.7 A Few Final Tidbits<a class="headerlink" href="#a-few-final-tidbits" title="Link to this heading">#</a></h2>
 <p>Now that we have our overall framework, we can extend it fairly easily to better model real-life scenarios. Let’s look at two final pieces of the puzzle that ESUPS considers in their model:</p>
 <p><strong>Cost</strong></p>
 <p>Along with how long it takes to get items to a disaster relief site, it’s also important to consider the cost to accomplish it. It might be a few hours faster to charter a jet to deliver blankets in the aftermath of a disaster, however, if it is 100x more expensive than by truck, that may constrain the organization from buying more blankets, chartering more trucks, or making it difficult to resupply for future disasters. So just as we solve for ways to minimize time, it can be important for firms with limited resources to make sure their money is being used to do the most good it can.</p>
@@ -1697,7 +720,7 @@ $$</p>
 <h3>Open-Ended Implementation<a class="headerlink" href="#open-ended-implementation" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Write your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your code here</span>
 </pre></div>
 </div>
 </div>
@@ -1705,7 +728,7 @@ $$</p>
 </section>
 </section>
 <section id="interpreting-the-solution">
-<h2>Interpreting the Solution<a class="headerlink" href="#interpreting-the-solution" title="Link to this heading">#</a></h2>
+<h2>2.8 Interpreting the Solution<a class="headerlink" href="#interpreting-the-solution" title="Link to this heading">#</a></h2>
 <p>So let’s look at how much slower our real life allocations are in comparison to the optimal.</p>
 </section>
 <section id="enhancing-system-performance-with-the-balance-metric">
@@ -1761,6 +784,8 @@ The accuracy of the balance metric depends on the quality of input data and the 
 <p><a id='End'></a></p>
 </section>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1803,11 +828,11 @@ The accuracy of the balance metric depends on the quality of input data and the 
       </div>
     </a>
     <a class="right-next"
-       href="disaster_prepositioning_4.html"
+       href="disaster_prepositioning_3_A.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Production Code</p>
+        <p class="prev-next-title">2.A Introduction to Modeling Optimization Problems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1827,46 +852,22 @@ The accuracy of the balance metric depends on the quality of input data and the 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-gurobi-models">Introduction to Gurobi Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-answer-key">Problem 1 Answer Key</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-answer-key">Problem 2 Answer Key</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">2.2 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">3.1 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make The model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">Including All Disasters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accounting-for-randomness">Accounting for Randomness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-expected-value">More On Expected Value</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip">Coin Flip:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip-varient">Coin Flip Varient:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-dice-game">Simple Dice Game:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-coin-game">Two-Coin Game:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-problems">Intermediate Problems</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-extension-problems">Advanced Extension Problems</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">2.3 Including All Disasters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accounting-for-randomness">2.4 Accounting for Randomness</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The Model</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-extension">2.5 Data Science Extension</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-results">Processing the Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-final-tidbits">A Few Final Tidbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-results-2-stage-slp">2.6 Processing the Results: 2-Stage SLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-final-tidbits">2.7 A Few Final Tidbits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-ended-implementation">Open-Ended Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-solution">Interpreting the Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-solution">2.8 Interpreting the Solution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancing-system-performance-with-the-balance-metric">Enhancing System Performance with the Balance Metric</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-calculation-of-the-balance-metric">Definition and Calculation of the Balance Metric</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-the-balance-metric">Interpretation of the Balance Metric</a></li>
@@ -1899,7 +900,7 @@ By Gurobi Optimization
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025, Gurobi Optimization, LLC.
       <br/>
     
   </p>

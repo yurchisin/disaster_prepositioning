@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform &#8212; Disaster Prepositioning Case Study</title>
+    <title>3.B More On Expected Value &#8212; Disaster Prepositioning Case Study</title>
   
   
   
@@ -58,11 +58,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_0';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_3_B';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction" href="disaster_prepositioning_1.html" />
-    <link rel="prev" title="Welcome to ESUPS Case Study" href="intro.html" />
+    <link rel="next" title="Production Code" href="disaster_prepositioning_4.html" />
+    <link rel="prev" title="2.A Introduction to Modeling Optimization Problems" href="disaster_prepositioning_3_A.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,14 +177,14 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_0.html">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_1.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">The Setup</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="disaster_prepositioning_3.html">Optimizing!</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="disaster_prepositioning_3.html">Optimizing!</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_A.html">2.A Introduction to Modeling Optimization Problems</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_B.html">3.B More On Expected Value</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.B More On Expected Value</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_4.html">Production Code</a></li>
@@ -242,7 +244,7 @@
       
       
       
-      <li><a href="../_sources/content/disaster_prepositioning_0.ipynb" target="_blank"
+      <li><a href="../_sources/content/disaster_prepositioning_3_B.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +328,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</h1>
+    <h1>3.B More On Expected Value</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -336,17 +338,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-esups-and-stockholm">Overview of ESUPS and STOCKHOLM:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-to-end-exploration-of-the-case-study">End-to-End Exploration of the Case Study:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-context-and-story">1.	Business Context and Story:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-model-and-data-analytics">2.	Optimization Model and Data Analytics:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-learning-with-a-jupyter-notebook">3.	Hands-on Learning with a Jupyter Notebook:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-problem-with-predictive-analytics">4.	Extending the Problem with Predictive Analytics:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-and-implementation-summary">5.	Impact and Implementation Summary:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starter-problems">Starter Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip">Coin Flip</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip-varient">Coin Flip Varient:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-dice-game">Simple Dice Game:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-coin-game">Two-Coin Game:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-problems">Intermediate Problems</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-extension-problems">Advanced Extension Problems</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning-and-relevance">Positioning and Relevance:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts">A Background on The Crisis that Prompted This Work: Disaster Relief &amp; Mobilization Efforts</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -358,46 +364,117 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="enhancing-humanitarian-response-with-esups-and-the-stockholm-platform">
-<h1>Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform<a class="headerlink" href="#enhancing-humanitarian-response-with-esups-and-the-stockholm-platform" title="Link to this heading">#</a></h1>
-<p>In this comprehensive case study, learners will delve into the strategic and operational efforts of the Emergency Supply Pre-positioning Strategy (ESUPS), a collaborative working group consisting of Member States, NGOs, academics, UN agencies, and regional organizations, all operating within Welthungerhilfe. ESUPS plays a critical role in logistics preparedness and pre-positioning at both strategic and operational levels, aiming to optimize the pre-positioning of disaster relief items, minimize relief response times, and enhance the mapping and analysis of relief stock across global humanitarian organizations.</p>
-<section id="overview-of-esups-and-stockholm">
-<h2>Overview of ESUPS and STOCKHOLM:<a class="headerlink" href="#overview-of-esups-and-stockholm" title="Link to this heading">#</a></h2>
-<p>ESUPS has developed an innovative platform called STOCKHOLM (STOCK of Humanitarian Organizations Logistics Mapping), which serves as a global central repository for relief stock data. This platform visually maps warehouse and supplies locations and provides an in-depth analysis that helps improve response times and supply coverage across diverse humanitarian crises.</p>
+  <section id="b-more-on-expected-value">
+<h1>3.B More On Expected Value<a class="headerlink" href="#b-more-on-expected-value" title="Link to this heading">#</a></h1>
+<p>If you haven’t seen expected value before or if it’s just a been a while and you’d like a refresher, try some of the practice problems below!
+When we solve expected value for discrete outcomes, we take the value/outcome/payoff of each possible event and discount it by the probability that it actually occurs. So it follows the form</p>
+<div class="math notranslate nohighlight">
+\[
+E[X]=p_1(x_1)+p_2(x_2)+ ... + p_n(x_n)
+\]</div>
+<p>To simplify this notation we typically write this as a series:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X]=\sum_{i=1}^{n} p_i \cdot x_i
+\]</div>
+<p>Try some of the problems below to get a better feel for it!</p>
+<section id="starter-problems">
+<h2>Starter Problems<a class="headerlink" href="#starter-problems" title="Link to this heading">#</a></h2>
+<section id="coin-flip">
+<h3>Coin Flip<a class="headerlink" href="#coin-flip" title="Link to this heading">#</a></h3>
+<p>Suppose we play a coin flipping game. Every time we flip the coin and it lands on heads, you get a dollar, and every time it lands on tails, you have to pay a dollar. How much are you expected to make or lose when playing this game?</p>
+<section id="coin-flip-varient">
+<h4>Coin Flip Varient:<a class="headerlink" href="#coin-flip-varient" title="Link to this heading">#</a></h4>
+<p>Now, let’s change the game a little, say you now get 5 paid dollars when the coin lands on heads and only have to pay 3 dollars when it lands on tails. Would you play? How much are you expected to make or lose when playing this game?</p>
 </section>
-<section id="end-to-end-exploration-of-the-case-study">
-<h2>End-to-End Exploration of the Case Study:<a class="headerlink" href="#end-to-end-exploration-of-the-case-study" title="Link to this heading">#</a></h2>
-<section id="business-context-and-story">
-<h3>1.	Business Context and Story:<a class="headerlink" href="#business-context-and-story" title="Link to this heading">#</a></h3>
-<p>This case study provides an in-depth exploration of the critical challenges ESUPS faces in managing the logistics of disaster relief at a global scale. The case begins by detailing the unique challenges and complexities of humanitarian logistics—such as unpredictable disaster locations, varying relief needs, centralizing and standardizing data, and the coordination of multiple stakeholders. Learners will understand how ESUPS aims to address these challenges through a data-driven approach and the development of an optimized pre-positioning strategy that enhances global preparedness.</p>
+<section id="simple-dice-game">
+<h4>Simple Dice Game:<a class="headerlink" href="#simple-dice-game" title="Link to this heading">#</a></h4>
+<p>Suppose you roll a fair six-sided die. If it lands on 6, you win <span class="math notranslate nohighlight">\(10; otherwise, you lose \)</span>2. What is the expected value of this game? Should you play it?</p>
 </section>
-<section id="optimization-model-and-data-analytics">
-<h3>2.	Optimization Model and Data Analytics:<a class="headerlink" href="#optimization-model-and-data-analytics" title="Link to this heading">#</a></h3>
-<p>A key focus of this case study is the mathematical optimization model embedded within the STOCKHOLM platform. The study introduces learners to the foundational principles of optimization, demonstrating how data analytics can be leveraged to make critical decisions on where and how much relief stock should be pre-positioned. Students will be given a subset of anonymized, real-world data that mimics the inputs used by ESUPS to run their models, allowing them to explore hands-on the complexities involved in developing and implementing optimization models that drive impactful outcomes in humanitarian contexts.</p>
+<section id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+E[X] &amp;= \left(\frac{1}{6} \times 10\right) + \left(\frac{5}{6} \times (-2)\right)
+\\
+E[X] &amp;= \left(\frac{10}{6}\right) + \left(\frac{-10}{6}\right)
+\\
+E[X] &amp;= \frac{10 - 10}{6} = 0
+\end{aligned}
+\end{split}\]</div>
+<p><strong>Answer</strong>: The expected value is <span class="math notranslate nohighlight">\(\$0\)</span>. This means, on average, you neither gain nor lose money from playing this game.</p>
 </section>
-<section id="hands-on-learning-with-a-jupyter-notebook">
-<h3>3.	Hands-on Learning with a Jupyter Notebook:<a class="headerlink" href="#hands-on-learning-with-a-jupyter-notebook" title="Link to this heading">#</a></h3>
-<p>To facilitate practical understanding, the case study includes a Jupyter Notebook, which guides learners through the process of building, refining, and implementing an optimization model from scratch. This notebook serves as a step-by-step tutorial, from defining the problem and understanding the constraints to coding the solution and transitioning the model to a production environment. It also includes exploratory data analysis, model validation, and interpretation of the results, offering a holistic view of how data science and optimization techniques converge to solve real-world challenges.</p>
+<section id="two-coin-game">
+<h4>Two-Coin Game:<a class="headerlink" href="#two-coin-game" title="Link to this heading">#</a></h4>
+<p>You flip two fair coins. If both coins land on heads, you win <span class="math notranslate nohighlight">\(8. If one coin lands on heads and the other on tails, you win \)</span>4. If both coins land on tails, you lose $5. What is the expected value of playing this game?</p>
 </section>
-<section id="extending-the-problem-with-predictive-analytics">
-<h3>4.	Extending the Problem with Predictive Analytics:<a class="headerlink" href="#extending-the-problem-with-predictive-analytics" title="Link to this heading">#</a></h3>
-<p>Beyond the current scope, the case study provides avenues for learners to extend their exploration using predictive analytics techniques. For example, students could be tasked with predicting future demand for specific relief items based on historical data, seasonal patterns, or the nature of past disasters. This section encourages critical thinking about how predictive models could be integrated into STOCKHOLM to improve the forecasting and allocation of resources, further optimizing response strategies and minimizing waste.</p>
+<section id="id1">
+<h4>Solution:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Probability of two heads (HH): <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span></p></li>
+<li><p>Probability of one head and one tail (HT or TH): <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span></p></li>
+<li><p>Probability of two tails (TT): <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{aligned}
+E[X] &amp;= \left(\frac{1}{4} \times 8\right) + \left(\frac{1}{2} \times 4\right) + \left(\frac{1}{4} \times (-5)\right)
+\\
+E[X] &amp;= \left(2\right) + \left(2\right) + \left(-1.25\right)
+\\
+E[X] &amp;= 2 + 2 - 1.25 = 2.75\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+<p><strong>Answer</strong>: The expected value is <span class="math notranslate nohighlight">\(\$2.75\)</span>. This means, on average, you gain <span class="math notranslate nohighlight">\(\$2.75\)</span> per game.</p>
 </section>
-<section id="impact-and-implementation-summary">
-<h3>5.	Impact and Implementation Summary:<a class="headerlink" href="#impact-and-implementation-summary" title="Link to this heading">#</a></h3>
-<p>The final section of the case study highlights the tangible impact of STOCKHOLM’s optimization capabilities on global humanitarian efforts. It outlines the real-world benefits observed in reducing response times, lowering costs, and improving the geographical coverage of relief supplies. Additionally, it provides a roadmap for implementation, detailing the steps required to scale the optimization model, handle larger datasets, and integrate advanced analytics tools. Learners will gain insights into the practical challenges of transitioning from a prototype model to a fully operational tool used by humanitarian organizations worldwide.</p>
+<section id="intermediate-problems">
+<h4>Intermediate Problems<a class="headerlink" href="#intermediate-problems" title="Link to this heading">#</a></h4>
+<p><strong>Custom Die Game:</strong>
+Imagine a custom die with faces labeled 1, 2, 3, 4, 5, and 6. Each face has a different probability: (P(1) = 0.1), (P(2) = 0.2), (P(3) = 0.15), (P(4) = 0.25), (P(5) = 0.2), and (P(6) = 0.1). If the outcome of the die is 1, you win <span class="math notranslate nohighlight">\(2; for a 2, you win \)</span>4; for a 3, you win <span class="math notranslate nohighlight">\(6; for a 4, you lose \)</span>3; for a 5, you lose <span class="math notranslate nohighlight">\(7; and for a 6, you lose \)</span>5. What is the expected value of this game?</p>
+</section>
+<section id="id2">
+<h4>Solution:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}
+E[X] &amp;= (0.1 \times 2) + (0.2 \times 4) + (0.15 \times 6) + (0.25 \times -3) + (0.2 \times -7) + (0.1 \times -5)\\\begin{split}\\
+E[X] &amp;= (0.2) + (0.8) + (0.9) + (-0.75) + (-1.4) + (-0.5)
+\\\end{split}\\E[X] &amp;= 1.9 - 2.65 = -0.75\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+<p><strong>Answer</strong>:The expected value is <span class="math notranslate nohighlight">\(-\$0.75\)</span>. On average, you lose <span class="math notranslate nohighlight">\(75\)</span> cents per roll.</p>
+<p><strong>Card Drawing Game:</strong>
+You draw a card from a standard deck of 52 playing cards. If you draw an Ace, you win <span class="math notranslate nohighlight">\(15. If you draw a King, Queen, or Jack, you win \)</span>5. For any other card, you lose $3. What is the expected value of this game?</p>
+</section>
+<section id="id3">
+<h4>Solution:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Probability of drawing an Ace: <span class="math notranslate nohighlight">\(\frac{4}{52} = \frac{1}{13}\)</span></p></li>
+<li><p>Probability of drawing a King, Queen, or Jack: <span class="math notranslate nohighlight">\(\frac{12}{52} = \frac{3}{13}\)</span></p></li>
+<li><p>Probability of drawing any other card: <span class="math notranslate nohighlight">\(\frac{36}{52} = \frac{9}{13}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}E[X] &amp;= \left(\frac{1}{13} \times 15\right) + \left(\frac{3}{13} \times 5\right) + \left(\frac{9}{13} \times (-3)\right)
+\\\end{split}\\\begin{split}
+E[X] &amp;= \left(\frac{15}{13}\right) + \left(\frac{15}{13}\right) + \left(\frac{-27}{13}\right)
+\\\end{split}\\
+E[X] &amp;= \frac{15 + 15 - 27}{13} = \frac{3}{13}\\\begin{split}\\
+E[X] &amp;\approx 0.23\end{split}\\\end{aligned}
+\end{aligned}\end{align} \]</div>
+<p><strong>Answer</strong>: The expected value is approximately $0.23. On average, you gain 23 cents per draw.</p>
+</section>
+<section id="advanced-extension-problems">
+<h4>Advanced Extension Problems<a class="headerlink" href="#advanced-extension-problems" title="Link to this heading">#</a></h4>
+<ol class="arabic simple" start="5">
+<li><p><strong>Roulette Game:</strong>
+You bet <span class="math notranslate nohighlight">\(1 on a single number in a game of American Roulette. If the ball lands on your number, you win \)</span>35; otherwise, you lose your bet. There are 38 slots on an American Roulette wheel (numbers 1-36, 0, and 00). What is the expected value of this bet?</p></li>
+<li><p><strong>Insurance Policy:</strong>
+An insurance company sells a one-year term life insurance policy for <span class="math notranslate nohighlight">\(500 to a healthy 30-year-old. The policy pays \)</span>100,000 in case of death within the year. The probability of a healthy 30-year-old dying within a year is 0.001. What is the expected profit for the insurance company from selling this policy?</p></li>
+<li><p><strong>Stock Investment Scenario:</strong>
+Suppose you invest in a stock with three possible outcomes over a year: there is a 50% chance it will increase by 10%, a 30% chance it will decrease by 5%, and a 20% chance it will decrease by 15%. What is the expected value of the return on investment after one year?</p></li>
+</ol>
 </section>
 </section>
-<section id="positioning-and-relevance">
-<h2>Positioning and Relevance:<a class="headerlink" href="#positioning-and-relevance" title="Link to this heading">#</a></h2>
-<p>This case study is intended to offer a unique blend of strategic thinking, technical know-how, and real-world impact. It prepares learners not only to understand the complexities of humanitarian logistics but also to build and deploy data-driven solutions that have the potential to save lives and streamline global response efforts in the face of natural disasters.</p>
-<p>This case study is ideal for students and professionals interested in operations research, data science, in optimization for social good. It provides a practical, end-to-end learning experience that encompasses business strategy, mathematical modeling, data analytics, and the use of technology to solve some of the most pressing global challenges facing the world today.</p>
-</section>
-<section id="a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts">
-<h2>A Background on The Crisis that Prompted This Work: Disaster Relief &amp; Mobilization Efforts<a class="headerlink" href="#a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts" title="Link to this heading">#</a></h2>
-<p>In 2015, Kathmandu, Nepal was devastated by a 7.8 magnitude earthquake that claimed approximately 9,000 lives and injured thousands more. The full extent of the tragedy became evident hours later, as over 600,000 buildings lay in ruins, including the nation’s central disaster relief supplies. Despite being only the 31st most affected area, Kathmandu housed around 90% of Nepal’s disaster relief resources, which were now buried under the debris.</p>
-<p>The international community quickly mobilized, with the UN raising nearly $330 million within two weeks to assist Nepal. While this rapid response showcased global solidarity and compassion, it also underscored a critical issue: the aid came after the disaster had struck. In disaster scenarios, the first 24 hours are crucial for rescue operations, as chances of finding survivors diminish significantly after that period. No amount of money can turn back those critical hours.</p>
-<p>International responses, though well-intentioned, often face coordination challenges and logistical delays. The complexity of involving multiple organizations can lead to miscommunication and inefficiencies, making it difficult to ascertain what aid is coming and in what quantities. Studies indicate that roughly 60-80% of all disaster response costs are logistics-related, including stock pre-positioning and deployment. It’s crucial to know the location and availability of supplies to optimize response efforts.</p>
 </section>
 </section>
 
@@ -432,20 +509,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="disaster_prepositioning_3_A.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to ESUPS Case Study</p>
+        <p class="prev-next-title">2.A Introduction to Modeling Optimization Problems</p>
       </div>
     </a>
     <a class="right-next"
-       href="disaster_prepositioning_1.html"
+       href="disaster_prepositioning_4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Production Code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -465,17 +542,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-esups-and-stockholm">Overview of ESUPS and STOCKHOLM:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-to-end-exploration-of-the-case-study">End-to-End Exploration of the Case Study:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-context-and-story">1.	Business Context and Story:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-model-and-data-analytics">2.	Optimization Model and Data Analytics:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-learning-with-a-jupyter-notebook">3.	Hands-on Learning with a Jupyter Notebook:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-problem-with-predictive-analytics">4.	Extending the Problem with Predictive Analytics:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-and-implementation-summary">5.	Impact and Implementation Summary:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starter-problems">Starter Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip">Coin Flip</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flip-varient">Coin Flip Varient:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-dice-game">Simple Dice Game:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-coin-game">Two-Coin Game:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediate-problems">Intermediate Problems</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solution:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-extension-problems">Advanced Extension Problems</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning-and-relevance">Positioning and Relevance:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts">A Background on The Crisis that Prompted This Work: Disaster Relief &amp; Mobilization Efforts</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
