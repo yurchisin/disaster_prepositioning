@@ -4,6 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "disaster_prepositioning"
+version = "0.1.0"
+# etc...
 
 [project.optional-dependencies]
 sphinx = ["jupyter-book[sphinx]>=1.0"]
