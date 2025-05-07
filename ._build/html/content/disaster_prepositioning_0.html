@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform &#8212; Disaster Prepositioning Case Study</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b93f807" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_0';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="disaster_prepositioning_1.html" />
+    <link rel="prev" title="Welcome to ESUPS Case Study" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Disaster Prepositioning Case Study</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to ESUPS Case Study
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_1.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">The Setup</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="disaster_prepositioning_3.html">Optimizing!</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_A.html">2.A Introduction to Modeling Optimization Problems</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_B.html">3.B More On Expected Value</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_4.html">Production Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_5.html">Wrapping It Up</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/disaster_prepositioning_0.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-esups-and-stockholm">Overview of ESUPS and STOCKHOLM:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-to-end-exploration-of-the-case-study">End-to-End Exploration of the Case Study:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-context-and-story">1.	Business Context and Story:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-model-and-data-analytics">2.	Optimization Model and Data Analytics:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-learning-with-a-jupyter-notebook">3.	Hands-on Learning with a Jupyter Notebook:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-problem-with-predictive-analytics">4.	Extending the Problem with Predictive Analytics:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-and-implementation-summary">5.	Impact and Implementation Summary:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning-and-relevance">Positioning and Relevance:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts">A Background on The Crisis that Prompted This Work: Disaster Relief &amp; Mobilization Efforts</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enhancing-humanitarian-response-with-esups-and-the-stockholm-platform">
+<h1>Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform<a class="headerlink" href="#enhancing-humanitarian-response-with-esups-and-the-stockholm-platform" title="Link to this heading">#</a></h1>
+<p>In this comprehensive case study, learners will delve into the strategic and operational efforts of the Emergency Supply Pre-positioning Strategy (ESUPS), a collaborative working group consisting of Member States, NGOs, academics, UN agencies, and regional organizations, all operating within Welthungerhilfe. ESUPS plays a critical role in logistics preparedness and pre-positioning at both strategic and operational levels, aiming to optimize the pre-positioning of disaster relief items, minimize relief response times, and enhance the mapping and analysis of relief stock across global humanitarian organizations.</p>
+<section id="overview-of-esups-and-stockholm">
+<h2>Overview of ESUPS and STOCKHOLM:<a class="headerlink" href="#overview-of-esups-and-stockholm" title="Link to this heading">#</a></h2>
+<p>ESUPS has developed an innovative platform called STOCKHOLM (STOCK of Humanitarian Organizations Logistics Mapping), which serves as a global central repository for relief stock data. This platform visually maps warehouse and supplies locations and provides an in-depth analysis that helps improve response times and supply coverage across diverse humanitarian crises.</p>
+</section>
+<section id="end-to-end-exploration-of-the-case-study">
+<h2>End-to-End Exploration of the Case Study:<a class="headerlink" href="#end-to-end-exploration-of-the-case-study" title="Link to this heading">#</a></h2>
+<section id="business-context-and-story">
+<h3>1.	Business Context and Story:<a class="headerlink" href="#business-context-and-story" title="Link to this heading">#</a></h3>
+<p>This case study provides an in-depth exploration of the critical challenges ESUPS faces in managing the logistics of disaster relief at a global scale. The case begins by detailing the unique challenges and complexities of humanitarian logistics—such as unpredictable disaster locations, varying relief needs, centralizing and standardizing data, and the coordination of multiple stakeholders. Learners will understand how ESUPS aims to address these challenges through a data-driven approach and the development of an optimized pre-positioning strategy that enhances global preparedness.</p>
+</section>
+<section id="optimization-model-and-data-analytics">
+<h3>2.	Optimization Model and Data Analytics:<a class="headerlink" href="#optimization-model-and-data-analytics" title="Link to this heading">#</a></h3>
+<p>A key focus of this case study is the mathematical optimization model embedded within the STOCKHOLM platform. The study introduces learners to the foundational principles of optimization, demonstrating how data analytics can be leveraged to make critical decisions on where and how much relief stock should be pre-positioned. Students will be given a subset of anonymized, real-world data that mimics the inputs used by ESUPS to run their models, allowing them to explore hands-on the complexities involved in developing and implementing optimization models that drive impactful outcomes in humanitarian contexts.</p>
+</section>
+<section id="hands-on-learning-with-a-jupyter-notebook">
+<h3>3.	Hands-on Learning with a Jupyter Notebook:<a class="headerlink" href="#hands-on-learning-with-a-jupyter-notebook" title="Link to this heading">#</a></h3>
+<p>To facilitate practical understanding, the case study includes a Jupyter Notebook, which guides learners through the process of building, refining, and implementing an optimization model from scratch. This notebook serves as a step-by-step tutorial, from defining the problem and understanding the constraints to coding the solution and transitioning the model to a production environment. It also includes exploratory data analysis, model validation, and interpretation of the results, offering a holistic view of how data science and optimization techniques converge to solve real-world challenges.</p>
+</section>
+<section id="extending-the-problem-with-predictive-analytics">
+<h3>4.	Extending the Problem with Predictive Analytics:<a class="headerlink" href="#extending-the-problem-with-predictive-analytics" title="Link to this heading">#</a></h3>
+<p>Beyond the current scope, the case study provides avenues for learners to extend their exploration using predictive analytics techniques. For example, students could be tasked with predicting future demand for specific relief items based on historical data, seasonal patterns, or the nature of past disasters. This section encourages critical thinking about how predictive models could be integrated into STOCKHOLM to improve the forecasting and allocation of resources, further optimizing response strategies and minimizing waste.</p>
+</section>
+<section id="impact-and-implementation-summary">
+<h3>5.	Impact and Implementation Summary:<a class="headerlink" href="#impact-and-implementation-summary" title="Link to this heading">#</a></h3>
+<p>The final section of the case study highlights the tangible impact of STOCKHOLM’s optimization capabilities on global humanitarian efforts. It outlines the real-world benefits observed in reducing response times, lowering costs, and improving the geographical coverage of relief supplies. Additionally, it provides a roadmap for implementation, detailing the steps required to scale the optimization model, handle larger datasets, and integrate advanced analytics tools. Learners will gain insights into the practical challenges of transitioning from a prototype model to a fully operational tool used by humanitarian organizations worldwide.</p>
+</section>
+</section>
+<section id="positioning-and-relevance">
+<h2>Positioning and Relevance:<a class="headerlink" href="#positioning-and-relevance" title="Link to this heading">#</a></h2>
+<p>This case study is intended to offer a unique blend of strategic thinking, technical know-how, and real-world impact. It prepares learners not only to understand the complexities of humanitarian logistics but also to build and deploy data-driven solutions that have the potential to save lives and streamline global response efforts in the face of natural disasters.</p>
+<p>This case study is ideal for students and professionals interested in operations research, data science, in optimization for social good. It provides a practical, end-to-end learning experience that encompasses business strategy, mathematical modeling, data analytics, and the use of technology to solve some of the most pressing global challenges facing the world today.</p>
+</section>
+<section id="a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts">
+<h2>A Background on The Crisis that Prompted This Work: Disaster Relief &amp; Mobilization Efforts<a class="headerlink" href="#a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts" title="Link to this heading">#</a></h2>
+<p>In 2015, Kathmandu, Nepal was devastated by a 7.8 magnitude earthquake that claimed approximately 9,000 lives and injured thousands more. The full extent of the tragedy became evident hours later, as over 600,000 buildings lay in ruins, including the nation’s central disaster relief supplies. Despite being only the 31st most affected area, Kathmandu housed around 90% of Nepal’s disaster relief resources, which were now buried under the debris.</p>
+<p>The international community quickly mobilized, with the UN raising nearly $330 million within two weeks to assist Nepal. While this rapid response showcased global solidarity and compassion, it also underscored a critical issue: the aid came after the disaster had struck. In disaster scenarios, the first 24 hours are crucial for rescue operations, as chances of finding survivors diminish significantly after that period. No amount of money can turn back those critical hours.</p>
+<p>International responses, though well-intentioned, often face coordination challenges and logistical delays. The complexity of involving multiple organizations can lead to miscommunication and inefficiencies, making it difficult to ascertain what aid is coming and in what quantities. Studies indicate that roughly 60-80% of all disaster response costs are logistics-related, including stock pre-positioning and deployment. It’s crucial to know the location and availability of supplies to optimize response efforts.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to ESUPS Case Study</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="disaster_prepositioning_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-esups-and-stockholm">Overview of ESUPS and STOCKHOLM:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-to-end-exploration-of-the-case-study">End-to-End Exploration of the Case Study:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-context-and-story">1.	Business Context and Story:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-model-and-data-analytics">2.	Optimization Model and Data Analytics:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-learning-with-a-jupyter-notebook">3.	Hands-on Learning with a Jupyter Notebook:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-problem-with-predictive-analytics">4.	Extending the Problem with Predictive Analytics:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-and-implementation-summary">5.	Impact and Implementation Summary:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning-and-relevance">Positioning and Relevance:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-background-on-the-crisis-that-prompted-this-work-disaster-relief-mobilization-efforts">A Background on The Crisis that Prompted This Work: Disaster Relief &amp; Mobilization Efforts</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gurobi Optimization
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Gurobi Optimization, LLC.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

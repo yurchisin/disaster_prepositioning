@@ -1,0 +1,1143 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Optimizing! &#8212; Disaster Prepositioning Case Study</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b93f807" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.A Introduction to Modeling Optimization Problems" href="disaster_prepositioning_3_A.html" />
+    <link rel="prev" title="The Setup" href="disaster_prepositioning_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Disaster Prepositioning Case Study</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to ESUPS Case Study
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_0.html">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_1.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">The Setup</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Optimizing!</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_A.html">2.A Introduction to Modeling Optimization Problems</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_B.html">3.B More On Expected Value</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_4.html">Production Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_5.html">Wrapping It Up</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/disaster_prepositioning_3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Optimizing!</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">3.1 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make the Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">2.3 Including All Disasters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accounting-for-randomness">2.4 Accounting for Randomness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-extension">2.5 Data Science Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-results-2-stage-slp">2.6 Processing the Results: 2-Stage SLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-final-tidbits">2.7 A Few Final Tidbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-ended-implementation">Open-Ended Implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-solution">2.8 Interpreting the Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancing-system-performance-with-the-balance-metric">Enhancing System Performance with the Balance Metric</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-calculation-of-the-balance-metric">Definition and Calculation of the Balance Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-the-balance-metric">Interpretation of the Balance Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-applications-in-humanitarian-logistics">Practical Applications in Humanitarian Logistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-considerations">Limitations and Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="optimizing">
+<h1>Optimizing!<a class="headerlink" href="#optimizing" title="Link to this heading">#</a></h1>
+<p>Before we dive into modeling the ESUPS optimization problem, here is quick overview of some sub-notebooks provided:</p>
+<ul class="simple">
+<li><p>3.A Introduction to Modeling Optimization Problems</p></li>
+<li><p>3.B More on Expected Value</p></li>
+</ul>
+<section id="intro-to-the-esups-optimization-model">
+<h2>3.1 Intro to the ESUPS Optimization Model<a class="headerlink" href="#intro-to-the-esups-optimization-model" title="Link to this heading">#</a></h2>
+<p>We’ll start with a simplified version of the model, and we’ll build from there.</p>
+<p>Consider the scenario where we’re expecting to have a disaster and want to pre-position supplies in order to respond as quickly as possible. Perhaps it’s hurricane season or a volcano has been showing increasing activity. As we have seen in past problems, we have to set up the variables, constraints, and objective functions.</p>
+<p>First, we list the input data we have:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(I\)</span> is the set of warehouses</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau_i\)</span> is the time to ship a single item from warehouse <span class="math notranslate nohighlight">\(i \in I\)</span> to the disaster</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_i\)</span> is the starting inventory (supply) at each warehouse <span class="math notranslate nohighlight">\(i \in I\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d\)</span> is the demand we need to satisfy, i.e., the number of items we need to ship to the disaster</p></li>
+</ul>
+<p>Then, let’s define our decision variables, i.e. the things we can vary.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_i\)</span> is the amount of supplies to send from warehouse <span class="math notranslate nohighlight">\(i \in I\)</span> to our disaster</p></li>
+</ul>
+<p>Now that we have described what we can change with our variables, we can figure out how to represent the objective function!
+$<span class="math notranslate nohighlight">\(
+\min \sum_{i \in I} \tau_{i} \cdot y_i
+\)</span><span class="math notranslate nohighlight">\(
+and the constraints are:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{s.t.}  &amp; \sum_{i \in I} &amp; y_{i} &amp; = d &amp; &amp; \quad \text{(total supplies sent must meet demand)}\\
+&amp; &amp; y_i       &amp; \leq s_i &amp; \forall i \in I &amp; \quad \text{(you can't send more than a warehouse has)}\\
+ &amp;\text{} &amp; y_{i} &amp; \geq 0 &amp;\forall i \in I &amp; \quad \text{(you can't send negative supplies)}
+\end{aligned}
+\)</span>$</p>
+<p>So now let’s solve this model.</p>
+<section id="make-the-model">
+<h3>Make the Model<a class="headerlink" href="#make-the-model" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">simple_Allocation</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/simple_Allocation.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Prep data</span>
+<span class="n">BucketsNeeded</span> <span class="o">=</span> <span class="mi">13561</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">simple_Allocation</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">Buckets</span>
+
+<span class="c1"># Create model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;simple_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add decision variables</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add constraint to meet demand</span>
+<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">BucketsNeeded</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Meet_Demand&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Add in warehouse_constraints</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Note we don&#39;t have a constraint for y &gt;= 0 since it&#39;s assumed in the variable definition</span>
+<span class="c1"># Add objective</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
+
+<span class="c1"># Fire up the solver!</span>
+<span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restricted license - for non-production use only - expires 2025-11-24
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 24.4.0 24E263)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU model: Apple M1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimize a model with 17 rows, 16 columns and 32 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model fingerprint: 0x37d66425
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient statistics:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Matrix range     [1e+00, 1e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Objective range  [6e+00, 3e+01]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Bounds range     [0e+00, 0e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  RHS range        [3e+00, 1e+04]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve removed 16 rows and 2 columns
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve time: 0.01s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolved: 1 rows, 14 columns, 14 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration    Objective       Primal Inf.    Dual Inf.      Time
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0    0.0000000e+00   1.691875e+03   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       1    9.8293000e+04   0.000000e+00   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solved in 1 iterations and 0.01 seconds (0.00 work units)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal objective  9.829300000e+04
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now Let’s Anaylize the results!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_sol</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">y_sol</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<span class="n">simple_Allocation_sol</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">simple_Allocation_sol</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_sol</span>
+<span class="n">simple_Allocation_sol</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;drivingTime_hrs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depotCity</th>
+      <th>drivingTime_hrs</th>
+      <th>Buckets</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Ambatondrazaka</td>
+      <td>0.00</td>
+      <td>26</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Antananarivo Renivohitra</td>
+      <td>6.00</td>
+      <td>9046</td>
+      <td>9046.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Miarinarivo</td>
+      <td>7.00</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Toamasina I</td>
+      <td>8.00</td>
+      <td>1580</td>
+      <td>1580.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Antsohihy</td>
+      <td>10.00</td>
+      <td>610</td>
+      <td>610.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ambositra</td>
+      <td>11.00</td>
+      <td>41</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Fenerive Est</td>
+      <td>11.00</td>
+      <td>6689</td>
+      <td>2296.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Ambanja</td>
+      <td>14.00</td>
+      <td>375</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Maintirano</td>
+      <td>14.25</td>
+      <td>2460</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Mahajanga I</td>
+      <td>16.00</td>
+      <td>150</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Morondava</td>
+      <td>16.00</td>
+      <td>736</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Manakara</td>
+      <td>17.00</td>
+      <td>4235</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Farafangana</td>
+      <td>19.00</td>
+      <td>5201</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Toliara</td>
+      <td>22.00</td>
+      <td>1637</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Sambava</td>
+      <td>23.00</td>
+      <td>5700</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ambovombe</td>
+      <td>26.00</td>
+      <td>2322</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now you may have noticed that this feels like overkill. If we want to position supplies to respond to a known disaster, you might think that we should just put them as close as possible. It’s an intuitive solution that can be solved with a simple greedy algorithm. But of course, life is never that simple.</p>
+<p>Now that we’ve got the initial problem outlined, let’s start making it more realistic with two additions:</p>
+<ol class="arabic simple">
+<li><p>Instead of preparing for only one disaster, let’s prepare for all the disasters that might occur.</p></li>
+<li><p>Instead of being an omniscient observer, let’s say we aren’t sure where the next disaster will be</p></li>
+</ol>
+<p>Now, these assumptions might be intimidating at first. How do you rigorously model information we don’t know? Isn’t this the realm of predictive models?</p>
+<p>This reaction is totally normal and indeed we often use predictive modeling when our information is incomplete, however, remember that this problem isn’t easily suited to ML techniques due to the low availability of data, small feature space, and large solution space. So how do we approach this with optimization? Well now that we know how supplies will be dispensed for a given warehouse allocation, we can leverage the small set of historical disasters we do have to ask which allocations would have saved/minimized the time taken to respond to all of the disasters. Then our optimization techniques will give us a small number that could feasibly satisfy this (where our constraints meet, see the introduction for more on this) and we can just iterate over them.</p>
+<p>So how do we go about it in practice?</p>
+</section>
+</section>
+<section id="including-all-disasters">
+<h2>2.3 Including All Disasters<a class="headerlink" href="#including-all-disasters" title="Link to this heading">#</a></h2>
+<p>Before we begin, let’s explicitly define our new problem with the additional requirements outlined in the previous section so we’re all on the same page. Our first step is to add in the fact that there are more disasters than just one. We can do that by including a variable to denote which disaster we’re talking about</p>
+<p>Let:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span> the disaster scenario at hand i.e. a storm, earthquake, or epidemic</p></li>
+<li><p><span class="math notranslate nohighlight">\(j\)</span> be the location of the disaster</p></li>
+</ul>
+<p>In scenario <span class="math notranslate nohighlight">\(k\)</span> with the disaster located at <span class="math notranslate nohighlight">\(j\)</span>, the time for a warehouse <span class="math notranslate nohighlight">\(i\)</span>  to send <span class="math notranslate nohighlight">\(y_i\)</span> items is</p>
+<div class="math notranslate nohighlight">
+\[\tau_{ij}\cdot y^k_i\]</div>
+<p>Repeating for all warehouses gives us</p>
+<div class="math notranslate nohighlight">
+\[  \sum_i \tau_{ij}\cdot y^k_i \]</div>
+<p>Repeating for all disasters gives us</p>
+<div class="math notranslate nohighlight">
+\[ \sum_k \sum_i \tau_{ij}\cdot y^k_i \]</div>
+<p>This formulation doesn’t change any of the solutions we found in the last section, instead, it’s leveraging the power of our notation to be able to solve for the optimal allocation for every disaster in one fell swoop! It’s been a while since we looked at the original problem in its entirety, so let’s take a step back to understand why this is so important.</p>
+<p>The question that ESUPS, and subsequently this model, set out to solve is: where should disaster relief supplies be stored in a country to ensure it is as fast and cheap as possible to get them to people in need in the event of a disaster<sup>1</sup>? By comparing the overall travel time for every single disaster that we have data on, we can make determinations on whether storing different quantities of materials in different warehouses would be better or worse given our historical data.</p>
+<p><sup>1: Remember that the model we’re looking at is specifically for time, to solve for cost we would replace our time variable with a cost variable  </sup> <span class="math notranslate nohighlight">\(^{\tau_{ij}}\)</span> <sup>with a cost variable </sup> <span class="math notranslate nohighlight">\(^{c_{ij}}\)</span></p>
+<p>Before we get to solving, let’s add in one more small factor. Different disasters occur at different rates. A landlocked nation may be less likely to experience a disaster caused by a tropical storm than an earthquake, so shouldn’t we weigh the response time to earthquakes more than that of a storm?</p>
+</section>
+<section id="accounting-for-randomness">
+<h2>2.4 Accounting for Randomness<a class="headerlink" href="#accounting-for-randomness" title="Link to this heading">#</a></h2>
+<p>One of the most difficult tasks that we can encounter in data science problems is randomness or as it’s often called “stochastic” elements. This can be seen in all kinds of ways, but in our case study, we’re going to look at how we account for not knowing which disaster will hit next or even several years in the future. The way we do this is to create a stochastic model, which may initially seem intimidating, but in discrete events like this, it’s super easy.</p>
+<p>If you’re familiar with expected value this will quickly make sense, but no need to have any prior experience! The idea is that we weigh the outcome of the event (i.e. total travel time in this case) by the probability it occurs. So, if an earthquake is 3 times as likely as a flood, we would rewrite the equation as:</p>
+<div class="math notranslate nohighlight">
+\[.75 \cdot\text{(travel time earthquake)} + .25 \cdot\text{(travel time flood)} \]</div>
+<section id="the-model">
+<h3>The Model<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h3>
+<p>Now that we’ve had some background on expected value, let’s return to our model! Remeber out goal is to account for the inherent randomness associated with diffrent disaster occuring</p>
+<p>Let <span class="math notranslate nohighlight">\(P^k\)</span> be the probability of disaster <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(t^k\)</span> be the total travel time involved in disaster <span class="math notranslate nohighlight">\(k\)</span> in the previous sections. Using our definition of expected value, this gives us</p>
+<div class="math notranslate nohighlight">
+\[ \sum_k P^k \cdot t^k\]</div>
+<p>Now you might notice that we have already written an equation for the total travel time for disaster <span class="math notranslate nohighlight">\(k\)</span> ! Substituting this in we get</p>
+<div class="math notranslate nohighlight">
+\[\sum_k P^k \sum_i \tau_{ij}\cdot y^k_i\]</div>
+<p>So, you can see, in our case turning this problem into a stochastic optimization problem that can account for probability only involves one more variable. So, our final task right now is to minimize the time required to get supplies to a disaster given how likely each disaster is to occur:</p>
+<div class="math notranslate nohighlight">
+\[
+\min_y \sum_k P^k \sum_i \tau_{ij}\cdot y^k_i\]</div>
+<p>And we can see the constraints are almost unchanged. The only added part is that all probabilities must sum to one, which is always the case:
+$$
+\begin{aligned}</p>
+<p>\text{s.t.}  &amp; \sum_{i} &amp; y^k_{i}&amp;=d^k &amp; &amp; \hspace{.2cm} \text{(total supplies sent must meet demand)}\</p>
+<p>&amp; &amp; y^k_i       &amp;\leq x_i &amp; \forall i \in I&amp; \hspace{.2cm}\text{(you can’t send more than a warehouse has)}\</p>
+<p>&amp;\text{} &amp; y^k_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can’t send negative supplies)}\</p>
+<p>&amp; \sum_k &amp; P^k &amp;=1 &amp;&amp; \hspace{.2cm} \text{(All probabilities must sum to 1)}\</p>
+<p>\end{aligned}
+$$</p>
+<p>How do we calculate the probability though? Well, we have good long-term data on what disasters have affected which countries. For now, we can go through that data and calculate the probability of disaster k by counting how many times it has occurred and dividing by the number of total disasters i.e.</p>
+<div class="math notranslate nohighlight">
+\[ P^k = \frac{k}{\|K\|}\]</div>
+<p>You may have noticed that every single disaster will have the same probability, or in other words, this will produce a uniform distribution. As a result, <span class="math notranslate nohighlight">\(P^k\)</span> is a constant and can effectively be removed, so our new equation will give the exact same results as our old one. We’ll talk about ways to potentially address this later on in the notebooks as an extension, but for the moment, the purpose of adding this is to show how easily the equation can be modified to be stochastic and to get users used to the idea.</p>
+<p>So now that we have the equation, we can let the model go ahead and let Gurobi solve it for us</p>
+<p>We will start using <code class="docutils literal notranslate"><span class="pre">with</span></code> statements to accomidate the model’s growing size and need for our License</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demand</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">get_probs</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Create an array of driving times based on the df_distance DataFrame</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;drivingTime_hrs&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Amount to take per Warehouse</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add constraints to meet demand for each disaster scenario (k)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="c1"># Demand constraints</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+        <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Warehouse constraints</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">supplies</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">):</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">supplies</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">_I:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Objective function to minimize the weighted driving time using T as a parameter</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimize model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+
+<span class="c1"># Store results in the list &#39;a&#39;</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">demand</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">get_probs</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;get_probs&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-science-extension">
+<h2>2.5 Data Science Extension<a class="headerlink" href="#data-science-extension" title="Link to this heading">#</a></h2>
+<p>We’ve seen how the equation uses the uniform distribution to solve the problem, but what if we knew something it didn’t? What if knowing that climate change is increasingly energizing large storms, we decide the past hurricane impacts aren’t representative of what’s to come? In this section we want to prompt you to come up with predictive elements to improve our models. Feel free to use some of the ideas below or go in an entirely new direction!</p>
+<p>In this section, we encourage you to think creatively about enhancing predictive models for climate-related disasters. Consider how to incorporate novel data sources, feature engineering techniques, and model architectures to improve predictions. Below are some suggested approaches, but feel free to explore entirely new directions!</p>
+<p>Case Study Focus: Coastal Eastern African Nations</p>
+<p>Using the disaster impact data for coastal Eastern African nations, can you develop a model to predict how these impacts might escalate for Madagascar in the coming years? Consider not only the historical data but also factors such as changes in sea surface temperatures, shifting storm tracks, population growth along vulnerable coastlines, and evolving infrastructure resilience. Further, can you integrate this predictive model into an optimization framework to better allocate resources for disaster preparedness and response?</p>
+<p>Potential Approaches to Explore:</p>
+<ol class="arabic simple">
+<li><p>Comparing Time Series Models: Traditional statistical time series models like ARIMAX (AutoRegressive Integrated Moving Average with Explanatory Variables) are commonly used to predict future values based on past data. How do these models compare with more advanced Recurrent Neural Network (RNN)-based approaches like Long Short-Term Memory (LSTM) networks or Gated Recurrent Units (GRUs) in capturing long-term dependencies, especially under non-stationary conditions induced by climate change?</p></li>
+<li><p>Incorporating Geospatial Data: Geospatial features, such as latitude, longitude, elevation, and proximity to bodies of water, can play a crucial role in predicting the impact of tropical storms. Can we encode geospatial information using techniques like convolutional neural networks (CNNs) for spatial feature extraction, or leverage more specialized models such as Geographical Weighted Regression (GWR) or Graph Neural Networks (GNNs) to account for spatial dependencies?</p></li>
+<li><p>Incorporating Climate Change Projections: Beyond just historical data, consider how future climate projections can be integrated into the model. Can we use downscaled climate model outputs or ensemble approaches to account for different climate scenarios? How would these scenarios affect the frequency and intensity of tropical storms affecting coastal Eastern African nations?</p></li>
+<li><p>Feature Engineering with Climate Indicators: Introduce climate change indicators as predictive features. For example, how do trends in sea surface temperatures (SSTs), El Niño-Southern Oscillation (ENSO) phases, or the Atlantic Multi-decadal Oscillation (AMO) correlate with storm intensification? Would incorporating these indicators as additional time series variables enhance predictive accuracy?</p></li>
+<li><p>Hybrid and Ensemble Models: Can we leverage hybrid models that combine both statistical and deep learning approaches, or use ensemble methods that aggregate predictions from multiple models? For example, combining ARIMAX for short-term predictions with LSTM for capturing long-term trends may provide a more comprehensive forecasting tool.</p></li>
+<li><p>Optimization Integration: Once a reliable predictive model is established, how can it be integrated into an optimization framework for resource allocation? For example, can we build an optimization model that minimizes both the cost of disaster preparedness and the potential loss from future storm impacts?</p></li>
+<li><p>Model Explainability and Decision-Making: How can we ensure that the model is interpretable for decision-makers? Consider the use of techniques like SHAP (SHapley Additive exPlanations) values or LIME (Local Interpretable Model-agnostic Explanations) to explain which factors contribute most to the model’s predictions, helping policymakers make informed decisions.</p></li>
+</ol>
+<p>By combining predictive analytics with optimization, we can not only forecast future disaster impacts but also develop actionable strategies for minimizing those impacts. The goal is to make our models both more accurate and more useful in real-world applications, driving better outcomes for communities at risk.</p>
+</section>
+<section id="processing-the-results-2-stage-slp">
+<h2>2.6 Processing the Results: 2-Stage SLP<a class="headerlink" href="#processing-the-results-2-stage-slp" title="Link to this heading">#</a></h2>
+<p>Great, now that we can solve for the time it takes to address every single disaster, we can finally answer the original question posed: how do we best allocate supplies to all the warehouses? The key here is to create a second optimization problem. Remember how in our constraints we included that you can’t send more than the warehouse has?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y^k_i       \leq x_i  \forall i \in I \hspace{.2cm}\text{(you can't send more than a warehouse has)}\\
+\end{split}\]</div>
+<p>So far, we’ve just been using the actual allocation we have at each warehouse for <span class="math notranslate nohighlight">\(x_i\)</span>. But what if those changes? Suddenly we would have an entirely new solution. So, if we say that the output of Gurobi (i.e. the allocations <span class="math notranslate nohighlight">\(y^k_i \in Y\)</span>) is some function based on our starting amount warehouses (<span class="math notranslate nohighlight">\(X\)</span> where <span class="math notranslate nohighlight">\(x_i\in X\)</span>), then we can say</p>
+<div class="math notranslate nohighlight">
+\[Y=f(X)\]</div>
+<p>And when we frame it this way, it becomes much more simple to solve! All we need to do is minimize the travel times <span class="math notranslate nohighlight">\(Y\)</span>. In other words, our problem becomes</p>
+<div class="math notranslate nohighlight">
+\[ \min_{X} f(X) \]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\begin{aligned}
+\text{s.t.}  &amp; \sum_{i} &amp; x_i&amp;=\chi &amp; &amp; \hspace{.2cm} \text{(we allocate all supplies and no more)}\\\end{split}\\\begin{split} &amp;&amp; x_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't allocate negative supplies)}\\\end{split}\\\end{aligned}\end{aligned}\end{align} \]</div>
+<p>Where <span class="math notranslate nohighlight">\(\chi\)</span> is the total amount of supplies we have in the country</p>
+<p>While this may initially look intimidating, it is one of the easiest changes to make to our current code. All we are doing is making a variable instead of a constraint and then constraining it. Let’s substitute back in our equation from the last section with the new constraints to see this firsthand. To denote a new decision variable (i.e. a variable that can be changed), all we need to do is add it under the minimization sign. This means minimizing with respect to <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\min_{X,Y} \sum_k P^k \sum_i \tau_{ij}\cdot y^k_i
+\]</div>
+<p>Then all we need to do is update the constraints. I’ve included the line to make it easier to see what’s new as our list grows. It has no mathematical significance.
+So how do we Implement this in Gurobi?</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\begin{aligned}\\\begin{split}
+\text{s.t.}  &amp; \sum_{i} &amp; y^k_{i}&amp;=d^k &amp; &amp; \hspace{.2cm} \text{(total supplies sent must meet demand)}\\\end{split}\\\begin{split}&amp; &amp; y^k_i       &amp;\leq x_i &amp; \forall i \in I&amp; \hspace{.2cm}\text{(you can't send more than a warehouse has)}\\\end{split}\\\begin{split} &amp;\text{} &amp; y^k_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't send negative supplies)}\\\end{split}\\\begin{split}&amp; \sum_k &amp; P^k &amp;=1 &amp;&amp; \hspace{.2cm} \text{(All probabilities must sum to 1)}\\\end{split}\\\begin{split}\hline \\\end{split}\\\begin{split}  &amp; \sum_{i} &amp; x_i&amp;=\chi &amp; &amp; \hspace{.2cm} \text{(we allocate all supplies and no more)}\\\end{split}\\\begin{split} &amp;&amp; x_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can't allocate negative supplies)}\\\end{split}\\
+\end{aligned}
+\end{aligned}\end{align} \]</div>
+<p>So how do we implement this in Gurobi?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;full_allocation&quot;</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)</span>
+
+<span class="c1"># Create an array of driving times based on the df_distance DataFrame</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
+
+<span class="c1"># Amount to take per Warehouse</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Single_Warehouse_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># National Allocation</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;National_Allocation&quot;</span><span class="p">)</span>
+
+<span class="c1"># Total national endowment constraint</span>
+<span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="mi">40811</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Total_National_Endowment&quot;</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># Demand and warehouse constraints for each scenario</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
+        <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">==</span> <span class="n">demand</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Meet_Demand_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">supplies</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">):</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">supplies</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_K:</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">_I:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Objective function to minimize the weighted driving time using T as a parameter</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimize model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-few-final-tidbits">
+<h2>2.7 A Few Final Tidbits<a class="headerlink" href="#a-few-final-tidbits" title="Link to this heading">#</a></h2>
+<p>Now that we have our overall framework, we can extend it fairly easily to better model real-life scenarios. Let’s look at two final pieces of the puzzle that ESUPS considers in their model:</p>
+<p><strong>Cost</strong></p>
+<p>Along with how long it takes to get items to a disaster relief site, it’s also important to consider the cost to accomplish it. It might be a few hours faster to charter a jet to deliver blankets in the aftermath of a disaster, however, if it is 100x more expensive than by truck, that may constrain the organization from buying more blankets, chartering more trucks, or making it difficult to resupply for future disasters. So just as we solve for ways to minimize time, it can be important for firms with limited resources to make sure their money is being used to do the most good it can.</p>
+<p>So how do we do this? It’s fairly simple. Our time matrix, which we’ve been using to show how close or far buildings are from the disaster relief site, is just a set of predefined weights/discounts. So, if we change the numbers to reflect the cost of transit, then suddenly we’re solving a cost-minimization problem! In fact, the substitution is so one-to-one, that besides switching <span class="math notranslate nohighlight">\(\tau_{ij}\)</span> for <span class="math notranslate nohighlight">\(c_{ij}\)</span>, we don’t have to change the equation.</p>
+<p><strong>Travel Mode</strong></p>
+<p>The second additional facet considered in our real-life model that we haven’t encountered yet is transportation mode. We alluded to it a little in the cost section, but often there is the option to fly or ship goods into a region, which can be especially useful when far away or the roads are clogged or otherwise unusable (such is often the case after a disaster).</p>
+<p>So how do we implement this? Well let’s take a look back at <span class="math notranslate nohighlight">\(y_i^k\)</span>, our variable which says how many goods to send from warehouse <span class="math notranslate nohighlight">\(i\)</span> to disaster <span class="math notranslate nohighlight">\(k\)</span>. All we want to do is reflect and updated description: how many goods to send from warehouse <span class="math notranslate nohighlight">\(i\)</span> to disaster <span class="math notranslate nohighlight">\(k\)</span> via mode <span class="math notranslate nohighlight">\(r\)</span>. This can easily be represented as <span class="math notranslate nohighlight">\(y_{ir}^k\)</span>, let’s explain what’s happened. Before is <span class="math notranslate nohighlight">\(y\)</span> was an array of length <span class="math notranslate nohighlight">\(K\)</span> with each index holding sub array of length <span class="math notranslate nohighlight">\(I\)</span> (which we could also write as size <span class="math notranslate nohighlight">\(K \times I\)</span>), now each index in our subarrays also have an array of length <span class="math notranslate nohighlight">\(3\)</span> to represent how much is sent via truck, plane, or boat. So our final array is of dimensions <span class="math notranslate nohighlight">\(K \times I \times R \)</span>. This may seem intimidating at first, but remember, adding a dimension just means adding one more nested for loop!</p>
+<p>Let’s look at how we would implement this. Remember, from a math point of view, all we’ve done is say <span class="math notranslate nohighlight">\(y_i^k\)</span> can be broken down into <span class="math notranslate nohighlight">\(3\)</span> modes instead of 1. So, it’s rewritten as</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{X,Y} \sum_k P^k \sum_i \sum_r \tau_{irj}\cdot y^k_{ir}
+\]</div>
+<p>Then all we need to do is update the constraints. I’ve included the line to make it easier to see what’s new as our list grows. It has no mathematical significance.
+$$
+\begin{aligned}</p>
+<p>\text{s.t.}  &amp; \sum_{i}\sum_{r} &amp; y^k_{ir}&amp;=d^k &amp; &amp; \hspace{.2cm} \text{(total supplies sent must meet demand)}\</p>
+<p>&amp; \sum_{r}  &amp; y^k_{ir}       &amp;\leq x_i &amp; \forall i \in I&amp; \hspace{.2cm}\text{(you can’t send more than a warehouse has)}\</p>
+<p>&amp;\text{} &amp; y^k_{ir} &amp;\geq 0 &amp;\forall r\in R, i \in I&amp; \hspace{.2cm} \text{(you can’t send negative supplies)}\</p>
+<p>&amp; \sum_k &amp; P^k &amp;=1 &amp;&amp; \hspace{.2cm} \text{(All probabilities must sum to 1)}\</p>
+<p>&amp; \sum_{i} &amp; x_i&amp;=\chi &amp; &amp; \hspace{.2cm} \text{(we allocate all supplies and no more)}\</p>
+<p>&amp;&amp; x_{i} &amp;\geq 0 &amp;\forall i \in I&amp; \hspace{.2cm} \text{(you can’t allocate negative supplies)}\</p>
+<p>\end{aligned}
+$$</p>
+<p>We’ve added a few more sums here, but remember, in math, a sum is just a for loop. <span class="math notranslate nohighlight">\(\sum_r\)</span> is the equivalent to <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">r</span> <span class="pre">in</span> <span class="pre">R:</span></code>. So how would we implement it in the format we’ve been using so far? This is going to be left as an open-ended exercise to the reader! If you get stuck, you can reference the production solver we’ll be exploring below, which includes the mode of travel but is set up in a different approach than we’ve been using so far!</p>
+<section id="open-ended-implementation">
+<h3>Open-Ended Implementation<a class="headerlink" href="#open-ended-implementation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="interpreting-the-solution">
+<h2>2.8 Interpreting the Solution<a class="headerlink" href="#interpreting-the-solution" title="Link to this heading">#</a></h2>
+<p>So let’s look at how much slower our real life allocations are in comparison to the optimal.</p>
+</section>
+<section id="enhancing-system-performance-with-the-balance-metric">
+<h2>Enhancing System Performance with the Balance Metric<a class="headerlink" href="#enhancing-system-performance-with-the-balance-metric" title="Link to this heading">#</a></h2>
+<p>In humanitarian logistics, the efficiency of inventory allocation directly impacts the ability to respond swiftly and cost-effectively to disasters. The <strong>Balance Metric</strong> <span class="math notranslate nohighlight">\((D)\)</span> is a critical tool developed to evaluate the alignment of current inventory distribution with an optimal allocation. This metric is particularly valuable in contexts where multiple organizations independently manage inventory across various depots, without a centralized coordination mechanism.</p>
+<section id="definition-and-calculation-of-the-balance-metric">
+<h3>Definition and Calculation of the Balance Metric<a class="headerlink" href="#definition-and-calculation-of-the-balance-metric" title="Link to this heading">#</a></h3>
+<p>The balance metric <span class="math notranslate nohighlight">\((D)\)</span> is defined as the ratio between the actual objective value (either cost or time) of the current inventory allocation <span class="math notranslate nohighlight">\(V(X)\)</span> and the optimal objective value <span class="math notranslate nohighlight">\(V(A')\)</span> given the same overall capacity:</p>
+<div class="math notranslate nohighlight">
+\[ D = \frac{V(A)}{V(A')}  \]</div>
+<p>Here:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V(A)\)</span>: Represents the current system-wide cost or time to meet demand based on the existing inventory allocation (X).</p></li>
+<li><p><span class="math notranslate nohighlight">\(V(A')\)</span>: Represents the minimized cost or time if the inventory were optimally distributed across all depots.</p></li>
+</ul>
+</section>
+<section id="interpretation-of-the-balance-metric">
+<h3>Interpretation of the Balance Metric<a class="headerlink" href="#interpretation-of-the-balance-metric" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Optimal Inventory Allocation</strong>:
+The optimal value of <span class="math notranslate nohighlight">\(D\)</span> is 1. This occurs when the current allocation perfectly aligns with the optimal allocation, meaning no further reallocation could reduce costs or response times.</p></li>
+<li><p><strong>Identifying Imbalances</strong>:
+When <span class="math notranslate nohighlight">\(D &gt; 1\)</span>, the system is considered “out-of-balance.” A value of 1.2, for example, implies that the current allocation incurs 20% higher costs or longer response times compared to an optimal arrangement. This indicates a potential for improvement by reallocating resources more effectively.</p></li>
+<li><p><strong>Guiding System Improvements</strong>:
+The balance metric is not only an indicator of inefficiency but also a guide for decision-making. By identifying locations or items with the highest imbalance, decision-makers can prioritize inventory reallocations that would yield the most significant improvements in terms of cost savings or faster response times.</p></li>
+</ol>
+</section>
+<section id="practical-applications-in-humanitarian-logistics">
+<h3>Practical Applications in Humanitarian Logistics<a class="headerlink" href="#practical-applications-in-humanitarian-logistics" title="Link to this heading">#</a></h3>
+<p>The balance metric offers several practical applications for optimizing humanitarian response efforts:</p>
+<ul class="simple">
+<li><p><strong>Strategic Reallocation of Resources</strong>:
+Organizations can use the balance metric to identify under-stocked or over-stocked depots and adjust inventory levels accordingly. This strategic reallocation can significantly enhance response times or reduce costs, especially in multi-organizational contexts where coordination is limited.</p></li>
+<li><p><strong>Sensitivity to Network Changes</strong>:
+The balance metric is responsive to changes in the logistics network. For example, if a new depot is added in a high-risk area and remains under-stocked, the balance metric will reflect this imbalance, prompting an assessment of whether inventory should be redistributed to better leverage the new depot.</p></li>
+<li><p><strong>Decision-Making in Real-Time Operations</strong>:
+By continuously monitoring the balance metric as part of a real-time dashboard, operational managers can be alerted to changes that may impact overall system performance. This enables them to make data-driven decisions quickly, improving the overall resilience and responsiveness of the humanitarian supply chain.</p></li>
+</ul>
+</section>
+<section id="limitations-and-considerations">
+<h3>Limitations and Considerations<a class="headerlink" href="#limitations-and-considerations" title="Link to this heading">#</a></h3>
+<p>While the balance metric provides valuable insights into inventory allocation efficiency, it is important to consider its limitations:</p>
+<ul class="simple">
+<li><p><strong>Impact of Extreme Events</strong>:
+The balance metric can be influenced by extreme scenarios, such as very large-scale disasters that significantly impact the calculated demand. As a result, it should be interpreted alongside other metrics, such as the fraction of demand served (<span class="math notranslate nohighlight">\(g\)</span>) or the weighted fraction of disasters completely served (<span class="math notranslate nohighlight">\(d\)</span>), to provide a more comprehensive picture of system performance.</p></li>
+<li><p><strong>Dependence on Data Quality and Model Assumptions</strong>:
+The accuracy of the balance metric depends on the quality of input data and the assumptions made in the model. Ensuring robust and accurate data collection processes and regularly updating model parameters to reflect real-world conditions are essential for maintaining the reliability of the metric.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
+<p>The balance metric <span class="math notranslate nohighlight">\(D\)</span> offers a powerful tool for evaluating and improving the efficiency of inventory allocation in humanitarian logistics. By identifying imbalances and guiding strategic reallocation decisions, this metric can help organizations optimize their response efforts, ensuring that resources are used most effectively to meet the needs of affected populations during disasters.</p>
+<p><a id='End'></a></p>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="disaster_prepositioning_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Setup</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="disaster_prepositioning_3_A.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.A Introduction to Modeling Optimization Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">3.1 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make the Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">2.3 Including All Disasters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accounting-for-randomness">2.4 Accounting for Randomness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-extension">2.5 Data Science Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-the-results-2-stage-slp">2.6 Processing the Results: 2-Stage SLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-final-tidbits">2.7 A Few Final Tidbits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-ended-implementation">Open-Ended Implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-solution">2.8 Interpreting the Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enhancing-system-performance-with-the-balance-metric">Enhancing System Performance with the Balance Metric</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-calculation-of-the-balance-metric">Definition and Calculation of the Balance Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-the-balance-metric">Interpretation of the Balance Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-applications-in-humanitarian-logistics">Practical Applications in Humanitarian Logistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-considerations">Limitations and Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gurobi Optimization
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Gurobi Optimization, LLC.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

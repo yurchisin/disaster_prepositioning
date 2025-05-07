@@ -1,0 +1,16 @@
+/* custom.css: force a black background and white text */
+body, .bd-content, .bd-sidebar, .bd-footer, .bd-navbar {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Ensure links are still readable */
+a, .bd-sidebar a {
+  color: #8B0000 !important; 
+}
+
+/* Tables, code blocks, cards, etc. */
+table, .highlight, .card, .cell {
+  background-color: #000 !important;
+  color: #fff !important;
+}

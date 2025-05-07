@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Wrapping It Up &#8212; Disaster Prepositioning Case Study</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2b93f807" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_5';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Production Code" href="disaster_prepositioning_4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Disaster Prepositioning Case Study</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to ESUPS Case Study
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_0.html">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_1.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">The Setup</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="disaster_prepositioning_3.html">Optimizing!</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_A.html">2.A Introduction to Modeling Optimization Problems</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_B.html">3.B More On Expected Value</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_4.html">Production Code</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wrapping It Up</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/disaster_prepositioning_5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wrapping It Up</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wrapping It Up</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#math-addendum">Math Addendum</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-optimization">Introduction to Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happened-to-the-second-derivative">What Happened to the Second Derivative?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-largrangian">The Largrangian</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-and-bound">Branch and Bound</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-systems">Stochastic Systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="wrapping-it-up">
+<h1>Wrapping It Up<a class="headerlink" href="#wrapping-it-up" title="Link to this heading">#</a></h1>
+<p>As we conclude this journey through the evolution of ESUPS and the STOCKHOLM platform, it’s inspiring to reflect on how a collaborative spirit and a shared vision can drive meaningful change. ESUPS began as a modest initiative, a simple spreadsheet aimed at cataloging disaster relief supplies to prevent the inefficiencies witnessed during the Nepal earthquake response. However, it was through strategic partnerships with academia, non-profit organizations, and industry leaders that ESUPS transformed into a global force reshaping disaster preparedness and response.</p>
+<p>The collaboration with universities like Penn State and MIT infused ESUPS with cutting-edge research and fresh perspectives. Students and academics brought innovative optimization models and data analytics techniques to the table, enhancing the platform’s ability to make data-driven decisions. These partnerships not only advanced ESUPS’s mission but also provided invaluable real-world experience for students eager to apply their skills to pressing global challenges.</p>
+<p>Non-profit organizations and NGOs contributed on-the-ground insights and a deep understanding of humanitarian needs. Their involvement ensured that the solutions developed were practical, culturally sensitive, and aligned with the realities of disaster-stricken areas. This synergy between theoretical models and practical application exemplifies how diverse stakeholders can come together to tackle complex problems effectively.</p>
+<p>For students and aspiring professionals, the story of ESUPS serves as a powerful reminder that impactful ideas often start small but can grow exponentially through collaboration and determination. It highlights the potential each individual has to contribute to a better world, especially when leveraging skills in data science, optimization, and technology.</p>
+<p>You, too, can implement your own ideas for a better world. Whether it’s developing innovative algorithms to optimize resource allocation, creating platforms that enhance communication among aid organizations, or initiating community projects that address local issues, your contributions matter. The tools and techniques explored in this notebook are not just academic exercises—they are gateways to real-world applications that can save lives and improve outcomes in critical situations.</p>
+<p>We encourage you to take the lessons learned from ESUPS and apply them in your own pursuits:</p>
+<ul class="simple">
+<li><p>Embrace Collaboration: Seek partnerships with universities, non-profits, and industry experts. Collaboration amplifies impact.</p></li>
+<li><p>Leverage Technology for Good: Use your technical skills to develop solutions that address societal challenges.</p></li>
+<li><p>Think Globally, Act Locally: Start with problems you are passionate about in your community; small changes can lead to significant impact.</p></li>
+<li><p>Stay Curious and Innovative: Continuously explore new ideas and approaches. Innovation thrives on curiosity and the willingness to challenge the status quo.
+By following in the footsteps of ESUPS and other pioneering initiatives, you can be part of a generation that not only understands the complexities of global challenges but actively contributes to solving them. The future of disaster response, humanitarian aid, and many other fields depends on innovative thinkers and dedicated doers like you.</p></li>
+</ul>
+<p>Remember, significant change often begins with a single idea and grows through collaboration, perseverance, and a shared commitment to making the world a better place. We look forward to seeing how you will apply these insights to create your own impactful narratives.</p>
+</section>
+<section id="math-addendum">
+<h1>Math Addendum<a class="headerlink" href="#math-addendum" title="Link to this heading">#</a></h1>
+<section id="introduction-to-optimization">
+<h2>Introduction to Optimization<a class="headerlink" href="#introduction-to-optimization" title="Link to this heading">#</a></h2>
+<section id="what-happened-to-the-second-derivative">
+<h3>What Happened to the Second Derivative?<a class="headerlink" href="#what-happened-to-the-second-derivative" title="Link to this heading">#</a></h3>
+<p>In the realm of optimization, the second derivative of a function, often referred to as the Hessian matrix in multi-dimensional spaces, provides valuable insights into the curvature of the objective function. Specifically, it helps us understand how the slope of the function changes, enabling us to distinguish between local maxima, minima, and saddle points. This information is crucial for methods like Newton’s method, which uses the second derivative to make precise adjustments toward the optimal solution.</p>
+<p>However, in complex, real-world problems such as disaster relief logistics, relying on the second derivative presents significant challenges:</p>
+<ol class="arabic simple">
+<li><p><strong>Non-Linear and Non-Smooth Functions</strong>: The objective functions in disaster relief are often non-linear and may have discontinuities due to the various constraints and sudden changes in variables (e.g., supply chain disruptions, varying demand). Calculating the second derivative for such functions can be impractical or impossible, as these irregularities disrupt the smooth curvature that the second derivative relies on.</p></li>
+<li><p><strong>High Dimensionality</strong>: The optimization problems in disaster relief involve numerous variables, such as quantities of different supplies, multiple transportation routes, and varying time constraints. The Hessian matrix, representing the second derivatives with respect to all pairs of variables, becomes exceedingly large and computationally expensive to compute and store. In high-dimensional spaces, the complexity and cost of computing the Hessian can outweigh its benefits.</p></li>
+<li><p><strong>Dynamic and Stochastic Environments</strong>: The environment in which disaster relief operations take place is dynamic and often stochastic, with elements of uncertainty and unpredictability. These factors introduce variability that is difficult to capture with static second-order information. As the situation evolves, the second derivative may no longer accurately represent the current state of the system.</p></li>
+<li><p><strong>Local Optima</strong>: In complex optimization landscapes, there are often multiple local optima. The second derivative provides local information and might lead optimization algorithms to converge to these local optima rather than the global optimum. This is particularly problematic in disaster relief, where finding the best possible solution can make a critical difference.</p></li>
+<li><p><strong>Lack of Closed-Form Solutions</strong>: When dealing with high-power polynomials and other complex functions, closed-form solutions for finding the roots do not always exist. The second derivative may help approximate solutions in simpler cases, but as the degree of the polynomial increases, finding exact solutions becomes intractable. This is particularly relevant in disaster logistics, where the relationships between variables can be modeled by high-degree polynomials without straightforward solutions.</p></li>
+</ol>
+<p>Given these challenges, alternative optimization methods are preferred. Gradient-based approaches like gradient descent rely solely on the first derivative (gradient) and can handle larger, non-linear, and non-smooth problems more effectively. Additionally, heuristic and metaheuristic methods, such as genetic algorithms, simulated annealing, and particle swarm optimization, do not rely on derivative information at all. These methods explore the solution space more broadly and can escape local optima.</p>
+</section>
+<section id="the-largrangian">
+<h3>The Largrangian<a class="headerlink" href="#the-largrangian" title="Link to this heading">#</a></h3>
+<p>The Lagrangian is a fundamental concept in optimization, especially when dealing with constraints. In simple terms, the Lagrangian function incorporates both the original objective function and the constraints of the problem, allowing us to solve constrained optimization problems more effectively. For disaster relief optimization, the Lagrangian helps in balancing the trade-off between minimizing costs and meeting the demand for supplies under various constraints, such as limited resources or maximum allowable transit times. By introducing Lagrange multipliers, we transform the problem into an unconstrained one, making it easier to find optimal solutions that respect all necessary conditions.</p>
+<p>The Lagrangian approach is particularly powerful when second-order methods are impractical due to the reasons mentioned above. By converting a constrained problem into an unconstrained one, it simplifies the complexity and allows for the use of gradient-based methods or other optimization techniques that do not rely on second-order derivatives. This flexibility makes the Lagrangian method a crucial tool in the optimization toolbox, especially for complex, real-world problems like disaster relief logistics.</p>
+<section id="branch-and-bound">
+<h4>Branch and Bound<a class="headerlink" href="#branch-and-bound" title="Link to this heading">#</a></h4>
+<p>The <strong>Branch and Bound</strong> method is a powerful optimization technique used for solving <strong>integer programming</strong> problems where some or all decision variables must take on integer values. The fundamental idea is to systematically explore branches of possible solutions while “bounding” areas that cannot contain the optimal solution, thereby narrowing down the search efficiently.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/branch-and-bound.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/branch-and-bound.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Image&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Step-by-Step Process:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Relaxation of Constraints:</strong>
+To start, we relax the integer constraints, treating all variables as continuous. This relaxation converts the integer programming problem into a standard linear programming problem, which we can solve efficiently using the <strong>Simplex Method</strong>. The result of this relaxed problem provides a baseline solution that may not necessarily satisfy the integer requirements. For example, if the optimal solution of the relaxed problem gives us a variable  x = 2.6 , we know this is not a valid solution if  x  must be an integer.</p></li>
+<li><p><strong>Creating Subproblems by Branching:</strong>
+When a solution contains a variable that is not an integer (like  x = 2.6 ), we create two subproblems by “branching” on this variable:</p>
+<ul class="simple">
+<li><p><strong>Branch 1:</strong> Add a constraint that rounds  x  <strong>down</strong> to the nearest integer,  <span class="math notranslate nohighlight">\(x \leq 2\)</span>.</p></li>
+<li><p><strong>Branch 2:</strong> Add a constraint that rounds  x  <strong>up</strong> to the next integer,  <span class="math notranslate nohighlight">\(x \geq 3\)</span>.
+These constraints split the solution space into two smaller, more manageable subproblems. By dividing the problem this way, we explore different regions of the solution space that could lead to an optimal integer solution.</p></li>
+</ul>
+</li>
+<li><p><strong>Solving and Bounding:</strong>
+We then solve each of these subproblems, again using the Simplex Method, to find the best possible solutions within the new constraints. For each subproblem:</p>
+<ul class="simple">
+<li><p>If a subproblem yields a solution that is <strong>feasible</strong> (i.e., all variables are integers) and <strong>better</strong> than the current best-known solution, it becomes the new candidate for the optimal solution.</p></li>
+<li><p>If a subproblem’s solution is not feasible (i.e., it still has non-integer variables) or if it cannot improve upon the current best solution, we bound it off. This means we stop exploring that branch further, as it cannot possibly lead to a better solution.</p></li>
+</ul>
+</li>
+<li><p><strong>Recursive Exploration:</strong>
+The process continues recursively: for each subproblem that still contains non-integer solutions, we branch again, creating further subproblems with tighter constraints. This systematic exploration and bounding help eliminate large swaths of the solution space that cannot contain the optimal solution, making the search much more efficient.</p></li>
+<li><p><strong>Convergence to the Optimal Solution:</strong>
+The Branch and Bound algorithm terminates when all subproblems have been explored or bounded off. At this point, the best feasible solution found is guaranteed to be the <strong>optimal solution</strong> for the original integer programming problem. Unlike heuristic methods, this approach provides a definitive, mathematically-proven optimal solution.</p></li>
+</ol>
+<p>By combining the efficiency of the Simplex Method for solving linear problems with a systematic search for feasible integer solutions, Branch and Bound is a robust method for tackling complex optimization problems where some or all decision variables must be integers.</p>
+</section>
+</section>
+<section id="stochastic-systems">
+<h3>Stochastic Systems<a class="headerlink" href="#stochastic-systems" title="Link to this heading">#</a></h3>
+<p>In the context of disaster relief logistics, the environment is not just dynamic but also inherently stochastic. This means that many of the variables involved—such as demand for supplies, transportation times, or the availability of resources—are not deterministic. Instead, they are influenced by a range of unpredictable factors, from weather conditions to sudden changes in infrastructure availability or the emergence of new areas needing assistance. Stochastic systems introduce randomness and uncertainty into optimization problems, requiring specialized approaches that can handle variability effectively.</p>
+<ol class="arabic simple">
+<li><p>Stochastic Optimization: Unlike deterministic optimization methods that assume a fixed environment, stochastic optimization incorporates randomness directly into the problem formulation. Techniques such as Stochastic Gradient Descent (SGD) adapt the optimization process to the presence of noise by using randomly selected subsets of data to update solutions iteratively. This allows the method to converge more quickly on large datasets or complex environments typical of disaster relief operations, where real-time data is continuously being updated.</p></li>
+<li><p>Modeling Uncertainty with Probabilistic Constraints: Disaster relief problems often require the modeling of uncertainty in the constraints themselves. For instance, a probabilistic constraint might state that the likelihood of delivering sufficient supplies to a location must be at least 95%. Methods like Chance-Constrained Programming and Robust Optimization are designed to handle such constraints, ensuring that solutions are viable even under uncertain conditions.</p></li>
+<li><p>Monte Carlo Methods and Simulation-Based Approaches: For highly uncertain systems where analytical solutions are challenging to derive, Monte Carlo simulations provide a practical alternative. These simulations model different possible scenarios by generating random samples from probability distributions associated with uncertain parameters. By running a large number of such simulations, decision-makers can estimate the expected outcomes and identify strategies that are robust across a range of possible futures. This is particularly valuable in disaster relief logistics, where preparing for the worst-case scenarios can save lives.</p></li>
+<li><p>Reinforcement Learning (RL) for Adaptive Decision Making: RL techniques are increasingly applied to stochastic optimization problems in logistics and supply chain management. In the RL framework, an agent learns to make decisions by interacting with an environment, receiving feedback in the form of rewards or penalties. This approach allows the agent to develop strategies that perform well under uncertainty and adapt to evolving conditions, making it highly suitable for disaster relief scenarios where rapid and flexible response is essential.</p></li>
+<li><p>Markov Decision Processes (MDPs) and Partially Observable MDPs (POMDPs): When dealing with sequential decision-making under uncertainty, MDPs provide a powerful framework to model the problem. In MDPs, decisions are made in stages, and each decision affects both immediate rewards and future states of the system. POMDPs extend this framework to situations where the system’s state is not fully observable, which is often the case in disaster response. For example, the exact condition of a road or the need level in a community may only be partially known due to limited communication. These models help optimize policies that account for both known and unknown elements, providing a balanced approach to decision-making under uncertainty.</p></li>
+<li><p>Dynamic Programming and Approximate Dynamic Programming: In problems characterized by stochasticity and high dimensionality, exact solutions are often impractical. Dynamic Programming (DP) breaks down the problem into smaller, more manageable subproblems, solving them recursively. However, when the state space is too large (a common issue in real-world logistics), Approximate Dynamic Programming (ADP) or reinforcement learning-based approaches like Q-learning or policy gradients are used to find near-optimal solutions without exhaustive computation.</p></li>
+</ol>
+<p>In conclusion, handling stochastic systems requires a blend of probabilistic modeling, simulation, and adaptive learning techniques. For disaster relief logistics, where uncertainty is a given and stakes are high, these methods provide the necessary tools to devise strategies that are not only optimal in theory but also robust and flexible in practice. The ability to incorporate randomness, adapt to evolving scenarios, and provide solutions under uncertainty makes stochastic systems analysis a cornerstone of modern optimization approaches in complex, real-world environments.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="disaster_prepositioning_4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Production Code</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wrapping It Up</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#math-addendum">Math Addendum</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-optimization">Introduction to Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happened-to-the-second-derivative">What Happened to the Second Derivative?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-largrangian">The Largrangian</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-and-bound">Branch and Bound</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-systems">Stochastic Systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gurobi Optimization
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Gurobi Optimization, LLC.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
