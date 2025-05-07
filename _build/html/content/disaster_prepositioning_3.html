@@ -339,7 +339,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">3.1 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make The model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make the Model</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">2.3 Including All Disasters</a></li>
@@ -409,22 +409,26 @@ and the constraints are:
 \)</span>$</p>
 <p>So now let’s solve this model.</p>
 <section id="make-the-model">
-<h3>Make The model<a class="headerlink" href="#make-the-model" title="Link to this heading">#</a></h3>
+<h3>Make the Model<a class="headerlink" href="#make-the-model" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gp</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="c1"># prep distance matrix</span>
-<span class="n">df_distance</span><span class="p">,</span> <span class="n">relevant_warehouses</span><span class="p">,</span> <span class="n">BucketsNeeded</span> <span class="o">=</span> <span class="n">get_distance_matrix</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
+<span class="n">simple_Allocation</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/simple_Allocation.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Prep data</span>
+<span class="n">BucketsNeeded</span> <span class="o">=</span> <span class="mi">13561</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">simple_Allocation</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">Buckets</span>
 
 <span class="c1"># Create model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s2">&quot;simple_Allocation&quot;</span><span class="p">)</span>
 
 <span class="c1"># Add decision variables</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVars</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">)</span>
 
 <span class="c1"># Add constraint to meet demand</span>
 <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span>
@@ -432,29 +436,87 @@ and the constraints are:
 <span class="p">)</span>
 
 <span class="c1"># Add in warehouse_constraints</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">supplies</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">):</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">supplies</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;warehouse_endowment_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="c1"># Note we don&#39;t have a constraint for y &gt;= 0 since it&#39;s assumed in the variable definition</span>
 <span class="c1"># Add objective</span>
 <span class="n">objective</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">quicksum</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MINIMIZE</span><span class="p">)</span>
 
-<span class="c1"># Solve the model</span>
+<span class="c1"># Fire up the solver!</span>
 <span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">gurobipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRB</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># prep distance matrix</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df_distance</span><span class="p">,</span> <span class="n">relevant_warehouses</span><span class="p">,</span> <span class="n">BucketsNeeded</span> <span class="o">=</span> <span class="n">get_distance_matrix</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">t</span> <span class="o">=</span> <span class="n">df_distance</span><span class="o">.</span><span class="n">drivingTime_hrs</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;get_distance_matrix&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restricted license - for non-production use only - expires 2025-11-24
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (mac64[rosetta2] - Darwin 24.4.0 24E263)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU model: Apple M1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread count: 8 physical cores, 8 logical processors, using up to 8 threads
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimize a model with 17 rows, 16 columns and 32 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model fingerprint: 0x37d66425
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient statistics:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Matrix range     [1e+00, 1e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Objective range  [6e+00, 3e+01]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Bounds range     [0e+00, 0e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  RHS range        [3e+00, 1e+04]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve removed 16 rows and 2 columns
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolve time: 0.01s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presolved: 1 rows, 14 columns, 14 nonzeros
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration    Objective       Primal Inf.    Dual Inf.      Time
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0    0.0000000e+00   1.691875e+03   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       1    9.8293000e+04   0.000000e+00   0.000000e+00      0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solved in 1 iterations and 0.01 seconds (0.00 work units)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal objective  9.829300000e+04
 </pre></div>
 </div>
 </div>
@@ -462,20 +524,156 @@ and the constraints are:
 <p>Now Let’s Anaylize the results!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show Solution</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">dis</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">(),</span> <span class="n">relevant_warehouses</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_distance</span><span class="p">[</span><span class="s2">&quot;drivingTime_hrs&quot;</span><span class="p">])</span>
-<span class="p">):</span>
-    <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Warehouse_Allocation&quot;</span><span class="p">:</span>
-        <span class="c1"># print(&#39;%s %g | total= %g | distance=%g&#39; % (v.VarName, v.X,total[2],dis))</span>
-        <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">total</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">dis</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">b</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Var&quot;</span><span class="p">,</span> <span class="s2">&quot;amount&quot;</span><span class="p">,</span> <span class="s2">&quot;possible&quot;</span><span class="p">,</span> <span class="s2">&quot;distance&quot;</span><span class="p">]</span>
-<span class="n">b</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;distance&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_sol</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">y_sol</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<span class="n">simple_Allocation_sol</span> <span class="o">=</span> <span class="n">simple_Allocation</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">simple_Allocation_sol</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_sol</span>
+<span class="n">simple_Allocation_sol</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;drivingTime_hrs&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>depotCity</th>
+      <th>drivingTime_hrs</th>
+      <th>Buckets</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Ambatondrazaka</td>
+      <td>0.00</td>
+      <td>26</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Antananarivo Renivohitra</td>
+      <td>6.00</td>
+      <td>9046</td>
+      <td>9046.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Miarinarivo</td>
+      <td>7.00</td>
+      <td>3</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Toamasina I</td>
+      <td>8.00</td>
+      <td>1580</td>
+      <td>1580.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Antsohihy</td>
+      <td>10.00</td>
+      <td>610</td>
+      <td>610.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ambositra</td>
+      <td>11.00</td>
+      <td>41</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Fenerive Est</td>
+      <td>11.00</td>
+      <td>6689</td>
+      <td>2296.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Ambanja</td>
+      <td>14.00</td>
+      <td>375</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Maintirano</td>
+      <td>14.25</td>
+      <td>2460</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Mahajanga I</td>
+      <td>16.00</td>
+      <td>150</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Morondava</td>
+      <td>16.00</td>
+      <td>736</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Manakara</td>
+      <td>17.00</td>
+      <td>4235</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Farafangana</td>
+      <td>19.00</td>
+      <td>5201</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Toliara</td>
+      <td>22.00</td>
+      <td>1637</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Sambava</td>
+      <td>23.00</td>
+      <td>5700</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ambovombe</td>
+      <td>26.00</td>
+      <td>2322</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Now you may have noticed that this feels like overkill. If we want to position supplies to respond to a known disaster, you might think that we should just put them as close as possible. It’s an intuitive solution that can be solved with a simple greedy algorithm. But of course, life is never that simple.</p>
 <p>Now that we’ve got the initial problem outlined, let’s start making it more realistic with two additions:</p>
@@ -583,6 +781,18 @@ $$</p>
 <span class="c1"># Store results in the list &#39;a&#39;</span>
 <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">():</span>
     <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">VarName</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">X</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">demand</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">get_probs</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">relevant_warehouses</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">demand</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;get_probs&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -853,7 +1063,7 @@ The accuracy of the balance metric depends on the quality of input data and the 
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-the-esups-optimization-model">3.1 Intro to the ESUPS Optimization Model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make The model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-model">Make the Model</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-all-disasters">2.3 Including All Disasters</a></li>

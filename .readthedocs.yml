@@ -6,22 +6,17 @@ build:
     python: "3.11"
   jobs:
     pre_build:
-      # Generate the Sphinx configuration for
-      # this Jupyter Book so it builds.
-      - jupyter-book config sphinx docs/
-      - sphinx-build -W -b html docs/source $READTHEDOCS_OUTPUT/html
+      # Generate the Sphinx configuration for this Jupyter Book so it builds.
+      - "jupyter-book config sphinx docs/"
 
-# Dependencies required to build your docs
 python:
-   install:
-     - requirements: requirements.txt
-     - method: pip
-       path: .
-       extra_requirements:
-         - sphinx
-         - jupyter-book
+  install:
+    - method: pip
+      path: .
+      extra_requirements:
+      - sphinx
 
 sphinx:
-  builder: html
   configuration: docs/conf.py
+  builder: html
   fail_on_warning: true
