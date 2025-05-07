@@ -9,8 +9,7 @@ build:
       # Generate the Sphinx configuration for
       # this Jupyter Book so it builds.
       - "jupyter-book config sphinx docs/"
-  commands:
-    - sphinx-build -W -b html docs/source $READTHEDOCS_OUTPUT/html
+      - "sphinx-build -W -b html docs/source $READTHEDOCS_OUTPUT/html"
 
 # Dependencies required to build your docs
 python:
