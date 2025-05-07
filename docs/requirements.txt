@@ -1,4 +1,4 @@
 gurobipy
 networkx
-jupyter-book
+jupyter-book[sphinx]
 myst-parser
