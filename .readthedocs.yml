@@ -23,5 +23,6 @@ python:
 
 sphinx:
   builder: html
+  build_directory: $READTHEDOCS_OUTPUT
   configuration: docs/conf.py
   fail_on_warning: true
