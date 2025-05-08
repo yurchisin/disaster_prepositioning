@@ -9,5 +9,6 @@ execute:
   execute_notebooks: "force"
 sphinx:
   config:
+    master_doc: content/intro
     html_static_path: ["_static"]
     html_css_files: ["custom.css"]
