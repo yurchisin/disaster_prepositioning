@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; Disaster Prepositioning Case Study</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/disaster_prepositioning_1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Setup" href="disaster_prepositioning_2.html" />
+    <link rel="prev" title="Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform" href="disaster_prepositioning_0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Disaster Prepositioning Case Study</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to ESUPS Case Study
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_0.html">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_2.html">The Setup</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="disaster_prepositioning_3.html">Optimizing!</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_A.html">2.A Introduction to Modeling Optimization Problems</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="disaster_prepositioning_3_B.html">3.B More On Expected Value</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_4.html">Production Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disaster_prepositioning_5.html">Wrapping It Up</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/disaster_prepositioning_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-origin-of-esups">The Origin of ESUPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esups-today">ESUPS Today</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diving-into-the-case-study-jupyter-notebook">Diving into the Case Study &amp; Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-scientist-s-perspective">A Data Scientist’s Perspective</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-machine-learning-approach">A Machine Learning Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-sparse-data-and-neural-networks">Challenges with Sparse Data and Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptualizing-the-search-space">Conceptualizing the Search Space</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-a-structured-approach-to-the-solution-space">Optimization: A Structured Approach to the Solution Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-simplex-method">The Simplex Method</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-advancing-field">An Advancing field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-real-world-examples">A Few Real World Examples:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-linear-program-milp">1.	Mixed-Integer Linear Program (MILP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-quadratic-program-miqp">2.	Mixed-Integer Quadratic Program (MIQP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-with-quadratic-constraints-program-miqcp">3.	Mixed Integer with Quadratic Constraints Program (MIQCP):</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<section id="the-origin-of-esups">
+<h2>The Origin of ESUPS<a class="headerlink" href="#the-origin-of-esups" title="Link to this heading">#</a></h2>
+<p><img alt="ESUPS logo" src="../_images/ESUPS-Logo.png" /></p>
+<p>Enter ESUPS (Emergency Supply Pre-positioning Strategy). Founded in 2016, ESUPS emerged from the recognition that effective disaster response requires more than just post-disaster fundraising—it necessitates proactive, strategic planning and resource allocation. Initially launched as a collaborative effort among several NGOs, ESUPS aimed to tackle the very issues that hampered the Nepal earthquake response by creating a global database of pre-positioned supplies. This innovative initiative ensures that the nearest available resources are utilized first, enabling aid organizations to make informed decisions and address the most urgent needs swiftly.</p>
+<p>ESUPS started as a modest project, built on a simple spreadsheet that cataloged available disaster relief supplies across various regions. However, as the project gained traction and more organizations began contributing data, it became clear that a more sophisticated approach was needed. In response, ESUPS partnered with academic institutions like Penn State University and MIT, as well as industry leaders such as Gurobi, to develop advanced models for optimizing the allocation and movement of these supplies.</p>
+<p>One of ESUPS’ early successes was the development of a simulation model that could identify the optimal locations for pre-positioning disaster relief supplies. This model proved instrumental in reducing response times and ensuring that critical resources reached disaster zones faster and more efficiently. Over time, ESUPS expanded its database to include hundreds of NGOs, each contributing data that made the system more robust and comprehensive. The impact of this collaborative effort was soon evident, as ESUPS’ models helped improve response times in several subsequent disaster scenarios.</p>
+<p>By 2020, ESUPS had grown into a globally recognized initiative, with its strategies being adopted by numerous international aid organizations. The project’s achievements include not only the development of cutting-edge optimization models but also the successful implementation of these models in real-world disaster scenarios. ESUPS has been credited with significantly enhancing the effectiveness of disaster relief efforts, saving lives, and reducing the costs associated with disaster response logistics.</p>
+</section>
+<section id="esups-today">
+<h2>ESUPS Today<a class="headerlink" href="#esups-today" title="Link to this heading">#</a></h2>
+<p>Today, ESUPS continues to lead the way in disaster preparedness, leveraging the latest technological advancements and fostering collaboration between NGOs, academia, and the private sector. Its success story is a testament to the power of data-driven decision-making and the importance of pre-positioning strategies in disaster relief. As ESUPS looks to the future, its focus remains on refining its models, expanding its global reach, and continuing to make a tangible difference in the lives of those affected by disasters.</p>
+</section>
+<section id="diving-into-the-case-study-jupyter-notebook">
+<h2>Diving into the Case Study &amp; Jupyter Notebook<a class="headerlink" href="#diving-into-the-case-study-jupyter-notebook" title="Link to this heading">#</a></h2>
+<p>In this notebook, we will take you through the end-to-end process of how ESUPS transformed from a simple idea into a global initiative that is reshaping disaster response logistics. We will delve into the crucial role that optimization plays in this transformation, demonstrating how ESUPS utilizes advanced algorithms to optimize the allocation and movement of disaster relief supplies.</p>
+<p>Starting with the initial challenges faced by disaster relief organizations and the inefficiencies of traditional response methods, we will explore how ESUPS identified these gaps and developed a pioneering approach to pre-positioning resources.</p>
+<p>The notebook will provide a detailed walkthrough of the optimization models that underpin ESUPS, offering a high-level explanation of the algorithms used and their practical applications. You’ll see how ESUPS has integrated real-world data into these models to make informed decisions that improve response times and potientally save lives.</p>
+<ul class="simple">
+<li><p><strong>NOTE:</strong> While ESUPS is operating at a global scale, the case study will focus on building a model for only one country: Madagascar. This reduction in scope allows us to more clearly walk learners through a smaller version of the problem, and leverage either our limited-size Gurobi license (available to all learners), or our full Gurobi academic license (available to all currently affiliated students, instructors, and researchers) to solve the model.</p></li>
+</ul>
+<p>To deepen your understanding, the notebook includes practical exercises that allow you to engage directly with the concepts. You’ll encounter self-assessment multiple-choice questions and hands-on code implementation problems designed to reinforce your learning and give you the opportunity to experiment with optimization techniques. These exercises are crafted to help you build confidence in applying the concepts without the pressure of graded responses.</p>
+<p>Additionally, for those eager to dive deeper, the notebook features extension prompts that encourage you to think critically about how the underlying optimization problems could be adapted or expanded. These prompts are designed to challenge your creativity and problem-solving skills, enabling you to explore new ideas and potential improvements to the models.</p>
+<p>Finally, we’ll pull back the curtain to reveal the production code used by ESUPS, written by experts in the field. You’ll have the opportunity to examine real-world code implementations that drive ESUPS’ operations, gaining insight into the practical considerations and best practices for creating fast, reliable, and maintainable code. This section will also explore alternative approaches and the reasoning behind key decisions made in the development process, providing you with a comprehensive understanding of how these algorithms transition from theoretical models to production-ready solutions.
+By the end of this notebook, you’ll have a solid grasp of how optimization, rather than machine learning, can be the most effective tool for solving complex logistical challenges, especially in high-stakes environments like disaster relief. You’ll also be equipped with the knowledge and practical skills to apply these techniques in your own projects, potentially making a significant impact in whatever field you choose to tackle.</p>
+<p>The evolution of ESUPS from a spreadsheet repository to a sophisticated data-driven solution highlights the importance of efficient disaster relief logistics. However, while technology has significantly improved our ability to manage and allocate resources, it also presents new challenges. The task of optimizing supply distribution in real-time amidst unpredictable disaster scenarios is not just a logistical issue, but a complex data science problem. So, let’s dive into the technical challenges of prepositioning supplies together!</p>
+</section>
+<section id="a-data-scientist-s-perspective">
+<h2>A Data Scientist’s Perspective<a class="headerlink" href="#a-data-scientist-s-perspective" title="Link to this heading">#</a></h2>
+<p>Initially approaching this problem, your first instinct might be to leverage ML tools, after all the problem appears well suited for machine learning: We have an implicit reward function in how well our allocation meets the demand for supplies perhaps discounted by transit time and cost, and we have defined inputs (amount of supply and available warehouses) and outputs (where to store the supplies).</p>
+<p>But just because the inputs and outputs are clear, the program is not easy to implement. Let’s look at what solving this with ML tools would look like in practice:</p>
+<section id="a-machine-learning-approach">
+<h3>A Machine Learning Approach<a class="headerlink" href="#a-machine-learning-approach" title="Link to this heading">#</a></h3>
+<p>When considering machine learning (ML) approaches for complex problems, <strong>neural networks (NNs)</strong> are often one of the first tools that come to mind. This is understandable, as NNs are powerful function approximators capable of learning intricate patterns and relationships from large datasets. Given enough data and model capacity, they can approximate any function to arbitrary precision (a property known as the Universal Approximation Theorem).</p>
+<p>However, for this case study on disaster relief in Madagascar, we face significant constraints. We have reliable data on only <strong>64 disaster events</strong>, with each event characterized by limited features—primarily location, type, and impact. Additionally, our objective involves optimizing <strong>supply allocations</strong> for <strong>13 different items</strong> across <strong>27 warehouses</strong>. The challenge here is substantial: we must map a small, sparse dataset with limited features to a vast solution space, all while contending with a noisy reward function that makes it difficult to gauge success.</p>
+</section>
+<section id="challenges-with-sparse-data-and-neural-networks">
+<h3>Challenges with Sparse Data and Neural Networks<a class="headerlink" href="#challenges-with-sparse-data-and-neural-networks" title="Link to this heading">#</a></h3>
+<p>Sparse data is a notorious problem in machine learning. With only 64 data points, a neural network would struggle to generalize well, especially given the high-dimensional output space—13 items across 27 warehouses—resulting in 351 decision variables. Now there are several ways to deal with sparse data in ML and you might have your own technique or want to give it a try, and you absolutely should! If you find interesting results, we’d love to hear about them, but for now, let’s consider one of the most popular techniques: data interpolation.</p>
+<p><strong>Data interpolation</strong> attempts to create a probability distribution that closely mirrors real-world events, allowing us to sample synthetic data for training. Ideally, this synthetic data is representative enough that a neural network can learn from it. However, generating such a distribution is often as challenging as the original problem—especially when the relationships are highly complex or unpredictable. For instance, allocating goods based on past data might work, but predicting future disasters’ location, type, and impact introduces an additional layer of complexity.</p>
+<p>Likely the first method that comes to mind when picking an ML approach is neural networks, and for good reason. Neural networks are incredibly powerful tools that have transformed the modern world, they’re able to approximate any function to arbitrary precision provided they are large enough and have enough data. However, in this case study, we’ll be drilling down to look at disasters in Madagascar, for which we only have reliable data on 64 events. Even worse, each disaster is characterized by limited information, mainly location, type, and impact.</p>
+<section id="conceptualizing-the-search-space">
+<h4>Conceptualizing the Search Space<a class="headerlink" href="#conceptualizing-the-search-space" title="Link to this heading">#</a></h4>
+<p>Assuming we could synthesize realistic disaster scenarios, we might then train a neural network to predict optimal supply positions. This would involve a straightforward training loop: provide disaster scenarios to the neural network, predict supply allocations, compute the loss (e.g., time or cost to meet demand), and update the model using backpropagation.</p>
+<p>However, consider the <strong>search space</strong> that the neural network must navigate. Each potential supply allocation corresponds to a 13x27 matrix, resulting in <strong>351</strong> output variables. To understand the magnitude of this space, let’s do some Let’s do some back-of-the-napkin calculations using the the stars and bars combinatorial formula to see how many potential solutions we might have:</p>
+<p>Let <span class="math notranslate nohighlight">\(S\)</span> be the total number of items for a given supply type and <span class="math notranslate nohighlight">\(W\)</span> be the number of warehouses. The formula for number of combinations for a given row is:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned} 
+Combinations &amp;= \frac{S+W-1!}{(W-1)!(S)!}
+\end{aligned}
+\]</div>
+<p>For example we have 40811 buckets accross all 27 warehouses. So we would get:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned} 1.89\cdot 10^{93}
+\end{aligned}
+\]</div>
+<p>For context, the estimated number of <strong>atoms</strong> in the observable universe is between <span class="math notranslate nohighlight">\(10^{78}\)</span> and  <span class="math notranslate nohighlight">\(10^{82}\)</span>. So for each atom could be associated with between <span class="math notranslate nohighlight">\(10^11\)</span> and <span class="math notranslate nohighlight">\(10^15\)</span> solutions and we would still have more left over</p>
+<p>And we can’t forget there are 12 more rows. And because the rows are independent, we have the total possible number of combinations of each row multiplied by the combination of each other. Let’s say we have the same amount of other items, then we get:
+$<span class="math notranslate nohighlight">\(
+\begin{aligned} (1.89\cdot 10^{93})^{13} \approx 10^{1209}
+\end{aligned}
+\)</span>$</p>
+<p>This is not just a large number; it is a number so vast that it defies comprehension. For comparison, a Googol is <span class="math notranslate nohighlight">\(10^{100}\)</span>. Our solution space is so large that if we could somehow sample a billion ( 10^9 ) combinations per second, it would still take longer than the age of the universe to explore even a minuscule fraction of this space (see proof below).</p>
+<p>When we train a neural network, it essentially samples a point from this enormous solution space during each iteration and then uses gradient-based methods to find a better point. However, with more possible solutions than there are particles in the universe, the likelihood of sampling a truly optimal solution—or even knowing how close a solution is to the optimum—becomes exceedingly slim. It’s like searching for a single grain of sand on all the beaches in the world, blindfolded, while new grains are constantly being added.</p>
+<p>This illustrates why a brute-force approach or even a gradient-based sampling approach is ineffective for such vast combinatorial spaces. Instead, we need methods that can systematically explore the space and make informed decisions to find the optimal or near-optimal solutions more efficiently.</p>
+</section>
+<section id="proof">
+<h4>Proof<a class="headerlink" href="#proof" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(1\)</span> year  <span class="math notranslate nohighlight">\(\approx 3.154 \cdot 10^7\)</span> seconds</p>
+<p><span class="math notranslate nohighlight">\(13.8\)</span> billion years = <span class="math notranslate nohighlight">\(13.8 \cdot 10^9\)</span> years = <span class="math notranslate nohighlight">\(13.8 \cdot 10^9 \cdot 3.154 \cdot 10^7\)</span> Seconds</p>
+<p><span class="math notranslate nohighlight">\(4.35 \cdot 10^26\)</span> <span class="math notranslate nohighlight">\(\approx 10^{26}\)</span> Seconds In Universe</p>
+<p>Fraction Explored = <span class="math notranslate nohighlight">\(\frac{10^{26}}{10^{1209}}\)</span> = <span class="math notranslate nohighlight">\(\frac{1}{10^{1183}}\)</span></p>
+</section>
+</section>
+<section id="optimization-a-structured-approach-to-the-solution-space">
+<h3>Optimization: A Structured Approach to the Solution Space<a class="headerlink" href="#optimization-a-structured-approach-to-the-solution-space" title="Link to this heading">#</a></h3>
+<p>After exploring the challenges of using neural networks to navigate the vast solution space, it’s clear that the sheer size of possible allocations makes a purely machine learning approach inefficient for this problem. Neural networks, while powerful, rely on sampling from a solution space inconceivably large and gradually improving through incremental updates. This approach can be highly ineffective when dealing with a combinatorial explosion of possibilities, as we saw with our earlier calculations.</p>
+<p>Instead, when faced with such a <strong>well-defined</strong> problem—where we know the objective function, inputs, outputs, and constraints—a more <strong>structured</strong> approach through optimization becomes not only viable but advantageous. Optimization techniques are specifically designed to handle these kinds of problems efficiently by applying systematic mathematical logic rather than heuristic sampling.</p>
+<p>In this case, our problem is clearly formulated:</p>
+<p><strong>Objective Function</strong> (What we want to minimize):</p>
+<ul class="simple">
+<li><p>Minimize the travel time or cost required to meet demand by pre-positioning supplies.</p></li>
+</ul>
+<p><strong>Constraints</strong> (how we can change the variables):</p>
+<ul class="simple">
+<li><p>Ensure demand is met without exceeding available supplies.</p></li>
+</ul>
+<p>Optimization frameworks, unlike neural networks, don’t blindly sample solutions from a vast space. Instead, they apply logical methods to systematically explore and reduce the search space, ultimately providing a set of potential optimal solutions. This not only increases efficiency but also provides clarity and insight into why a particular solution is optimal, which is invaluable for decision-making and explanation.</p>
+<section id="the-simplex-method">
+<h4>The Simplex Method<a class="headerlink" href="#the-simplex-method" title="Link to this heading">#</a></h4>
+<p>The Simplex Method is a powerful algorithm for solving linear programming problems, which involve optimizing a linear objective function subject to linear constraints. Based on geometric principles, it efficiently navigates the feasible region—a polyhedron formed by the intersection of these constraints—to find the optimal solution at one of its vertices or “corner points.” In linear programming, the optimal solution is guaranteed to be at a vertex because the objective function improves as we move along the edges of the polyhedron until we can’t improve any further.</p>
+<p>To visualize this, imagine a two-dimensional feasible region shaped like a polygon on a graph. Each point within this polygon represents a possible solution that satisfies the constraints. The Simplex Method moves from one vertex to another along the edges of this polygon, evaluating the objective function at each corner point. This process is efficient because it doesn’t require checking every possible point within the feasible region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/Simplex.png&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;images/Simplex.png&#39;</span><span class="p">)</span> 
+
+<span class="ne">NameError</span>: name &#39;Image&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, if you’re trying to maximize your enjoyment by purchasing hotdogs and soda with a limited budget, you’d intuitively spend all your money, fully utilizing your budget constraint. The optimal solution occurs at the point where your spending exactly meets your budget limit—one of the vertices of the feasible region where the constraints are tight or binding.</p>
+<p>In the context of pre-positioning supplies for disaster response, each allocation affects the total transit time. The goal might be to meet demand with the minimum possible transit time, which requires allocating supplies so that the constraints are fully utilized—providing just enough to meet each warehouse’s demand without surplus. This means the optimal solution will be at a vertex where the supply and demand constraints are exactly satisfied.</p>
+<p>In transportation problems like ours, with whole-number supplies and demands, we’re distributing indivisible units like buckets or hygiene kits. Since the suppliers have integer quantities to offer and the consumers require integer quantities to receive, the shipments must also be in whole numbers to exactly meet these needs. Fractional shipments wouldn’t satisfy the exact integer requirements, nor would they make practical sense when items can’t be divided.</p>
+<p>Geometrically, because the constraints are defined by integer values, the feasible region is a polyhedron whose vertices correspond to integer solutions. The Simplex Method, by moving along the edges of this integer-defined polyhedron, often arrives at integer solutions naturally. The constraints dictate that the total shipped from each supplier equals their supply and the total received by each consumer equals their demand, both of which are integers. This setup leads to shipment amounts that are integers because only whole units can satisfy both the supply and demand without leaving any fractions unaccounted for.</p>
+<p>This approach offers a clear advantage: instead of searching through a massive number of possible solutions within the feasible region—as might be necessary with other methods—the Simplex Method only needs to evaluate a finite number of vertices, one of which will be the optimal solution. In transportation problems with integer constraints, it often provides optimal integer solutions without the need for additional techniques like the Branch and Bound Method (read more about this in the Math Addendum). This makes the Simplex Method both effective and practical for scenarios where exact quantities are essential.</p>
+</section>
+</section>
+<section id="an-advancing-field">
+<h3>An Advancing field<a class="headerlink" href="#an-advancing-field" title="Link to this heading">#</a></h3>
+<p>Optimization has taken a backseat with the rise of Machine Learning and Big Data. But if you think back to your courses, you’ll remember that both fields share many of the same mathematical roots. Many core ML concepts, like gradient descent, evolved from numerical optimization techniques like Newton’s method. I bring this up because, even though optimization might seem less flashy compared to the latest ML algorithms, it’s experiencing a resurgence. Recent advancements in solvers and algorithms have made optimization more powerful and easier to use, allowing it to tackle complex, large-scale problems that were previously out of reach. There are also many free educational resources available to get problem solvers up and running with optimization, making it more accessible than ever before—check out <a class="reference external" href="http://www.gurobi.com/learn">www.gurobi.com/learn</a> for just some of the educational materials openly available to learners. All of this means it’s becoming an essential tool for decision-making in various industries, from logistics to finance.
+Just as an example, Gurobi, the most popular optimization model currently avalible, has seen a speed-up of 80% for problem like pre-positioning and has increased the solver’s flexibility ~67% in the past 10 years</p>
+<p>Just as an example, Gurobi, the most popular optimization solver currently available, has seen a speed-up of 80% for problems like pre-positioning and has increased the solver’s flexibility ~67% in the past 10 years</p>
+<p>And this is still very much under active development. Take a look at some of the improved speeds for large problems in the table below! (It’s not important that you know the specific names, but nearly every problem you would use optimization for falls in this table!)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Problem Class</p></th>
+<th class="head"><p>Speed-Up in Past year</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mixed-Integer Linear Program (MILP)</p></td>
+<td><p>12.4%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mixed-Integer Quadratic Program (MIQP)</p></td>
+<td><p>22.8%</p></td>
+</tr>
+<tr class="row-even"><td><p>Mixed Integer with Quadratic Constraints Program (MIQCP)</p></td>
+<td><p>18.2%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><sup> Comparing Version 10.0 (released Nov 22) and Version 11.0 (released Nov 23) </sup></p>
+<p>If your curious about what this means for real life applications, take a look below at some of the examples!</p>
+</section>
+<section id="a-few-real-world-examples">
+<h3>A Few Real World Examples:<a class="headerlink" href="#a-few-real-world-examples" title="Link to this heading">#</a></h3>
+<section id="mixed-integer-linear-program-milp">
+<h4>1.	Mixed-Integer Linear Program (MILP):<a class="headerlink" href="#mixed-integer-linear-program-milp" title="Link to this heading">#</a></h4>
+<p>MILPs are widely used in logistics and supply chain optimization. A real-world example is vehicle routing for delivery companies like UPS or FedEx, where the goal is to minimize the total distance traveled or delivery time while meeting constraints such as vehicle capacity, delivery time windows, and route restrictions. Advanced MILP solvers allow these companies to dynamically adjust routes in real-time, respond to traffic conditions, and make last-minute changes. This type of optimization is also critical in energy management, such as optimizing the scheduling of power generation plants to meet fluctuating demand while minimizing costs and adhering to regulatory and operational constraints.</p>
+</section>
+<section id="mixed-integer-quadratic-program-miqp">
+<h4>2.	Mixed-Integer Quadratic Program (MIQP):<a class="headerlink" href="#mixed-integer-quadratic-program-miqp" title="Link to this heading">#</a></h4>
+<p>MIQPs find applications in financial portfolio optimization, where the goal is to maximize returns while minimizing risk. In this context, the quadratic term represents the risk (variance or covariance of asset returns), and the integer constraints can represent decisions like “buy or don’t buy” a particular asset or “fully divest from one sector.” Hedge funds and asset management firms use MIQP to optimize asset allocation, considering various market scenarios and investment constraints. The ability to handle complex quadratic relationships between variables makes MIQP suitable for any industry where risk management and trade-offs are involved, such as in optimizing communication networks and antenna placements.</p>
+</section>
+<section id="mixed-integer-with-quadratic-constraints-program-miqcp">
+<h4>3.	Mixed Integer with Quadratic Constraints Program (MIQCP):<a class="headerlink" href="#mixed-integer-with-quadratic-constraints-program-miqcp" title="Link to this heading">#</a></h4>
+<p>MIQCPs are used in engineering design and manufacturing. An example is optimizing the layout of a factory floor or the design of an aircraft wing. The quadratic constraints might represent aerodynamic properties or stress limits, while integer variables can represent decisions like the number of machines or parts used. In the pharmaceutical industry, MIQCP can help optimize drug formulation processes by considering a wide range of constraints like stability, release rates, and production costs. The combination of integer and quadratic constraints allows for highly tailored solutions that can significantly reduce costs and improve performance in complex industrial systems.</p>
+</section>
+</section>
+<section id="id1">
+<h3><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>In addition, optimization programs like Gurobi offer powerful tools such as pre-solve, which can significantly simplify models before they are solved. For instance, the country-level ESUPS model we’re working on would typically require 812 iterations of the simplex algorithm to reach a solution. However, with pre-solve enabled, it reduces that number to just one iteration! This kind of optimization not only saves time but also dramatically reduces computational costs.</p>
+<p>Imagine the impact if large language models (LLMs) like ChatGPT could suddenly use 23% fewer computational resources to train and run, or if their size could be reduced by two orders of magnitude while maintaining the same level of performance. This would save hundreds of millions of dollars and lead to a surge in locally hosted LLMs. Similarly, in the field of optimization, problems that were once considered too large or too complex to solve are becoming increasingly feasible each year.</p>
+<p>Just like machine learning algorithms, the mathematical foundations behind optimization techniques can be quite intricate and certainly justify the rigor of PhD programs. However, as with popular libraries like PyTorch, TensorFlow, and XGBoost, you don’t need to master all the underlying math to use these tools effectively—it’s more important to know how to set up the problem correctly.</p>
+<p>For the rest of this notebook, we’ll focus on how to formulate optimization problems and use accessible tools like Gurobi to solve them. If you’re interested in diving deeper into the mathematical concepts, check out the Addendum section. However, this is not necessary for understanding how to use this notebook or Gurobi effectively!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="disaster_prepositioning_0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Enhancing Humanitarian Response with ESUPS and the STOCKHOLM Platform</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="disaster_prepositioning_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Setup</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-origin-of-esups">The Origin of ESUPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esups-today">ESUPS Today</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diving-into-the-case-study-jupyter-notebook">Diving into the Case Study &amp; Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-scientist-s-perspective">A Data Scientist’s Perspective</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-machine-learning-approach">A Machine Learning Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-sparse-data-and-neural-networks">Challenges with Sparse Data and Neural Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptualizing-the-search-space">Conceptualizing the Search Space</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-a-structured-approach-to-the-solution-space">Optimization: A Structured Approach to the Solution Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-simplex-method">The Simplex Method</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-advancing-field">An Advancing field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-real-world-examples">A Few Real World Examples:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-linear-program-milp">1.	Mixed-Integer Linear Program (MILP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-quadratic-program-miqp">2.	Mixed-Integer Quadratic Program (MIQP):</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-integer-with-quadratic-constraints-program-miqcp">3.	Mixed Integer with Quadratic Constraints Program (MIQCP):</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gurobi Optimization
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Gurobi Optimization, LLC.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
